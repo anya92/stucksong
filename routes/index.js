@@ -2,10 +2,6 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.send('It works.')
-});
-
 router.get('/auth/spotify', 
   passport.authenticate('spotify', {
     scope: ['user-top-read']
