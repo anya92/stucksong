@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const VENDOR_LIBS = ['react', 'react-dom', 'react-router-dom'];
+const VENDOR_LIBS = ['react', 'react-dom', 'react-router-dom', 'redux', 'react-redux'];
 
 const config = {
   entry: {
@@ -31,20 +31,18 @@ const config = {
       }
     ]
   },
-  devServer: {
-    port: 8000
-  },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
     new ExtractTextPlugin('style.css'),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
+    // new webpack.optimize.UglifyJsPlugin()
   ]
 }
 

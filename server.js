@@ -5,6 +5,8 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const cookieParser = require('cookie-parser');
 const router = require('./routes');
+const path = require('path');
+const cors = require('cors');
 
 const app = express();
 require('dotenv').config({ path: 'variables.env' });
@@ -15,9 +17,10 @@ mongoose.connect(process.env.DATABASE, {
 mongoose.connection.on('error', (error) => console.log(error))
 mongoose.Promise = global.Promise;
 
-
 require('./models/User');
 require('./passport');
+
+app.use(cors());
 
 app.use(session({
   secret: process.env.SECRET,
