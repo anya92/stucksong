@@ -8,7 +8,7 @@ const Navbar = ({ auth }) => {
       case false:
         return <a href="/auth/spotify">Login with Spotify</a>
       default:
-        return <a href="/api/logout">Log Out</a>
+        return <a href="/auth/logout">Log Out</a>
     }
   }
   return (
