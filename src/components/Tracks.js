@@ -27,7 +27,7 @@ class Tracks extends Component {
 				<InfiniteScroll
 					pageStart={0}
 					loadMore={this.fetchTracks.bind(this)}
-					hasMore={this.props.tracks.length <= 40}
+					hasMore={this.props.tracks.length <= 40 && this.props.next}
 					loader={<div className="loader">Loading ...</div>}
 				>
 					{tracks}
@@ -39,7 +39,8 @@ class Tracks extends Component {
 
 function mapStateToProps(state) {
 	return {
-		tracks: state.tracks
+		tracks: state.tracks,
+		next: state.next
 	};
 }
 

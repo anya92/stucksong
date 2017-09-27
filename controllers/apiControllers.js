@@ -53,5 +53,5 @@ exports.getData = (type, time) => async (req, res) => {
 				'Authorization': `Bearer ${req.cookies.accessToken || res.locals.accessToken}` 
 			} 
 		});
-	res.json(response.data.items); 
+	res.json(response.data); 
 };

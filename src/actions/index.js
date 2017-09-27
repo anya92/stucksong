@@ -1,4 +1,4 @@
-import { FETCH_USER, FETCH_TRACKS, FETCH_ARTISTS } from './types';
+import { FETCH_USER, FETCH_TRACKS, FETCH_ARTISTS, NEXT } from './types';
 import axios from 'axios';
 
 export const fetchUser = () => dispatch => {
@@ -9,8 +9,12 @@ export const fetchUser = () => dispatch => {
 export const fetchTracks = (offset = 0) => dispatch => {
 	axios.get(`/api/top_tracks?limit=10&offset=${offset}`)
 		.then(res => {
+			// check if there will be data in the next request
+			const next = !res.data.next ? false : true ;
+			dispatch({ type: NEXT, payload: next });
+
 			let tracks = [];
-			res.data.forEach(track => {
+			res.data.items.forEach(track => {
 				tracks.push({
 					title: track.name,
 					artist: track.artists[0].name,
@@ -25,8 +29,12 @@ export const fetchTracks = (offset = 0) => dispatch => {
 export const fetchArtists = (offset = 0) => dispatch => {
 	axios.get(`/api/top_artists?limit=10&offset=${offset}`)
 		.then(res => {
+			// check if there will be data in the next request
+			const next = !res.data.next ? false : true ;
+			dispatch({ type: NEXT, payload: next });
+
 			let artists = [];
-			res.data.forEach(artist => {
+			res.data.items.forEach(artist => {
 				artists.push({
 					name: artist.name,
 					image: artist.images[1].url,

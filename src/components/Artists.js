@@ -28,7 +28,7 @@ class Artists extends Component {
 				<InfiniteScroll
 					pageStart={0}
 					loadMore={this.fetchArtists.bind(this)}
-					hasMore={this.props.artists.length <= 40}
+					hasMore={this.props.artists.length <= 40 && this.props.next}
 					loader={<div className="loader">Loading ...</div>}
 				>
 					{artists}
@@ -39,7 +39,8 @@ class Artists extends Component {
 }
 function mapStateToProps(state) {
 	return {
-		artists: state.artists
+		artists: state.artists,
+		next: state.next
 	};
 }
 
