@@ -16,7 +16,7 @@ class Tracks extends Component {
   render() {
     return !this.props.tracks ? <div></div> : (
       <div>
-        <h1>Tracks</h1>
+        <h1>Your Top Tracks</h1>
         {
           this.props.tracks.map((track, i) => {
             return (

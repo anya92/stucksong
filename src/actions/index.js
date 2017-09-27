@@ -8,5 +8,16 @@ export const fetchUser = () => dispatch => {
 
 export const fetchTracks = () => dispatch => {
   axios.get('/api/top_tracks')
-    .then(res => dispatch({ type: FETCH_TRACKS, payload: res.data }));
+    .then(res => {
+      let tracks = [];
+      res.data.forEach(track => {
+        tracks.push({
+          title: track.name,
+          artist: track.artists[0].name,
+          album: track.album.name,
+          image: track.album.images[0].url
+        });
+      })
+      dispatch({ type: FETCH_TRACKS, payload: tracks });
+    });
 }

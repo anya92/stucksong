@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js --ignore src/",
-    "prod": "set NODE_ENV=production && node server.js",
     "clean": "rimraf build",
     "build": "set NODE_ENV=production && npm run clean && webpack -p",
     "client": "webpack-dev-server"
@@ -26,8 +25,8 @@
     "mongoose": "^4.11.13",
     "passport": "^0.4.0",
     "passport-spotify": "^0.3.1",
-    "react": "^15.6.2",
-    "react-dom": "^15.6.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",

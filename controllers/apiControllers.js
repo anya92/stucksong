@@ -29,7 +29,7 @@ exports.checkAccessToken = async (req, res, next) => {
       }
     });
     res.cookie('accessToken', response.data.access_token, { maxAge: 3600 * 1000 });
-    res.accessToken = response.data.access_token;
+    res.locals.accessToken = response.data.access_token;
     next();
   } else {
     next();
@@ -44,19 +44,12 @@ exports.catchErrors = fn => {
 };
 
 exports.getData = (type, time) => async (req, res) => {
-  // let tracks = [];
-  // console.log('cookie', req.cookies.accessToken || res.accessToken);
-  // console.log('res', res.accessToken);
   const response = await axios.get(
     `https://api.spotify.com/v1/me/top/${type}?limit=10&time_range=${time}`, 
-    { headers: { 'Authorization': `Bearer ${req.cookies.accessToken || res.accessToken}` } })
-  // response.data.items.forEach(song => {
-  //   tracks.push({
-  //     title: song.name, 
-  //     artist: song.artists[0].name, 
-  //     album: song.album.name, 
-  //     image: song.album.images[0].url 
-  //   });
-  // });
-  res.json(response.data.items); // response data
+    { 
+      headers: { 
+        'Authorization': `Bearer ${req.cookies.accessToken || res.locals.accessToken}` 
+      } 
+    });
+  res.json(response.data.items); 
 }

@@ -16,25 +16,25 @@ router.get('/auth/logout', authControllers.logout);
 
 router.get('/api/top_tracks', 
   apiControllers.isLoggedIn, 
-  apiControllers.checkAccessToken,
+  apiControllers.catchErrors(apiControllers.checkAccessToken),
   apiControllers.catchErrors(apiControllers.getData('tracks', 'short_term'))
 );
 
 router.get('/api/top_tracks_long', 
   apiControllers.isLoggedIn, 
-  apiControllers.checkAccessToken,
+  apiControllers.catchErrors(apiControllers.checkAccessToken),
   apiControllers.catchErrors(apiControllers.getData('tracks', 'long_term'))
 );
 
 router.get('/api/top_artists', 
   apiControllers.isLoggedIn, 
-  apiControllers.checkAccessToken,
+  apiControllers.catchErrors(apiControllers.checkAccessToken),
   apiControllers.catchErrors(apiControllers.getData('artists', 'short_term'))
 );
 
 router.get('/api/top_artists_long', 
   apiControllers.isLoggedIn, 
-  apiControllers.checkAccessToken,
+  apiControllers.catchErrors(apiControllers.checkAccessToken),
   apiControllers.catchErrors(apiControllers.getData('artists', 'long_term'))
 );
 
