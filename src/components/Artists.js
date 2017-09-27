@@ -15,7 +15,7 @@ class Artists extends Component {
 		let artists = [];
 		this.props.artists.map((artist,i) => {
 			artists.push(
-				<div key={i}> {/* bootstrap card */}
+				<div key={i} style={{ minHeight: '250px' }}> {/* bootstrap card */}
 					<img src={artist.image} alt={artist.name} style={{ height: 'auto', width: '200px', margin: '5px' }} />
 					{i+1}. {artist.name}
 					<span>{JSON.stringify(artist.genres, null, ' ')}</span>
@@ -25,14 +25,14 @@ class Artists extends Component {
 		return (
 			<div>
 				<h1>Your Top Artists</h1>
-				<InfiniteScroll
-					pageStart={0}
-					loadMore={this.fetchArtists.bind(this)}
-					hasMore={this.props.artists.length <= 40 && this.props.next}
-					loader={<div className="loader">Loading ...</div>}
-				>
-					{artists}
-				</InfiniteScroll>
+					<InfiniteScroll
+						pageStart={0}
+						loadMore={this.fetchArtists.bind(this)}
+						hasMore={this.props.artists.length <= 40 && this.props.next}
+						loader={<div className="loader">Loading ...</div>}
+					>
+						{artists}
+					</InfiniteScroll>
 			</div>
 		);
 	}

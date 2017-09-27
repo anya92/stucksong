@@ -15,6 +15,7 @@ class Home extends Component {
 					<div>
 						<Link to="/tracks">Top Tracks</Link>
 						<Link to="/artists">Top Artists</Link>
+						<a href="/auth/logout">Logout</a>
 					</div>
 				);
 		}

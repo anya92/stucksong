@@ -15,7 +15,7 @@ class Tracks extends Component {
 		let tracks = [];
 		this.props.tracks.map((track,i) => {
 			tracks.push(
-				<div key={i}> {/* bootstrap card */}
+				<div key={i} style={{ minHeight: '250px' }}> {/* bootstrap card */}
 					<img src={track.image} alt={track.title} style={{ height: 'auto', width: '200px', margin: '5px' }} />
 					{i+1}. {track.title} - <em>{track.artist}</em>
 				</div>

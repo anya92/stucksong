@@ -55,3 +55,49 @@ exports.getData = (type, time) => async (req, res) => {
 		});
 	res.json(response.data); 
 };
+
+exports.createPlaylist = async (req, res, next) => {
+	const playlist = await axios({
+		url: `https://api.spotify.com/v1/users/${req.user.spotifyId}/playlists`,
+		method: 'post',
+		data: {
+			name: `${req.user.username}'s Top Tracks`,
+			description: 'The coolest playlist ever!'
+		},
+		headers: {
+			'Authorization': `Bearer ${req.cookies.accessToken || res.locals.accessToken}`,
+			'Content-Type': 'application/json'
+		}
+	});
+	res.locals.playlistId = playlist.data.id;
+	next();
+}
+
+exports.addTracks = () => async (req, res) => {
+	// get tracks ids
+	const numberOfTracks = req.query.numberOfTracks || 50;
+	const tracks = await axios.get(
+		`https://api.spotify.com/v1/me/top/tracks?limit=${numberOfTracks}&time_range=short_term`, 
+		{ 
+			headers: { 
+				'Authorization': `Bearer ${req.cookies.accessToken || res.locals.accessToken}` 
+			} 
+		});
+	let tracksIds = [];
+	tracks.data.items.forEach(track => tracksIds.push(track.uri));
+	
+	const playlistUrl = await axios({
+		url: `https://api.spotify.com/v1/users/${req.user.spotifyId}/playlists/${res.locals.playlistId}/tracks`,
+		method: 'post',
+		data: {
+			uris: tracksIds
+		},
+		headers: {
+			'Authorization': `Bearer ${req.cookies.accessToken || res.locals.accessToken}`,
+			'Content-Type': 'application/json'
+		}
+	});
+	res.json({
+		'playlist_url': `https://open.spotify.com/user/${req.user.spotifyId}/playlist/${res.locals.playlistId}`
+	});
+}

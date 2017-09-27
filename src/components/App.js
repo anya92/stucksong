@@ -9,10 +9,11 @@ import { connect } from 'react-redux';
 import { fetchUser } from '../actions';
 
 import requireAuth from './require_authentication';
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 import Home from './Home';
 import Tracks from './Tracks';
 import Artists from './Artists';
+import CreatePlaylist from './CreatePlaylist';
 
 class App extends Component {
 	constructor(props) {
@@ -34,7 +35,8 @@ class App extends Component {
 						<Link to='/'>Home</Link>
 						<Route exact path='/' component={Home} />
 						<Route path='/tracks' component={requireAuth(Tracks)} />
-						<Route path='/artists' component={Artists} />
+						<Route path='/artists' component={requireAuth(Artists)} />
+						<Route path='/playlist' component={requireAuth(CreatePlaylist)} />
 					</div>
 				</Router>
 			</div>
