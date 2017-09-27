@@ -1,4 +1,10 @@
-import { FETCH_USER, FETCH_TRACKS, FETCH_ARTISTS, NEXT } from './types';
+import { 
+	FETCH_USER, 
+	FETCH_TRACKS, 
+	FETCH_ARTISTS, 
+	NEXT,
+	CREATED_PLAYLIST_URL 
+} from './types';
 import axios from 'axios';
 
 export const fetchUser = () => dispatch => {
@@ -42,5 +48,12 @@ export const fetchArtists = (offset = 0) => dispatch => {
 				});
 			});
 			dispatch({ type: FETCH_ARTISTS, payload: artists });
+		});
+};
+
+export const createPlaylist = (numberOfTracks = 50) => dispatch => {
+	axios.get(`/api/create_playlist?numberOfTracks=${numberOfTracks}`)
+		.then(res => {
+			dispatch({ type: CREATED_PLAYLIST_URL, payload: res.data.playlist_url });
 		});
 };
