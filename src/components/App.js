@@ -10,6 +10,7 @@ import { fetchUser } from '../actions';
 
 import requireAuth from './require_authentication';
 import Navbar from './Navbar';
+import Home from './Home';
 import Tracks from './Tracks';
 import Artists from './Artists';
 
@@ -30,9 +31,8 @@ class App extends Component {
 			<div>
 				<Router>
 					<div className="container">
-					<Link to='/tracks'>Tracks</Link>
-						<Navbar auth={this.props.auth} />
-						<Route exact path='/' render={() => <h1>I Love this Song</h1>} />
+						<Link to='/'>Home</Link>
+						<Route exact path='/' component={Home} />
 						<Route path='/tracks' component={requireAuth(Tracks)} />
 						<Route path='/artists' component={Artists} />
 					</div>

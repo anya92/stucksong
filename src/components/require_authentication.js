@@ -9,7 +9,6 @@ export default function(ComposedComponent) {
       }
     }
     render() {
-      console.log(this.props.auth);
       return <ComposedComponent {...this.props} />
     }
   }

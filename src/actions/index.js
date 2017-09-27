@@ -1,4 +1,4 @@
-import { FETCH_USER, FETCH_TRACKS } from './types';
+import { FETCH_USER, FETCH_TRACKS, FETCH_ARTISTS } from './types';
 import axios from 'axios';
 
 export const fetchUser = () => dispatch => {
@@ -7,7 +7,6 @@ export const fetchUser = () => dispatch => {
 };
 
 export const fetchTracks = (offset = 0) => dispatch => {
-	console.log('fetchTracks', offset);
 	axios.get(`/api/top_tracks?limit=10&offset=${offset}`)
 		.then(res => {
 			let tracks = [];
@@ -20,5 +19,20 @@ export const fetchTracks = (offset = 0) => dispatch => {
 				});
 			});
 			dispatch({ type: FETCH_TRACKS, payload: tracks });
+		});
+};
+
+export const fetchArtists = (offset = 0) => dispatch => {
+	axios.get(`/api/top_artists?limit=10&offset=${offset}`)
+		.then(res => {
+			let artists = [];
+			res.data.forEach(artist => {
+				artists.push({
+					name: artist.name,
+					image: artist.images[1].url,
+					genres: artist.genres
+				});
+			});
+			dispatch({ type: FETCH_ARTISTS, payload: artists });
 		});
 };
