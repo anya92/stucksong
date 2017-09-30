@@ -13,17 +13,28 @@ class Artists extends Component {
 
 	render() {
 		let artists = [];
-		this.props.artists.map((artist,i) => {
+		this.props.artists.map((artist, i) => {
+			let genres = artist.genres.slice(0, 3).join('').replace(/\s/g, ', ');
 			artists.push(
-				<div key={i} style={{ minHeight: '250px' }}> {/* bootstrap card */}
-					<img src={artist.image} alt={artist.name} style={{ height: 'auto', width: '200px', margin: '5px' }} />
-					{i+1}. {artist.name}
-					<span>{JSON.stringify(artist.genres, null, ' ')}</span>
+				<div className="card" key={artist.id}>
+					<a href={`https://open.spotify.com/artist/${artist.id}`} target="_blank">
+						<div className="card__image">
+							<img src={artist.image} alt={artist.name} />
+						</div>
+						<div className="card__block">
+							<div className="card__block__title">
+								{i + 1}. {artist.name}
+							</div>
+							<div className="card__block__genres">
+								{genres}
+							</div>
+						</div>
+					</a>
 				</div>
 			);
 		});
 		return (
-			<div>
+			<div className="container">
 				<h1>Your Top Artists</h1>
 					<InfiniteScroll
 						pageStart={0}

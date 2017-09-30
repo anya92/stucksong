@@ -22,6 +22,7 @@ export const fetchTracks = (offset = 0) => dispatch => {
 			let tracks = [];
 			res.data.items.forEach(track => {
 				tracks.push({
+					id: track.id,
 					title: track.name,
 					artist: track.artists[0].name,
 					album: track.album.name,
@@ -42,6 +43,7 @@ export const fetchArtists = (offset = 0) => dispatch => {
 			let artists = [];
 			res.data.items.forEach(artist => {
 				artists.push({
+					id: artist.id,
 					name: artist.name,
 					image: artist.images[1].url,
 					genres: artist.genres

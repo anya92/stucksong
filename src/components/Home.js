@@ -9,14 +9,14 @@ class Home extends Component {
 		  case null:
 				return;
 			case false:
-				return <a href="/auth/spotify">Login with Spotify</a>;	
+				return <a href="/auth/spotify" className="home__links__link">Login with Spotify</a>;
 			default:
 				return (
 					<div>
-						<Link to="/tracks">Top Tracks</Link>
-						<Link to="/artists">Top Artists</Link>
-						<Link to='/playlist'>Create Playlist</Link>
-						<a href="/auth/logout">Logout</a>
+						<Link to="/tracks" className="home__links__link">Top Tracks</Link>
+						<Link to="/artists" className="home__links__link">Top Artists</Link>
+						<Link to='/playlist' className="home__links__link">Create Playlist</Link>
+						<a href="/auth/logout" className="home__links__link">Logout</a>
 					</div>
 				);
 		}
@@ -24,8 +24,10 @@ class Home extends Component {
 
 	render() {
 		return (
-			<div>
-				{ this.renderLinks() }
+			<div className="home container">
+				<div className="home__links">
+					{ this.renderLinks() }
+				</div>
 			</div>
 		);
 	}

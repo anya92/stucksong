@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
 	BrowserRouter as Router,
-	Route,
+	Route, 
 	Link
 } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -28,11 +28,11 @@ class App extends Component {
 	}
 
 	render() {
-		return this.props.auth === null ? <div>Loading</div> : (
+		return this.props.auth === null ? <div className="loading"></div> : (
 			<div>
+				<div className="title">iLoveThisSong</div>
 				<Router>
-					<div className="container">
-						<Link to='/'>Home</Link>
+					<div>
 						<Route exact path='/' component={Home} />
 						<Route path='/tracks' component={requireAuth(Tracks)} />
 						<Route path='/artists' component={requireAuth(Artists)} />

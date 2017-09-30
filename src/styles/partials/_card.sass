@@ -1,0 +1,43 @@
+.card
+	margin: 5px 0 
+	width: 100%
+	display: block
+	height: 80px
+	position: relative
+	overflow: hidden
+
+	&__image
+		width: 80px
+		height: 100%
+		display: inline-block
+		img
+			object-fit: cover
+			width: 100%
+			height: 100%
+
+	&__block
+		position: absolute
+		top: 0
+		display: inline-block
+		width: calc(100% - 80px)
+		height: 80px
+		padding: 5px 10px
+		color: #333
+    
+  &__title
+  	font-weight: 700
+  	margin-bottom: 5px
+  	text-overflow: ellipsis
+  	white-space: nowrap
+  	overflow: hidden
+  &__text
+  	font-size: 0.9rem
+  	&__artist
+  		letter-spacing: 0.8px
+  	&__album
+  		font-style: italic
+  		text-overflow: ellipsis
+	  	white-space: nowrap
+	  	overflow: hidden
+		&__genres
+			font-style: italic	
