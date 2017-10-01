@@ -46,4 +46,16 @@ router.get('/api/create_playlist',
 	catchErrors(apiControllers.addTracks())
 );
 
+router.get('/api/current_play', 
+	apiControllers.isLoggedIn,
+	catchErrors(apiControllers.checkAccessToken),
+	catchErrors(apiControllers.getCurrentlyPlaying)
+);
+
+router.get('/api/recently_played', 
+	apiControllers.isLoggedIn,
+	catchErrors(apiControllers.checkAccessToken),
+	catchErrors(apiControllers.getRecentlyPlayed())
+);
+
 module.exports = router;

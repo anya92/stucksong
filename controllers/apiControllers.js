@@ -101,3 +101,26 @@ exports.addTracks = () => async (req, res) => {
 		'playlist_url': `https://open.spotify.com/user/${req.user.spotifyId}/playlist/${res.locals.playlistId}`
 	});
 }
+
+exports.getCurrentlyPlaying = async (req, res) => {
+	const track = await axios({
+		url: 'https://api.spotify.com/v1/me/player/currently-playing',
+		method: 'get',
+		headers: {
+			'Authorization': `Bearer ${req.cookies.accessToken || res.locals.accessToken}`
+		}
+	});
+	res.json(track.data);
+}
+
+exports.getRecentlyPlayed = (before = 0) => async (req, res) => {
+	
+	const tracks = await axios({
+		url: `https://api.spotify.com/v1/me/player/recently-played?limit=10${before ? `&before=${before}` : ''}`,
+		method: 'get',
+		headers: {
+			'Authorization': `Bearer ${req.cookies.accessToken || res.locals.accessToken}`
+		}
+	});
+	res.json(tracks.data);
+}

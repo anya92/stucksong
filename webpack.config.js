@@ -59,8 +59,8 @@ const config = {
 		}),
 		new HtmlWebpackPlugin({
 			template: 'src/index.html'
-		})
-		// new webpack.optimize.UglifyJsPlugin()
+		}),
+		new webpack.optimize.UglifyJsPlugin()
 	]
 };
 

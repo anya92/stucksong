@@ -2,7 +2,7 @@ const passport = require('passport');
 
 exports.login = passport.authenticate(
 	'spotify', 
-	{ scope: ['user-top-read', 'playlist-modify-private', 'playlist-modify-public'] }
+	{ scope: ['user-top-read', 'playlist-modify-public', 'user-read-currently-playing', 'user-read-recently-played' ] }
 );
 
 exports.loginCallback = (req, res, next) => {

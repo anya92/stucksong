@@ -1,19 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Navbar = ({ auth }) => {
-	const renderLinks = () => {
-		switch(auth) {
-			case null:
-				return;        
-			case false:
-				return <a href="/auth/spotify">Login with Spotify</a>;
-			default:
-				return <a href="/auth/logout">Log Out</a>;
-		}
-	};
+const Navbar = () => {
 	return (
 		<div>
-			{ renderLinks() }
+			<Link to='/'>iLoveThisSong</Link>
 		</div>
 	);
 };

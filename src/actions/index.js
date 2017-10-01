@@ -3,7 +3,8 @@ import {
 	FETCH_TRACKS, 
 	FETCH_ARTISTS, 
 	NEXT,
-	CREATED_PLAYLIST_URL 
+	CREATED_PLAYLIST_URL,
+	GET_CURRENTLY_PLAYING 
 } from './types';
 import axios from 'axios';
 
@@ -58,4 +59,8 @@ export const createPlaylist = (numberOfTracks = 50) => dispatch => {
 		.then(res => {
 			dispatch({ type: CREATED_PLAYLIST_URL, payload: res.data.playlist_url });
 		});
+};
+
+export const getCurrentlyPlaying = () => dispatch => {
+	axios.get('/api/current_play').then(res => console.log(res.data));
 };
