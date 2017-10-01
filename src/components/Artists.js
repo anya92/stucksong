@@ -14,7 +14,9 @@ class Artists extends Component {
 	render() {
 		let artists = [];
 		this.props.artists.map((artist, i) => {
-			let genres = artist.genres.slice(0, 3).join('').replace(/\s/g, ', ');
+			let genres = '';
+			artist.genres.slice(0, 3).forEach(genre => genres += `${genre}, `);
+			genres = genres.slice(0, -2);
 			artists.push(
 				<div className="card" key={artist.id}>
 					<a href={`https://open.spotify.com/artist/${artist.id}`} target="_blank">
@@ -26,7 +28,7 @@ class Artists extends Component {
 								{i + 1}. {artist.name}
 							</div>
 							<div className="card__block__genres">
-								{genres}
+								<p>{genres}</p>
 							</div>
 						</div>
 					</a>
@@ -37,10 +39,11 @@ class Artists extends Component {
 			<div className="container">
 				<h1>Your Top Artists</h1>
 					<InfiniteScroll
+						className="cards"
 						pageStart={0}
 						loadMore={this.fetchArtists.bind(this)}
 						hasMore={this.props.artists.length <= 40 && this.props.next}
-						loader={<div className="loader">Loading ...</div>}
+						loader={<div className="loader">Loading...</div>}
 					>
 						{artists}
 					</InfiniteScroll>

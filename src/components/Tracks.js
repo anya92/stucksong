@@ -36,8 +36,8 @@ class Tracks extends Component {
 		return (
 			<div className="container">
 				<h1>Your Top Tracks</h1>
-				<div className="">
 					<InfiniteScroll
+						className="cards"
 						pageStart={0}
 						loadMore={this.fetchTracks.bind(this)}
 						hasMore={this.props.tracks.length <= 40 && this.props.next}
@@ -45,7 +45,6 @@ class Tracks extends Component {
 					>
 						{tracks}
 					</InfiniteScroll>
-				</div>
 			</div>
 		);
 	}

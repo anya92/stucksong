@@ -1,3 +1,11 @@
+.cards
+	margin-top: 40px
+
+	@include tablet
+		display: flex
+		flex-wrap: wrap
+		justify-content: center
+
 .card
 	margin: 5px 0 
 	width: 100%
@@ -5,11 +13,33 @@
 	height: 80px
 	position: relative
 	overflow: hidden
+	border-radius: 5px
+	a:hover
+		text-decoration: none
+	
+	@include tablet
+		width: 200px
+		height: 280px
+		margin: 10px
+	
+	@include desktop
+		width: 250px
+		height: 330px
 
 	&__image
 		width: 80px
 		height: 100%
 		display: inline-block
+		position: relative
+
+		@include tablet
+			width: 100%
+			height: 200px
+			display: block
+
+		@include desktop
+			height: 250px
+
 		img
 			object-fit: cover
 			width: 100%
@@ -23,21 +53,38 @@
 		height: 80px
 		padding: 5px 10px
 		color: #333
+
+		@include tablet
+			display: block
+			width: 100%
+			top: auto
+			bottom: 0
+			position: static
     
   &__title
-  	font-weight: 700
-  	margin-bottom: 5px
+  	font-weight: 800
   	text-overflow: ellipsis
   	white-space: nowrap
   	overflow: hidden
+  	font-size: 1.1rem
+  	color: #111
+
   &__text
   	font-size: 0.9rem
+
   	&__artist
-  		letter-spacing: 0.8px
+  		font-weight: 600
+
   	&__album
-  		font-style: italic
+  		font-weight: 200
   		text-overflow: ellipsis
 	  	white-space: nowrap
 	  	overflow: hidden
-		&__genres
-			font-style: italic	
+		
+		&__genres p
+			font-weight: 200
+  		text-overflow: ellipsis
+	  	white-space: nowrap
+	  	overflow: hidden
+	  	color: #333
+			line-height: 18px
