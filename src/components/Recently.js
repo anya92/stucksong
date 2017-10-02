@@ -20,12 +20,12 @@ class Recently extends Component {
 				<div className="card" key={i}>
 					<a href={`https://open.spotify.com/track/${track.id}`} target="_blank">
 						<div className="card__image">
-							<div style={{ display: 'none' }}>{moment(track.played_at).format('HH:mm DD MMM \'YY')}</div>
+							<div className="card__image__date">{moment(track.played_at).format('DD MMM - HH:mm')}</div>
 							<img src={track.image} alt={track.title} />
 						</div>
 						<div className="card__block">
 							<div className="card__block__title">
-								{i + 1}. {track.title} <br/> 
+								{track.title}
 							</div>
 							<div className="card__block__text">
 								<div className="card__block__text__artist">
