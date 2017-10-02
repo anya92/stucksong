@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const VENDOR_LIBS = ['react', 'react-dom', 'react-router-dom', 'redux', 'react-redux', 'redux-thunk', 'react-infinite-scroller'];
+const VENDOR_LIBS = ['react', 'react-dom', 'react-router-dom', 'redux', 'react-redux', 'redux-thunk', 'react-infinite-scroller', 'moment'];
 
 const config = {
 	entry: {
@@ -47,9 +47,9 @@ const config = {
 		]
 	},
 	plugins: [
-		new webpack.DefinePlugin({
-			'process.env.NODE_ENV': JSON.stringify('production')
-		}),
+		// new webpack.DefinePlugin({
+		// 	'process.env.NODE_ENV': JSON.stringify('production')
+		// }),
 		new ExtractTextPlugin({
 			filename: '[name].[contenthash].css',
 			disable: process.env.NODE_ENV === 'development'
@@ -59,8 +59,8 @@ const config = {
 		}),
 		new HtmlWebpackPlugin({
 			template: 'src/index.html'
-		}),
-		new webpack.optimize.UglifyJsPlugin()
+		})
+		// new webpack.optimize.UglifyJsPlugin()
 	]
 };
 

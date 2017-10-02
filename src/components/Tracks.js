@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller';
+import { connect } from 'react-redux';
 import { fetchTracks } from '../actions';
 
 class Tracks extends Component {
@@ -40,7 +40,7 @@ class Tracks extends Component {
 						className="cards"
 						pageStart={0}
 						loadMore={this.fetchTracks.bind(this)}
-						hasMore={this.props.tracks.length <= 40 && this.props.next}
+						hasMore={this.props.tracks.length <= 40 && this.props.hasMore}
 						loader={<div className="loader">Loading...</div>}
 					>
 						{tracks}
@@ -53,7 +53,7 @@ class Tracks extends Component {
 function mapStateToProps(state) {
 	return {
 		tracks: state.tracks,
-		next: state.next
+		hasMore: state.hasMoreTracks
 	};
 }
 

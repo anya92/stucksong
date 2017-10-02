@@ -20,9 +20,10 @@ class Home extends Component {
 			default:
 				return (
 					<div className="home__links">
-						<Link to="/tracks" className="home__links__link">Top Tracks</Link>
-						<Link to="/artists" className="home__links__link">Top Artists</Link>
-						<Link to='/playlist' className="home__links__link">Create Playlist</Link>
+						<Link to="/top-tracks" className="home__links__link">Top Tracks</Link>
+						<Link to="/top-artists" className="home__links__link">Top Artists</Link>
+						<Link to="/recently-played" className="home__links__link">Recently Played</Link>
+						<Link to='/create-playlist' className="home__links__link">Create Playlist</Link>
 						<a href="/auth/logout" className="home__links__link">Logout</a>
 					</div>
 				);

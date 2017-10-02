@@ -113,10 +113,10 @@ exports.getCurrentlyPlaying = async (req, res) => {
 	res.json(track.data);
 }
 
-exports.getRecentlyPlayed = (before = 0) => async (req, res) => {
-	
+exports.getRecentlyPlayed = () => async (req, res) => {
+	const before = req.query.before || Date.now();
 	const tracks = await axios({
-		url: `https://api.spotify.com/v1/me/player/recently-played?limit=10${before ? `&before=${before}` : ''}`,
+		url: `https://api.spotify.com/v1/me/player/recently-played?limit=10&before=${before}`,
 		method: 'get',
 		headers: {
 			'Authorization': `Bearer ${req.cookies.accessToken || res.locals.accessToken}`
