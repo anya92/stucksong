@@ -21,6 +21,7 @@ passport.use(
 		callbackURL: '/auth/spotify/callback'
 	}, 
 	(accessToken, refreshToken, profile, done) => {
+		console.log(profile.photos[0]);
 		User.findOne({ spotifyId: profile.id })
 			.then(existingUser => {
 				if (existingUser) {
@@ -28,7 +29,11 @@ passport.use(
 					done(null, existingUser, { refreshToken, accessToken });
 				} else {
 					// save new user
-					new User({ spotifyId: profile.id, username: profile.username })
+					new User({ 
+						spotifyId: profile.id, 
+						username: profile.displayName || profile.username,
+						photo: profile.photos[0]
+					})
 						.save()
 						.then(user => done(null, user, { refreshToken, accessToken }));
 				}
