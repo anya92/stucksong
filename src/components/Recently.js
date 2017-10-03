@@ -18,39 +18,41 @@ class Recently extends Component {
 		this.props.tracks.map((track, i)=> {
 			tracks.push(
 				<div className="card" key={i}>
-					<a href={`https://open.spotify.com/track/${track.id}`} target="_blank">
-						<div className="card__image">
-							<div className="card__image__date">{moment(track.played_at).format('DD MMM - HH:mm')}</div>
-							<img src={track.image} alt={track.title} />
+					<div className="card__image">
+						<div className="card__image__link">
+							<a href={`https://open.spotify.com/track/${track.id}`} target="_blank">PLAY</a>
 						</div>
-						<div className="card__block">
-							<div className="card__block__title">
-								{track.title}
+						<div className="card__image__date">
+							{moment(track.played_at).format('DD MMM - HH:mm')}
+						</div>
+						<img src={track.image} alt={track.title} />
+					</div>
+					<div className="card__block">
+						<div className="card__block__title">
+							{track.title}
+						</div>
+						<div className="card__block__text">
+							<div className="card__block__text__artist">
+								{track.artist}
 							</div>
-							<div className="card__block__text">
-								<div className="card__block__text__artist">
-									{track.artist}
-								</div>
-								<div className="card__block__text__album">
-									{track.album}
-								</div>
+							<div className="card__block__text__album">
+								{track.album}
 							</div>
 						</div>
-					</a>
+					</div>
 				</div>
 			);
 		});
 		return (
 			<div className="container">
-        <h1>Recently Played Tracks</h1>
+        <div className="site-title">Recently Played Tracks</div>
        	<InfiniteScroll
 					className="cards"
 					pageStart={0}
 					loadMore={this.fetchRecentlyPlayed.bind(this)}
 					hasMore={this.props.tracks.length <= 40 && this.props.hasMore}
-					loader={
-						<div className="loader">Loading...</div>
-					}
+					loader={<div className="loader">Loading...</div>}
+					threshold={500}
 				>
 					{tracks}
 				</InfiniteScroll>

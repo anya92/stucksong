@@ -19,31 +19,33 @@ class Artists extends Component {
 			genres = genres.slice(0, -2);
 			artists.push(
 				<div className="card" key={artist.id}>
-					<a href={`https://open.spotify.com/artist/${artist.id}`} target="_blank">
-						<div className="card__image">
-							<img src={artist.image} alt={artist.name} />
+					<div className="card__image">
+						<div className="card__image__link">
+							<a href={`https://open.spotify.com/track/${artist.id}`} target="_blank">OPEN</a>
 						</div>
-						<div className="card__block">
-							<div className="card__block__title">
-								{i + 1}. {artist.name}
-							</div>
-							<div className="card__block__genres">
-								<p>{genres}</p>
-							</div>
+						<img src={artist.image} alt={artist.name} />
+					</div>
+					<div className="card__block">
+						<div className="card__block__title">
+							{i + 1}. {artist.name}
 						</div>
-					</a>
+						<div className="card__block__genres">
+							<p>{genres}</p>
+						</div>
+					</div>
 				</div>
 			);
 		});
 		return (
 			<div className="container">
-				<h1>Your Top Artists</h1>
+				<div className="site-title">Your Top Artists</div>
 					<InfiniteScroll
 						className="cards"
 						pageStart={0}
 						loadMore={this.fetchArtists.bind(this)}
 						hasMore={this.props.artists.length <= 40 && this.props.hasMore}
 						loader={<div className="loader">Loading...</div>}
+						threshold={500}
 					>
 						{artists}
 					</InfiniteScroll>

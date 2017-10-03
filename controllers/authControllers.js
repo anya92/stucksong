@@ -15,7 +15,7 @@ exports.loginCallback = (req, res, next) => {
 				if (err) { return next(err); }
 				req.session.refreshToken = info.refreshToken;
 				res.cookie('accessToken', info.accessToken, { maxAge: 3600 * 1000 });
-				return res.redirect('/');
+				return res.redirect('/top-tracks');
 			});
 		}
 	)(req, res, next);

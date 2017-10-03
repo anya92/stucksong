@@ -21,7 +21,6 @@ passport.use(
 		callbackURL: '/auth/spotify/callback'
 	}, 
 	(accessToken, refreshToken, profile, done) => {
-		console.log(profile.photos[0]);
 		User.findOne({ spotifyId: profile.id })
 			.then(existingUser => {
 				if (existingUser) {
