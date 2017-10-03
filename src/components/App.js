@@ -29,7 +29,7 @@ class App extends Component {
 			<div>
 				<Router>
 					<div>
-						<Navbar auth={this.props.auth} />
+						<Route component={Navbar} />
 						<Route exact path='/' component={Home} />
 						<Route path='/top-tracks' component={requireAuth(Tracks)} />
 						<Route path='/top-artists' component={requireAuth(Artists)} />

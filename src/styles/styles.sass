@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Muli:200,400,800')
+@import url('https://fonts.googleapis.com/css?family=Muli:200,400,700,800|Roboto')
 
 @import 'partials/mixins'
-@import 'partials/title'
+@import 'partials/navbar'
 @import 'partials/home'
 @import 'partials/card'
 @import 'partials/card'
@@ -11,7 +11,10 @@ html
 	height: 100%
 
 body
+	background-color: #eee
 	font-family: 'Muli'
 	min-height: 100%
-	// color: #fff
-	// background-color: #333
+	padding-top: 60px
+	@include tablet
+		padding-left: 200px
+		padding-top: 0	
