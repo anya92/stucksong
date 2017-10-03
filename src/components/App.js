@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import {
 	BrowserRouter as Router,
-	Route, 
-	Link
+	Route
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { fetchUser,
-	// fetchCurrentlyPlaying 
-} from '../actions';
+import { fetchUser } from '../actions';
 
 import requireAuth from './require_authentication';
+import redirectToTracks from './redirect_to_tracks';
 import Navbar from './Navbar';
 import Home from './Home';
 import Tracks from './Tracks';
@@ -21,7 +19,6 @@ import CreatePlaylist from './CreatePlaylist';
 class App extends Component {
 	componentDidMount() {
 		this.props.fetchUser();
-		// this.props.fetchCurrentlyPlaying();
 	}
 
 	render() {
@@ -30,7 +27,7 @@ class App extends Component {
 				<Router>
 					<div>
 						<Route component={Navbar} />
-						<Route exact path='/' component={Home} />
+						<Route exact path='/' component={redirectToTracks(Home)} />
 						<Route path='/top-tracks' component={requireAuth(Tracks)} />
 						<Route path='/top-artists' component={requireAuth(Artists)} />
 						<Route path='/recently-played' component={requireAuth(Recently)} />

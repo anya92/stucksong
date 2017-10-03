@@ -14,7 +14,6 @@
 	@include tablet
     height: 100% 
     width: 180px
-    // padding: 20px
 
 	&__bars
 		width: 22px
@@ -43,12 +42,13 @@
 				bottom: 0
 	
 	&__title
-		color: #333
 		font-size: 1.2rem
+		font-weight: 700
 		line-height: 10px
 		padding-left: 20px
 		a
-			color: #333
+			color: orangered
+			text-decoration: none
 
 	&__user
 		display: none
@@ -79,11 +79,9 @@
 
   	&__link 
   		padding: 10px
-  		// font-family: 'Roboto'
-  		// letter-spacing: 1.2px
   		font-size: 1.1rem
   		a
-  			color: #999
+  			color: #888
   			font-weight: 700
   			&:hover
   				text-decoration: none
@@ -100,11 +98,9 @@
   	@include tablet
   		display: block
   		text-align: left
-  		// position: absolute
-  		// bottom: 0
 
 	&.open
-		height: 300px
+		height: 350px
 		.navbar-custom
 			&__links
 				display: block

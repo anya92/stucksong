@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 export default function(ComposedComponent) {
-	class Authentication extends Component {
+	class Redirect extends Component {
 		componentDidMount() {
-			if (!this.props.auth) {
-				this.props.history.push('/');
+			if (this.props.auth) {
+				this.props.history.push('/top-tracks');
 			}
 		}
 		render() {
@@ -19,5 +19,5 @@ export default function(ComposedComponent) {
 		};
 	}
 
-	return connect(mapStateToProps)(Authentication);
+	return connect(mapStateToProps)(Redirect);
 }
