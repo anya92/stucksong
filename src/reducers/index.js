@@ -15,5 +15,5 @@ export default combineReducers({
 	recentlyPlayedTracks,
 	hasMoreRecentlyPlayedTracks,
 	recentlyPlayedBefore,
-	playlistUrl: playlistReducer
+	playlist: playlistReducer
 });

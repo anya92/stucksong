@@ -4,7 +4,7 @@ import {
 	HAS_MORE_TRACKS,
 	FETCH_ARTISTS, 
 	HAS_MORE_ARTISTS,
-	CREATED_PLAYLIST_URL,
+	CREATED_PLAYLIST,
 	// FETCH_CURRENTLY_PLAYING,
 	FETCH_RECENTLY_PLAYED,
 	HAS_MORE_RECENTLY_PLAYED_TRACKS,
@@ -58,10 +58,17 @@ export const fetchArtists = (offset = 0) => dispatch => {
 		});
 };
 
-export const createPlaylist = (numberOfTracks = 50) => dispatch => {
-	axios.get(`/api/create_playlist?numberOfTracks=${numberOfTracks}`)
+export const createPlaylist = (name, description, numberOfTracks = 50) => dispatch => {
+	axios.get(`/api/create_playlist?name=${name}&description=${description}&numberOfTracks=${numberOfTracks}`)
 		.then(res => {
-			dispatch({ type: CREATED_PLAYLIST_URL, payload: res.data.playlist_url });
+			const playlist = {
+				name: res.data.playlist_info.name,
+				description: res.data.playlist_info.description,
+				url: res.data.playlist_info.external_urls.spotify,
+				image: res.data.playlist_info.images[1].url,
+				numberOfTracks: res.data.playlist_info.tracks.total
+			};
+			dispatch({ type: CREATED_PLAYLIST, payload: playlist });
 		});
 };
 
@@ -76,11 +83,7 @@ export const fetchRecentlyPlayed = before => dispatch => {
 			// check if there will be data in the next request
 			const hasMore = !res.data.next ? false : true;
 			dispatch({ type: HAS_MORE_RECENTLY_PLAYED_TRACKS, payload: hasMore });
-			// get before param for the next request
-			const before = res.data.next ? res.data.cursors.before : null;
-			dispatch({ type: RECENTLY_PLAYED_BEFORE, payload: before });
 			
-			console.log(res.data);
 			let tracks = [];
 			res.data.items.forEach(item => {
 				tracks.push({
@@ -94,5 +97,8 @@ export const fetchRecentlyPlayed = before => dispatch => {
 			});
 
 			dispatch({ type: FETCH_RECENTLY_PLAYED, payload: tracks });
+			// get 'before' param for the next request
+			const before = res.data.next ? res.data.cursors.before : null;
+			dispatch({ type: RECENTLY_PLAYED_BEFORE, payload: before });
 		});
 };

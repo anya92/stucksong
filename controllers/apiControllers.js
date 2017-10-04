@@ -57,12 +57,14 @@ exports.getData = (type, time) => async (req, res) => {
 };
 
 exports.createPlaylist = async (req, res, next) => {
+	const name = req.query.name || `${req.user.username}'s Top Tracks`;
+	const description = req.query.description || '';
 	const playlist = await axios({
 		url: `https://api.spotify.com/v1/users/${req.user.spotifyId}/playlists`,
 		method: 'post',
 		data: {
-			name: `${req.user.username}'s Top Tracks`,
-			description: 'The coolest playlist ever!'
+			name,
+			description
 		},
 		headers: {
 			'Authorization': `Bearer ${req.cookies.accessToken || res.locals.accessToken}`,
@@ -97,8 +99,15 @@ exports.addTracks = () => async (req, res) => {
 			'Content-Type': 'application/json'
 		}
 	});
+	const playlistInfo = await axios({
+		url: `https://api.spotify.com/v1/users/${req.user.spotifyId}/playlists/${res.locals.playlistId}`,
+		method: 'get',
+		headers: {
+			'Authorization': `Bearer ${req.cookies.accessToken || res.locals.accessToken}`
+		}
+	})
 	res.json({
-		'playlist_url': `https://open.spotify.com/user/${req.user.spotifyId}/playlist/${res.locals.playlistId}`
+		'playlist_info': playlistInfo.data
 	});
 }
 

@@ -64,7 +64,7 @@ class Recently extends Component {
 function mapStateToProps(state) {
 	return {
 		tracks: state.recentlyPlayedTracks,
-		hasMore: state.hasMoreRecentlyPlayedTracks, 
+		hasMore: state.hasMoreRecentlyPlayedTracks,
 		before: state.recentlyPlayedBefore
 	};
 }
