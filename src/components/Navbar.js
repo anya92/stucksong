@@ -25,7 +25,7 @@ class Navbar extends Component {
 		return !auth ? <div></div> : (
 			<div className="navbar-custom" ref={ref => (this.navbar = ref)}>
 				<div className="navbar-custom__title">
-					<Link to='/'>iLoveThisSong</Link>
+					<Link to='/'>StuckSong</Link>
 				</div>
 				<div 
 					className="navbar-custom__bars" 
