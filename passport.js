@@ -18,7 +18,8 @@ passport.use(
 	new SpotifyStrategy({
 		clientID: process.env.CLIENT_ID,
 		clientSecret: process.env.CLIENT_SECRET,
-		callbackURL: '/auth/spotify/callback'
+		callbackURL: '/auth/spotify/callback',
+		proxy: true
 	}, 
 	(accessToken, refreshToken, profile, done) => {
 		User.findOne({ spotifyId: profile.id })
