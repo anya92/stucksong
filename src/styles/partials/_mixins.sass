@@ -1,6 +1,10 @@
 $tablet-width: 576px
 $desktop-width: 992px
 
+@mixin small
+	@media (max-width: #{$tablet-width - 1})
+		@content
+
 @mixin tablet 
   @media (min-width: #{$tablet-width}) 
     @content

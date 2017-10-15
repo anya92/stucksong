@@ -43,13 +43,23 @@ const config = {
 					fallback: 'style-loader',
 					use: 'css-loader'
 				})
-			}
+			},
+			{
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: { limit: 40000 }
+          },
+          'image-webpack-loader'
+        ]
+      }
 		]
 	},
 	plugins: [
-		// new webpack.DefinePlugin({
-		// 	'process.env.NODE_ENV': JSON.stringify('production')
-		// }),
+		new webpack.DefinePlugin({
+			'process.env.NODE_ENV': JSON.stringify('production')
+		}),
 		new ExtractTextPlugin({
 			filename: '[name].[contenthash].css',
 			disable: process.env.NODE_ENV === 'development'
@@ -59,8 +69,8 @@ const config = {
 		}),
 		new HtmlWebpackPlugin({
 			template: 'src/index.html'
-		})
-		// new webpack.optimize.UglifyJsPlugin()
+		}),
+		new webpack.optimize.UglifyJsPlugin()
 	]
 };
 

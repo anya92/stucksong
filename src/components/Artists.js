@@ -21,7 +21,7 @@ class Artists extends Component {
 				<div className="card" key={artist.id}>
 					<div className="card__image">
 						<div className="card__image__link">
-							<a href={`https://open.spotify.com/track/${artist.id}`} target="_blank">OPEN</a>
+							<a href={`https://open.spotify.com/artist/${artist.id}`} target="_blank">OPEN</a>
 						</div>
 						<img src={artist.image} alt={artist.name} />
 					</div>

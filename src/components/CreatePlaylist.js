@@ -24,7 +24,7 @@ class CreatePlaylist extends Component {
 			case null: 
 				return (
 					<div>
-						<div className="site-title">Create playlist based on your <Link to='/top-tracks'>Top Tracks</Link></div>
+						<div className="site-title">Create a playlist of your <Link to='/top-tracks'>Top Tracks</Link></div>
 						<div className="playlist__form">
 							<div className="form-group">
 								<label htmlFor="name">Name</label>
@@ -82,14 +82,16 @@ class CreatePlaylist extends Component {
 			default:
 				return (
 					<div>
-						<div className="site-title">Your Playlist</div>
+						<div className="site-title">{this.props.playlist.name}</div>
 						<div className="playlist__info">
 							<div className="playlist__info__image">
 								<img src={this.props.playlist.image} alt={this.props.playlist.name} />
 							</div>
 							<div className="playlist__info__text">
 								<div className="playlist__info__text__name">{this.props.playlist.name}</div>
-								Created by {this.props.auth.username}
+								<div className="playlist__info__text__author">
+									Created by {this.props.auth.username}
+								</div>
 								<div className="playlist__info__text__description">{this.props.playlist.description}</div>
 								<div className="playlist__info__text__numberOfTracks"><span>{this.props.playlist.numberOfTracks}</span> Tracks</div>
 								<div className="playlist__info__text__link">

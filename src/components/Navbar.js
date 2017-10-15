@@ -53,10 +53,10 @@ class Navbar extends Component {
 										<Link to='/recently-played'>Recently Played</Link>
 									</div>
 									<div className={`navbar-custom__links__link ${path === '/create-playlist' ? 'active' : ''}`} onClick={() => this.navbar.classList.remove('open')}>
-										<Link to='/create-playlist'>Create Playlist</Link>
+										<Link to='/create-playlist'>Create a Playlist</Link>
 									</div> <hr/>
 									<div className='navbar-custom__links__link'>
-										<a href="/auth/logout">Logout</a>
+										<a href="/auth/logout">Log out</a>
 									</div>
 								</div>
 
