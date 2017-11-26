@@ -16,7 +16,7 @@
     "heroku-postbuild": "yarn --production=false && yarn run build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ania Brajtkopf",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",

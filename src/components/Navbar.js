@@ -34,32 +34,31 @@ class Navbar extends Component {
           <span className="navbar-custom__bars__bar"></span>
           <span className="navbar-custom__bars__bar"></span>
         </div>
-								<div className="navbar-custom__user">
-									<div className="navbar-custom__user__photo">
-										{ auth.photo && <img src={auth.photo} alt={auth.username} /> }
-									</div>
-									<div className="navbar-custom__user__name">
-										{auth.username}
-									</div>
-								</div>
-								<div className="navbar-custom__links">
-									<div className={`navbar-custom__links__link ${path === '/top-tracks' ? 'active' : ''}`} onClick={() => this.navbar.classList.remove('open')}>
-										<Link to='/top-tracks'>Top Tracks</Link>
-									</div>
-									<div className={`navbar-custom__links__link ${path === '/top-artists' ? 'active' : ''}`} onClick={() => this.navbar.classList.remove('open')}>
-										<Link to='/top-artists'>Top Artists</Link>
-									</div>
-									<div className={`navbar-custom__links__link ${path === '/recently-played' ? 'active' : ''}`} onClick={() => this.navbar.classList.remove('open')}>
-										<Link to='/recently-played'>Recently Played</Link>
-									</div>
-									<div className={`navbar-custom__links__link ${path === '/create-playlist' ? 'active' : ''}`} onClick={() => this.navbar.classList.remove('open')}>
-										<Link to='/create-playlist'>Create a Playlist</Link>
-									</div> <hr/>
-									<div className='navbar-custom__links__link'>
-										<a href="/auth/logout">Log out</a>
-									</div>
-								</div>
-
+				<div className="navbar-custom__user">
+					<div className="navbar-custom__user__photo">
+						{ auth.photo && <img src={auth.photo} alt={auth.username} /> }
+					</div>
+					<div className="navbar-custom__user__name">
+						{auth.username}
+					</div>
+				</div>
+				<div className="navbar-custom__links">
+					<div className={`navbar-custom__links__link ${path === '/top-tracks' ? 'active' : ''}`} onClick={() => this.navbar.classList.remove('open')}>
+						<Link to='/top-tracks'>Top Tracks</Link>
+					</div>
+					<div className={`navbar-custom__links__link ${path === '/top-artists' ? 'active' : ''}`} onClick={() => this.navbar.classList.remove('open')}>
+						<Link to='/top-artists'>Top Artists</Link>
+					</div>
+					<div className={`navbar-custom__links__link ${path === '/recently-played' ? 'active' : ''}`} onClick={() => this.navbar.classList.remove('open')}>
+						<Link to='/recently-played'>Recently Played</Link>
+					</div>
+					<div className={`navbar-custom__links__link ${path === '/create-playlist' ? 'active' : ''}`} onClick={() => this.navbar.classList.remove('open')}>
+						<Link to='/create-playlist'>Create a Playlist</Link>
+					</div> <hr/>
+					<div className='navbar-custom__links__link'>
+						<a href="/auth/logout">Log out</a>
+					</div>
+				</div>
 			</div>
 		);
 	}
