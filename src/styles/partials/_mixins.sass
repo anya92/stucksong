@@ -1,5 +1,5 @@
 $tablet-width: 576px
-$desktop-width: 992px
+$desktop-width: 576px
 
 @mixin small
 	@media (max-width: #{$tablet-width - 1})
@@ -9,7 +9,14 @@ $desktop-width: 992px
   @media (min-width: #{$tablet-width}) 
     @content
 
-
 @mixin desktop 
   @media (min-width: #{$desktop-width}) 
+    @content
+
+@mixin navbarMini
+  @media (max-width: 749px) 
+    @content
+
+@mixin navbarBig
+  @media (min-width: 750px) 
     @content

@@ -1,0 +1,144 @@
+.navbar
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 50px
+	background-color: #fff
+	padding: 20px 80px 
+	color: #333
+	z-index: 3
+	border-bottom: 1px solid #eee
+	display: flex
+
+	@include tablet
+    height: 100% 
+    width: 180px
+
+	&__bars
+		width: 26px
+		height: 20px
+		position: absolute
+		right: 20px
+		top: 15px
+		cursor: pointer
+		z-index: 2
+
+		@include tablet
+			display: none
+
+		&__bar
+			width: 100%
+			height: 4px
+			position: absolute
+			background-color: #333
+			transition: all 0.2s ease-out
+			border-radius: 100px
+			&:nth-child(2)
+				top: 50%
+				opacity: 1
+				transform: translateY(-50%)
+				transition: opacity 0.3s ease-out
+			&:last-child
+				bottom: 0
+	
+	&__title
+		font-size: 1.2rem
+		font-family: 'Rammetto One'
+		text-align: center
+		line-height: 10px
+		border: 2px solid
+
+		a
+			color: $mainColor
+			text-decoration: none
+
+	&__user
+		display: none
+		margin-top: 40px
+		flex-flow: column
+		align-items: center
+		border: 2px solid #333
+
+		&__name
+			padding: 10px
+			width: 100%
+			font-weight: 700
+			text-align: center
+
+		&__photo
+			width: 70px
+			height: 70px
+			background-color: $backgroundColor
+			border-radius: 50%
+			overflow: hidden
+			opacity: 0.8
+
+			img
+				object-fit: cover
+				width: 100%
+				height: 100%
+
+		@include tablet
+			display: flex
+
+	&__links
+  	font-family: 'Lato'
+  	opacity: 0
+  	text-align: center
+  	margin-top: 40px
+
+  	&__link 
+  		padding: 10px
+  		font-size: 1rem
+  		cursor: pointer
+  		&:hover
+  			background-color: $backgroundColor
+  		a
+  			color: #888
+  			font-weight: 400
+  			width: 100%
+  			height: 100%
+  			display: block
+  			&:hover
+  				text-decoration: none
+  				
+  		&:last-child
+  			color: #333
+  			width: 100%
+  			@include tablet
+  				position: absolute
+  				bottom: 10px
+  		&.active
+  			a
+  				color: $mainColor
+  				font-weight: 700
+
+  			@include tablet
+  				border-right: 5px solid $mainColor
+  				a
+  					color: #333
+
+  	hr
+  		width: 80%
+  		display: none
+  	@include tablet
+  		display: block
+  		text-align: left
+  		opacity: 1
+
+	&.open
+		@include small
+			height: 320px
+			.navbar
+				&__links
+					opacity: 1
+				&__bars__bar
+					&:first-child
+						transform: rotate(45deg) scale(0.97)
+						transform-origin: 0 0
+					&:nth-child(2)
+						opacity: 0
+					&:last-child
+						transform: rotate(-45deg) scale(0.97) translateY(0.5px)
+						transform-origin: 0 100%
