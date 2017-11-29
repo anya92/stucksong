@@ -13,7 +13,7 @@
   box-shadow: $boxShadow
   transition: all 0.3s ease-out
 
-  @include navbarBig
+  @include tablet
     justify-content: space-between
     padding: 0 40px
 
@@ -53,7 +53,7 @@
       transition: width .3s ease-out
       transform: translateY(-50%)
 
-    @include navbarBig
+    @include tablet
       display: none
 
   &__links
@@ -66,7 +66,7 @@
       margin: 10px
       &.active
         font-weight: 700
-    @include navbarBig
+    @include tablet
       display: flex
       justify-content: center
 
@@ -78,11 +78,11 @@
       color: #FFF
       text-decoration: none
       font-weight: 700
-    @include navbarBig
+    @include tablet
       display: block  
 
   &.open
-    @include navbarMini
+    @include tillTablet
       flex-direction: column
       .navbar
         &__bars__middle

@@ -1,9 +1,14 @@
-$tablet-width: 576px
-$desktop-width: 576px
+$small-width: 556px
+$tablet-width: 748px
+$desktop-width: 972px
 
 @mixin small
-	@media (max-width: #{$tablet-width - 1})
+	@media (min-width: #{$small-width})
 		@content
+
+@mixin tillTablet
+  @media (max-width: #{$tablet-width})
+    @content
 
 @mixin tablet 
   @media (min-width: #{$tablet-width}) 
@@ -13,10 +18,3 @@ $desktop-width: 576px
   @media (min-width: #{$desktop-width}) 
     @content
 
-@mixin navbarMini
-  @media (max-width: 749px) 
-    @content
-
-@mixin navbarBig
-  @media (min-width: 750px) 
-    @content
