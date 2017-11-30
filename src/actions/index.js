@@ -61,12 +61,14 @@ export const fetchArtists = (offset = 0) => dispatch => {
 export const createPlaylist = (name, description, numberOfTracks = 50) => dispatch => {
 	axios.get(`/api/create_playlist?name=${name}&description=${description}&numberOfTracks=${numberOfTracks}`)
 		.then(res => {
+			const tracksImages = res.data.playlist_info.tracks.items.map(item => item.track.album.images[0].url);
 			const playlist = {
 				name: res.data.playlist_info.name,
 				description: res.data.playlist_info.description,
 				url: res.data.playlist_info.external_urls.spotify,
-				image: res.data.playlist_info.images[1].url,
-				numberOfTracks: res.data.playlist_info.tracks.total
+				image: res.data.playlist_info.images[0].url,
+				numberOfTracks: res.data.playlist_info.tracks.total,
+				tracksImages,
 			};
 			dispatch({ type: CREATED_PLAYLIST, payload: playlist });
 		});

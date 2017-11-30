@@ -7,6 +7,11 @@
 	margin: 10px 0
 	a
 		color: $mainColor
-		
+
+	&--visible
+		text-align: center	
+
 	@include tablet
 		display: none
+		&--visible
+			display: block
