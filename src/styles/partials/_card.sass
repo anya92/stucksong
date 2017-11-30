@@ -43,8 +43,8 @@
 			a
 				color: #fff
 				text-decoration: none
-				letter-spacing: 1.2px
-				font-weight: 700
+				text-transform: lowercase
+				font-weight: 800
 				width: 80px
 				height: 40px
 				display: flex
@@ -81,33 +81,37 @@
 		padding: 5px 0
 		color: #333
     
-  &__title
-  	font-weight: 800
-  	font-size: 1.05rem
+		&__title
+			font:
+				family: 'Open Sans'
+				size: 1rem
+				weight: 800
+			margin-bottom: 4px	
+			span
+				font-size: 1.3rem
+			@include tablet
+				font-size: 1.15rem
+				span
+					font-size: 1.5rem
 
-  &__text
-  	font-size: 0.9rem
+		&__text
+			font-size: 1rem
+			font-family: 'Muli'
 
-  	&__artist
-  		font-weight: 600
-			margin: 2px 0
+			&__artist
+				font-weight: 700
 
-  	&__album
-  		font-size: 0.85rem
-  		font-weight: 200
-  		text-overflow: ellipsis
-	  	white-space: nowrap
-	  	overflow: hidden
+			&__album
+				font-size: 0.85rem
+				font-weight: 300
+				margin-top: 2px
+				color: #4c4c4c
+				
 		
-		&__genres p
-			font-weight: 200
-			font-size: 0.85rem
-  		text-overflow: ellipsis
-	  	white-space: nowrap
-	  	overflow: hidden
-	  	color: #333
+		&__genres
+			font-weight: 300
+			font-size: .9rem
 			line-height: 18px
-			margin: 2px 0
 
 @supports (display: grid) 
 	.cards
@@ -125,5 +129,3 @@
 			width: auto
 			height: auto
 			margin: 0
-			&__image
-				// height: auto

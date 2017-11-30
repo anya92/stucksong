@@ -27,10 +27,10 @@ class Artists extends Component {
 					</div>
 					<div className="card__block">
 						<div className="card__block__title">
-							{i + 1}. {artist.name}
+							<span>{i + 1}.</span> {artist.name}
 						</div>
 						<div className="card__block__genres">
-							<p>{genres}</p>
+							{genres}
 						</div>
 					</div>
 				</div>

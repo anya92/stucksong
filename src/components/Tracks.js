@@ -24,7 +24,7 @@ class Tracks extends Component {
           </div>
           <div className="card__block">
             <div className="card__block__title">
-              {i + 1}. {track.title}
+              <span>{i + 1}.</span> {track.title}
             </div>
             <div className="card__block__text">
               <div className="card__block__text__artist">{track.artist}</div>
