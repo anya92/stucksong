@@ -112,14 +112,7 @@ class CreatePlaylist extends Component {
 function mapStateToProps(state) {
   return {
     auth: state.auth,
-    // playlist: state.playlist
-    playlist: {
-      name: 'heroldcwany\'s Top Tracks',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      url: 'http://github.com/anya92',
-      numberOfTracks: 50,
-      tracksImages: ['https://i.scdn.co/image/77d5914dde0b423a695195bf7c9af1510b202965', 'https://i.scdn.co/image/5a6ffa8082d067fa48ed5dbe4c4c528b9bb0a76a', 'https://i.scdn.co/image/c3eb558cabb62c9701215bb4f858c25edb22664e', 'https://i.scdn.co/image/ffcc57d638e9a2fda9bbff634faebc0bb50c6044', 'https://i.scdn.co/image/46c2987fad3ee33b137fc51e91791e5ddebf8e6e', 'https://i.scdn.co/image/88acfc8bbbd077673678638e2bc17e5b38f7e302', 'https://i.scdn.co/image/87ef475189ee1e7067e1e22c6be43bf11d8b7953', 'https://i.scdn.co/image/c389553d5d03cdf067e2624ca0e19d04d463f85e', 'https://i.scdn.co/image/d8296568ae1b856050976111fa892d8db693efd5', 'https://i.scdn.co/image/8358a9e995cc544ad3793acf3434ac3792783f44', 'https://i.scdn.co/image/77d5914dde0b423a695195bf7c9af1510b202965', 'https://i.scdn.co/image/5a6ffa8082d067fa48ed5dbe4c4c528b9bb0a76a', 'https://i.scdn.co/image/c3eb558cabb62c9701215bb4f858c25edb22664e', 'https://i.scdn.co/image/ffcc57d638e9a2fda9bbff634faebc0bb50c6044', 'https://i.scdn.co/image/46c2987fad3ee33b137fc51e91791e5ddebf8e6e', 'https://i.scdn.co/image/88acfc8bbbd077673678638e2bc17e5b38f7e302', 'https://i.scdn.co/image/87ef475189ee1e7067e1e22c6be43bf11d8b7953', 'https://i.scdn.co/image/c389553d5d03cdf067e2624ca0e19d04d463f85e', 'https://i.scdn.co/image/d8296568ae1b856050976111fa892d8db693efd5', 'https://i.scdn.co/image/8358a9e995cc544ad3793acf3434ac3792783f44'],
-    }
+    playlist: state.playlist
   };
 }
 
