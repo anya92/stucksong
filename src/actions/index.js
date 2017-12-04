@@ -5,7 +5,6 @@ import {
 	FETCH_ARTISTS, 
 	HAS_MORE_ARTISTS,
 	CREATED_PLAYLIST,
-	// FETCH_CURRENTLY_PLAYING,
 	FETCH_RECENTLY_PLAYED,
 	HAS_MORE_RECENTLY_PLAYED_TRACKS,
 	RECENTLY_PLAYED_BEFORE 
@@ -18,7 +17,7 @@ export const fetchUser = () => dispatch => {
 };
 
 export const fetchTracks = (offset = 0) => dispatch => {
-	axios.get(`/api/top_tracks?limit=10&offset=${offset}`)
+	axios.get(`/api/top_tracks?limit=50&offset=${offset}`)
 		.then(res => {
 			// check if there will be data in the next request
 			const hasMore = !res.data.next ? false : true;
@@ -39,7 +38,7 @@ export const fetchTracks = (offset = 0) => dispatch => {
 };
 
 export const fetchArtists = (offset = 0) => dispatch => {
-	axios.get(`/api/top_artists?limit=10&offset=${offset}`)
+	axios.get(`/api/top_artists?limit=50&offset=${offset}`)
 		.then(res => {
 			// check if there will be data in the next request
 			const hasMore = !res.data.next ? false : true;
@@ -73,11 +72,6 @@ export const createPlaylist = (name, description, numberOfTracks = 50) => dispat
 			dispatch({ type: CREATED_PLAYLIST, payload: playlist });
 		});
 };
-
-// export const fetchCurrentlyPlaying = () => dispatch => {
-// 	axios.get('/api/current_play')
-// 		.then(res => console.log(res.data));
-// };
 
 export const fetchRecentlyPlayed = before => dispatch => {
 	axios.get(`/api/recently_played?before=${before}`)

@@ -9,6 +9,7 @@ import { fetchUser } from '../actions';
 
 import requireAuth from './HOC/require_authentication';
 import redirectToTracks from './HOC/redirect_to_tracks';
+
 import Navbar from './Navbar';
 import Home from './Home';
 import Tracks from './Tracks';
