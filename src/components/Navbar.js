@@ -6,6 +6,7 @@ const Navbar = ({ auth }) => {
     return <div />;
   }
   const handleMenu = () => document.querySelector('.navbar').classList.toggle('open');
+  const handleItemClick = () => document.querySelector('.navbar').classList.remove('open');
   return !auth ? <div /> : (
     <div className="navbar">
       <div className="navbar__title">
@@ -21,25 +22,33 @@ const Navbar = ({ auth }) => {
         <NavLink 
           to='/top-tracks' 
           className='navbar__links__link' 
-          activeClassName='active'>
+          activeClassName='active'
+          onClick={handleItemClick}  
+        >
           tracks
         </NavLink>
         <NavLink 
           to='/top-artists' 
           className='navbar__links__link' 
-          activeClassName='active'>
+          activeClassName='active'
+          onClick={handleItemClick}  
+        >
           artists
         </NavLink>
         <NavLink 
           to='/recently-played' 
           className='navbar__links__link' 
-          activeClassName='active'>
+          activeClassName='active'
+          onClick={handleItemClick}  
+        >
           recently played
         </NavLink>
         <NavLink 
           to='/create-playlist' 
           className='navbar__links__link' 
-          activeClassName='active'>
+          activeClassName='active'
+          onClick={handleItemClick}  
+        >
           create a playlist
         </NavLink>
       </div>
