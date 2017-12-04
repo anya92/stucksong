@@ -5,14 +5,15 @@
 	right: 0
 	bottom: 0
 	left: 0
-	font-family: 'Roboto'
-	height: 100%
+	font-family: 'Dosis'
+	max-height: 100vh
 	padding-left: 20px
 	padding-right: 20px
 	display: flex
 	flex-direction: column
 	justify-content: center
 	align-items: center
+	color: #fff
 	
 	&__background
 		position: fixed
@@ -21,66 +22,55 @@
 		bottom: 0
 		left: 0
 		z-index: 0
-		filter: grayscale(40%)
-		img
-			width: 100%
-			height: 100%
-			object-fit: cover
-			opacity: 0.9
-
-	&__icon
-		width: 120px
-		display: none
-		padding: 20px
-		z-index: 2
-		text-align: center 
-		border-radius: 50%
-		text-shadow: 1.5px 1px 2px #333
+		background: url(../assets/home-background.jpg) center center no-repeat
+		background-size: cover
+		&:before 
+			background: $gradient
+			content: ''
+			position: absolute
+			top: 0
+			right: 0
+			bottom: 0
+			left: 0
+			opacity: .85
 
 	&__title
 		z-index: 2
-		font-family: 'Rammetto One'
-		font-size: 2.8rem
-		text-transform: uppercase
+		font-size: 4.5rem
+		font-weight: 800
 		text-align: center
-		margin-top: 30px
-		color: #fff
-		text-shadow: 1px 1px 2px #333
 
 		@include tablet
-			font-size: 4.6rem
+			font-size: 8rem
 
 	&__description
 		text-transform: uppercase
 		z-index: 2
-		display: none
-
-		color: #fff
-		font-size: 1.3rem
+		font-size: 1.6rem
 		padding: 10px
-		background-color: rgba(0, 0, 0, 0.3)
-		font-weight: 400
+		font-weight: 300
 		text-align: center
 		margin-top: 30px
-		text-shadow: $boxShadow
-		
+		line-height: 2.5rem
 		@include tablet
-			font-size: 1.7rem
+			font-size: 1.8rem
+			max-width: 800px
 
 	&__link 
-		z-index: 4
+		z-index: 5
 		.fa
 			margin-right: 5px
+			font-size: 1.3rem
 		a
-			font-size: 1rem
+			font-family: 'Open Sans'
 			color: #fff
 			font-weight: 400
-			padding: 10px 20px
-			background-color: $mainColor
+			padding: 20px
 			text-decoration: none
 			display: inline-block
-			border-radius: 0.3rem
-			margin-top: 20px
+			border-bottom: 4px solid #FFF
+			margin-top: 40px
+			position: relative
 
 			@include tablet
-				font-size: 1.1rem
+				font-size: 1.2rem
