@@ -17,7 +17,7 @@ export const fetchUser = () => dispatch => {
 };
 
 export const fetchTracks = (offset = 0) => dispatch => {
-	axios.get(`/api/top_tracks?limit=50&offset=${offset}`)
+	axios.get(`/api/top_tracks?offset=${offset}`)
 		.then(res => {
 			// check if there will be data in the next request
 			const hasMore = !res.data.next ? false : true;
@@ -38,7 +38,7 @@ export const fetchTracks = (offset = 0) => dispatch => {
 };
 
 export const fetchArtists = (offset = 0) => dispatch => {
-	axios.get(`/api/top_artists?limit=50&offset=${offset}`)
+	axios.get(`/api/top_artists?offset=${offset}`)
 		.then(res => {
 			// check if there will be data in the next request
 			const hasMore = !res.data.next ? false : true;
