@@ -5,9 +5,9 @@ import { fetchArtists } from '../actions';
 
 class Artists extends Component {
 	fetchArtists() {
-		if (this.props.artists.length >= 50) {
-			return;
-		}
+		// if (this.props.artists.length >= 50) {
+		// 	return;
+		// }
 		this.props.fetchArtists(this.props.artists.length);
 	}
 
@@ -43,7 +43,8 @@ class Artists extends Component {
 						className="cards"
 						pageStart={0}
 						loadMore={this.fetchArtists.bind(this)}
-						hasMore={this.props.artists.length <= 40 && this.props.hasMore}
+						hasMore={this.props.hasMore}
+						// hasMore={this.props.artists.length <= 40 && this.props.hasMore}
 						loader={<div className="loader">Loading...</div>}
 						threshold={500}
 					>

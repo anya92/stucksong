@@ -5,9 +5,9 @@ import { fetchTracks } from '../actions';
 
 class Tracks extends Component {
   fetchTracks() {
-    if (this.props.tracks.length >= 50) {
-      return;
-    }
+    // if (this.props.tracks.length >= 50) {
+    //   return;
+    // }
     this.props.fetchTracks(this.props.tracks.length);
   }
 
@@ -41,7 +41,8 @@ class Tracks extends Component {
             className="cards"
             pageStart={0}
             loadMore={this.fetchTracks.bind(this)}
-            hasMore={this.props.tracks.length <= 40 && this.props.hasMore}
+            hasMore={this.props.hasMore}
+            // hasMore={this.props.tracks.length <= 40 && this.props.hasMore}
             loader={<div className="loader">Loading...</div>}
             threshold={500}
           >
