@@ -7,7 +7,7 @@ const Navbar = ({ auth }) => {
   }
   const handleMenu = () => document.querySelector('.navbar').classList.toggle('open');
   const handleItemClick = () => document.querySelector('.navbar').classList.remove('open');
-  return !auth ? <div /> : (
+  return (
     <div className="navbar">
       <div className="navbar__title">
         <Link to='/'>stuck<span>Song</span></Link>

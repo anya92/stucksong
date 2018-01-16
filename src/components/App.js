@@ -1,21 +1,9 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { fetchUser } from '../actions';
 
-import requireAuth from './HOC/require_authentication';
-import redirectToTracks from './HOC/redirect_to_tracks';
-
-import Navbar from './Navbar';
-import Home from './Home';
-import Tracks from './Tracks';
-import Artists from './Artists';
-import Recently from './Recently';
-import CreatePlaylist from './CreatePlaylist';
+import Routes from './Routes';
 
 class App extends Component {
   componentDidMount() {
@@ -23,20 +11,7 @@ class App extends Component {
   }
 
   render() {
-    return this.props.auth === null ? <div className="loading"></div> : (
-      <div>
-        <Router>
-          <div>
-            <Route render={() => <Navbar auth={this.props.auth} />} />
-            <Route exact path='/' component={redirectToTracks(Home)} />
-            <Route path='/top-tracks' component={requireAuth(Tracks)} />
-            <Route path='/top-artists' component={requireAuth(Artists)} />
-            <Route path='/recently-played' component={requireAuth(Recently)} />
-            <Route path='/create-playlist' component={requireAuth(CreatePlaylist)} />
-          </div>
-        </Router>
-      </div>
-    );
+    return <Routes auth={this.props.auth} />;
   }
 }
 
