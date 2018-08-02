@@ -1,33 +1,9 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true,
-        "node": true
-    },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
-        },
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
-    ],
+    "parser": "babel-eslint",
+    "extends": "airbnb",
     "rules": {
-        "linebreak-style": [
-            "warn",
-            "windows"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
+        "linebreak-style": ["warn", "windows"],
+        "react/jsx-filename-extension": "off",
+        "react/destructuring-assignment": "off"
     }
 };

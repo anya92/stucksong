@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 
 // import '../node_modules/bootstrap/scss/bootstrap.scss';
-import './styles/styles.sass';
+import './styles/style.scss';
 
 import reducer from './reducers';
 import App from './components/App';
