@@ -3,15 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": {
-    "node": "8.9.4",
-    "yarn": "1.3.2"
-  },
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js --ignore src/",
-    "build": "webpack --config webpack.prod.js",
-    "client": "webpack-dev-server --config webpack.dev.js",
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js --ignore client/",
+    "build": "webpack --config ../webpack.prod.js",
+    "client": "webpack-dev-server --config ../webpack.dev.js",
     "heroku-postbuild": "yarn --production=false && yarn run build"
   },
   "keywords": [],
@@ -19,7 +15,6 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
-    "bootstrap": "^4.0.0-beta",
     "connect-mongo": "^1.3.2",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
@@ -30,14 +25,14 @@
     "mongoose": "^4.11.13",
     "passport": "^0.4.0",
     "passport-spotify": "^0.3.1",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "react-infinite-scroller": "^1.0.15",
     "react-loadable": "^5.3.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -55,7 +50,7 @@
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.30.1",
     "image-webpack-loader": "^3.4.2",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.9.2",
     "nodemon": "^1.12.1",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
