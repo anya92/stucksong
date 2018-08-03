@@ -5,7 +5,7 @@ import {
   Background,
   Title,
   Description,
-  Link,
+  LinkWrapper,
 } from '../styles/homePage';
 
 export default () => (
@@ -15,12 +15,14 @@ export default () => (
       stucksong
     </Title>
     <Description>
-      Get your top tracks and artists <br/> 
+      Get your top tracks and artists <br />
       Create a playlist of your top songs
     </Description>
-    <Link>
+    <LinkWrapper>
       <a href="/auth/spotify">
-      <i className="fa fa-spotify" aria-hidden="true" />Login with Spotify</a>
-    </Link>
+        <i className="fa fa-spotify" aria-hidden="true" />
+        Login with Spotify
+      </a>
+    </LinkWrapper>
   </Container>
 );

@@ -4,6 +4,7 @@ module.exports = {
     "rules": {
         "linebreak-style": ["warn", "windows"],
         "react/jsx-filename-extension": "off",
-        "react/destructuring-assignment": "off"
+        "react/destructuring-assignment": "off",
+        "react/jsx-one-expression-per-line": "off",
     }
 };

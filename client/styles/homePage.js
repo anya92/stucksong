@@ -7,7 +7,6 @@ const Container = glamorous.div({
   right: 0,
   bottom: 0,
   left: 0,
-  // fontFamily: 'Dosis',
   maxHeight: '100vh',
   paddingLeft: '20px',
   paddingRight: '20px',
@@ -34,7 +33,7 @@ const Background = glamorous.div({
     right: 0,
     bottom: 0,
     left: 0,
-    opacity: 0.85,
+    opacity: 0.8,
   },
 }, ({ theme }) => ({
   color: theme.mainColor,
@@ -47,6 +46,7 @@ const Title = glamorous.h1({
   zIndex: 2,
   fontSize: '4.5rem',
   fontWeight: 800,
+  fontFamily: 'Dosis',
   textAlign: 'center',
   margin: '10px 0',
 });
@@ -62,11 +62,11 @@ const Description = glamorous.h4({
   lineHeight: '2.5rem',
 });
 
-const Link = glamorous.div({
+const LinkWrapper = glamorous.div({
   zIndex: 5,
   '& .fa': {
     marginRight: '5px',
-    fontSize: '1.3rem',
+    fontSize: '1.4rem',
   },
   '& a': {
     color: '#fff',
@@ -74,11 +74,41 @@ const Link = glamorous.div({
     padding: '20px',
     textDecoration: 'none',
     display: 'inline-block',
-    borderBottom: '4px solid #FFF',
     marginTop: '40px',
-    position: 'relative', 
-    ':hover': {
-      borderLeftWidth: '2px',
+    position: 'relative',
+    '&:before, &:after': {
+      position: 'absolute',
+      content: ' ',
+      width: '0%',
+      height: '0%',
+      border: '4px solid transparent',
+      boxSizing: 'inherit',
+    },
+    '&:before': {
+      bottom: 0,
+      right: 0,
+      width: '100%',
+      borderBottomColor: '#FFF',
+    },
+    '&:after': {
+      top: 0,
+      left: 0,
+    },
+    '&:hover:before': {
+      height: '100%',
+      borderLeftColor: '#FFF',
+      transition:
+        'height .25s ease-out',
+    },
+    '&:hover:after': {
+      width: '100%',
+      height: '100%',
+      borderTopColor: '#FFF',
+      borderRightColor: '#FFF',
+      transition:
+        `border-color 0s ease-out .25s,
+        width .25s ease-out .25s,
+        height .25s ease-out .5s`,
     },
   },
 });
@@ -88,5 +118,5 @@ export {
   Background,
   Title,
   Description,
-  Link,
+  LinkWrapper,
 };
