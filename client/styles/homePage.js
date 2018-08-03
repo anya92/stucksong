@@ -1,4 +1,5 @@
 import glamorous from 'glamorous';
+import { mediaQueries } from './global';
 import imageSrc from '../assets/home-background.jpg';
 
 const Container = glamorous.div({
@@ -49,10 +50,12 @@ const Title = glamorous.h1({
   fontFamily: 'Dosis',
   textAlign: 'center',
   margin: '10px 0',
+  [mediaQueries.tablet]: {
+    fontSize: '7.2rem',
+  },
 });
 
 const Description = glamorous.h4({
-  // textTransform: 'uppercase',
   zIndex: 2,
   fontSize: '1.6rem',
   padding: '10px',
@@ -60,6 +63,10 @@ const Description = glamorous.h4({
   textAlign: 'center',
   margin: '10px 0',
   lineHeight: '2.5rem',
+  [mediaQueries.tablet]: {
+    fontSize: '1.8rem',
+    maxWidth: '800px',
+  },
 });
 
 const LinkWrapper = glamorous.div({
@@ -70,12 +77,15 @@ const LinkWrapper = glamorous.div({
   },
   '& a': {
     color: '#fff',
-    fontWeight: 400,
+    fontWeight: 500,
     padding: '20px',
     textDecoration: 'none',
     display: 'inline-block',
     marginTop: '40px',
     position: 'relative',
+    [mediaQueries.tablet]: {
+      fontSize: '1.2rem',
+    },
     '&:before, &:after': {
       position: 'absolute',
       content: ' ',
@@ -87,18 +97,19 @@ const LinkWrapper = glamorous.div({
     '&:before': {
       bottom: 0,
       right: 0,
-      width: '100%',
-      borderBottomColor: '#FFF',
     },
     '&:after': {
       top: 0,
       left: 0,
     },
     '&:hover:before': {
+      width: '100%',
       height: '100%',
+      borderBottomColor: '#FFF',
       borderLeftColor: '#FFF',
       transition:
-        'height .25s ease-out',
+        `width .12s ease-out,
+        height .12s ease-out .12s`,
     },
     '&:hover:after': {
       width: '100%',
@@ -106,9 +117,9 @@ const LinkWrapper = glamorous.div({
       borderTopColor: '#FFF',
       borderRightColor: '#FFF',
       transition:
-        `border-color 0s ease-out .25s,
-        width .25s ease-out .25s,
-        height .25s ease-out .5s`,
+        `border-color 0s ease-out .24s,
+        width .12s ease-out .24s,
+        height .12s ease-out .36s`,
     },
   },
 });

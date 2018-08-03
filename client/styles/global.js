@@ -1,5 +1,10 @@
 import glamorous from 'glamorous';
 
+const mediaQueries = {
+  tablet: '@media only screen and (min-width: 748px)',
+  desktop: '@media only screen and (min-width: 972px)',
+};
+
 const theme = {
   backgroundColor: '#f4f4f4',
   mainColor: 'darken(#f8cdda, 30%)',
@@ -17,6 +22,7 @@ const Container = glamorous.div({
 });
 
 export {
+  mediaQueries,
   theme,
   Container,
 };
