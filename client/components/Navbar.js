@@ -1,83 +1,69 @@
 import React, { Component } from 'react';
+import { oneOfType, bool, object } from 'prop-types';
 import { Link, NavLink } from 'react-router-dom';
 
-const Navbar = ({ auth }) => {
-  if (!auth) {
-    return <div />;
+import {
+  Container,
+  Brand,
+  Bars,
+  Links,
+  LogoutLink,
+} from '../styles/navbar';
+
+class Navbar extends Component {
+  links = [
+    { id: 0, link: 'top-tracks', name: 'tracks' },
+    { id: 1, link: 'top-artists', name: 'artists' },
+    { id: 2, link: 'recently-played', name: 'recently played' },
+    { id: 3, link: 'create-playlist', name: 'create a playlist' },
+  ]
+
+  state = {
+    open: false,
   }
-  const handleMenu = () => {
-    document.querySelector('.navbar').classList.toggle('open');
-    document.body.classList.toggle('no-scroll');
-  };
-  const handleItemClick = () => {
-    document.querySelector('.navbar').classList.remove('open');
-    document.body.classList.remove('no-scroll');
-  };
-  return (
-    <div>
-      <div className="navbar">
-        <div className="navbar__title">
-          <Link to='/'>stuck<span>Song</span></Link>
-        </div>
-        <div 
-          className="navbar__bars" 
-          onClick={handleMenu}
-        >
-          <span className="navbar__bars__middle" />
-        </div>
-        <div className="navbar__links">
-          <NavLink 
-            to='/top-tracks' 
-            className='navbar__links__link' 
-            activeClassName='active'
-            onClick={handleItemClick}  
-          >
-            tracks
-          </NavLink>
-          <NavLink 
-            to='/top-artists' 
-            className='navbar__links__link' 
-            activeClassName='active'
-            onClick={handleItemClick}  
-          >
-            artists
-          </NavLink>
-          <NavLink 
-            to='/recently-played' 
-            className='navbar__links__link' 
-            activeClassName='active'
-            onClick={handleItemClick}  
-          >
-            recently played
-          </NavLink>
-          <NavLink 
-            to='/create-playlist' 
-            className='navbar__links__link' 
-            activeClassName='active'
-            onClick={handleItemClick}  
-          >
-            create a playlist
-          </NavLink>
-        </div>
-        <div className="navbar__logout">
-          <a href='/auth/logout'>logout</a>
-        </div>
-        <div className="mobile-nav open">
-          <ul>
-            <li><NavLink to="/top-tracks" activeClassName='active'
-            onClick={handleItemClick}>tracks</NavLink></li>
-            <li><NavLink to="/top-artists" activeClassName='active'
-            onClick={handleItemClick}>artists</NavLink></li>
-            <li><NavLink to="/recently-played" activeClassName='active'
-            onClick={handleItemClick}>recently played</NavLink></li>
-            <li><NavLink to="/create-playlist" activeClassName='active'
-            onClick={handleItemClick}>create a playlist</NavLink></li>
-            <li><a href="/auth/logout">logout</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
+
+  handleMenuClick = () => {
+    this.setState(prevState => ({ open: !prevState.open }));
+  }
+
+  handleLinkClick = () => {
+    this.setState(() => ({ open: false }));
+  }
+
+  render() {
+    const { auth } = this.props;
+    if (!auth) return <div />;
+    return (
+      <Container id="nav" open={this.state.open}>
+        <Brand onClick={this.handleLinkClick}>
+          <Link to="/">stuck<span>Song</span></Link>
+        </Brand>
+        <Bars className="mobile-menu" onClick={this.handleMenuClick}>
+          <span />
+        </Bars>
+        <Links className="navbar-links">
+          {
+            this.links.map(({ id, link, name }) => (
+              <NavLink
+                key={id}
+                to={`/${link}`}
+                activeClassName="active"
+                onClick={this.handleLinkClick}
+              >{name}
+              </NavLink>
+            ))
+          }
+        </Links>
+        <LogoutLink className="logout-link">
+          <a href="/auth/logout">logout</a>
+        </LogoutLink>
+      </Container>
+    );
+  }
+}
+
+Navbar.propTypes = {
+  auth: oneOfType([bool, object]).isRequired,
 };
 
 export default Navbar;

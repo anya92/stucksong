@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'glamorous';
-import { oneOfType, bool, object, func } from 'prop-types';
+import {
+  oneOfType,
+  bool,
+  object,
+  func,
+} from 'prop-types';
 
 import { theme, Container } from '../styles/global';
 import { fetchUser } from '../actions';
@@ -30,6 +35,7 @@ class App extends Component {
 
   render() {
     const { auth } = this.props;
+    if (auth === null) return <div />;
     return (
       <ThemeProvider theme={theme}>
         <Container>

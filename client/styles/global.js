@@ -7,10 +7,10 @@ const mediaQueries = {
 
 const theme = {
   backgroundColor: '#f4f4f4',
-  mainColor: 'darken(#f8cdda, 30%)',
+  mainColor: '#B53471',
   gradient: 'linear-gradient(to top right, #1d2b64, #f8cdda)',
   boxShadow: '0 1px 2px rgba(0, 0, 0, 0.07)',
-  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  fontFamily: '-apple-system, BlinkMacSystemFont, "Nunito", "Segoe UI", Roboto, sans-serif',
 };
 
 const Container = glamorous.div({
