@@ -1,6 +1,6 @@
 import glamorous from 'glamorous';
 import { mediaQueries } from './global';
-import { LinkWrapper } from './homePage';
+import { LinkWrapper } from './home';
 
 const Container = glamorous.nav({
   position: 'fixed',

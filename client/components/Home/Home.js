@@ -6,7 +6,7 @@ import {
   Title,
   Description,
   LinkWrapper,
-} from '../styles/homePage';
+} from '../../styles/home';
 
 export default () => (
   <Container>

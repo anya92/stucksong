@@ -8,7 +8,7 @@ import {
   Bars,
   Links,
   LogoutLink,
-} from '../styles/navbar';
+} from '../../styles/navbar';
 
 class Navbar extends Component {
   links = [
