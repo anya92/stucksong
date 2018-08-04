@@ -114,7 +114,6 @@ const LogoutLink = glamorous(LinkWrapper)({
   display: 'none',
   '& a': {
     color: '#333',
-    fontWeight: 700,
     marginTop: 0,
     padding: '10px 15px',
   },

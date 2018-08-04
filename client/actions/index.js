@@ -30,7 +30,8 @@ export const fetchTracks = (offset = 0) => dispatch => {
 					title: track.name,
 					artist: track.artists[0].name,
 					album: track.album.name,
-					image: track.album.images[1].url
+					image: track.album.images[1].url,
+					uri: track.uri,
 				});
 			});
 			dispatch({ type: FETCH_TRACKS, payload: tracks });

@@ -18,7 +18,10 @@ const Container = glamorous.div({
   color: '#333',
   maxWidth: '1100px',
   margin: '0 auto',
-  padding: '0 15px',
+  padding: '60px 20px 20px 20px',
+  [mediaQueries.tablet]: {
+    paddingTop: '80px',
+  },
 });
 
 export {

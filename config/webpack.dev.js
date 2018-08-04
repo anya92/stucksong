@@ -6,10 +6,14 @@ module.exports = merge(common, {
 	module: {
 		rules: [
 			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader'],
+			},
+			{
 				test: /\.(sass|scss)$/,
-				use: ['style-loader', 'css-loader', 'sass-loader']
-			}
-		]
+				use: ['style-loader', 'css-loader', 'sass-loader'],
+			},
+		],
 	},
-	mode: 'development'
+	mode: 'development',
 });

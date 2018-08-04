@@ -23,6 +23,7 @@
     "express-session": "^1.15.5",
     "glamor": "^2.20.40",
     "glamorous": "^4.13.1",
+    "modern-normalize": "^0.5.0",
     "moment": "^2.18.1",
     "mongoose": "^4.11.13",
     "passport": "^0.4.0",
