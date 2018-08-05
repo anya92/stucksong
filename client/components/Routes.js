@@ -24,7 +24,7 @@ const AsyncArtists = Loadable({
 });
 
 const AsyncRecently = Loadable({
-  loader: () => import('./Recently'),
+  loader: () => import('./RecentlyPlayed'),
 });
 
 const AsyncCreatePlaylist = Loadable({

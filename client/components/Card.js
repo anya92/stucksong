@@ -4,10 +4,12 @@ import {
   number,
   object,
 } from 'prop-types';
+import moment from 'moment';
 
 import {
   CardImage,
   CardImageLink,
+  CardImageDate,
   CardInfo,
   CardTitle,
   CardText,
@@ -28,10 +30,14 @@ const Card = ({ data, type, index }) => (
         </a>
       </CardImageLink>
       <img src={data.image} alt={type === 'artists' ? data.name : data.album} />
+      {
+        type === 'recently-track'
+        && <CardImageDate>{ moment(data.played_at).format('DD MMM - HH:mm') }</CardImageDate>
+      }
     </CardImage>
     <CardInfo>
       <CardTitle>
-        <span>{index + 1}.</span> {data.title}
+        {type !== 'recently-track' && <span>{index + 1}.</span> } {data.title}
       </CardTitle>
       <CardText>
         <CardArtist>{data.artist}</CardArtist>

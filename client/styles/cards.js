@@ -18,8 +18,8 @@ const CardImage = glamorous.div({
   '& img': {
     width: '100%',
     height: '100%',
-    objectFit: 'cover',
-    // position: 'relative',
+    // objectFit: 'cover',
+    // position: 'absolute',
     // top: 0,
   },
   '&:hover > div:first-of-type': {
@@ -56,6 +56,21 @@ const CardImageLink = glamorous.div({
   },
 });
 
+const CardImageDate = glamorous.div({
+  position: 'absolute',
+  bottom: 0,
+  transform: 'translateY(-50%)',
+  width: '100%',
+  zIndex: 2,
+  textAlign: 'center',
+  color: '#fff',
+  fontWeight: 600,
+  padding: '10px',
+}, ({ theme }) => ({
+  backgroundColor: theme.mainColor,
+  opacity: 0.8,
+}));
+
 const CardInfo = glamorous.div({
   padding: '5px 0',
 });
@@ -89,6 +104,7 @@ export {
   CardsGrid,
   CardImage,
   CardImageLink,
+  CardImageDate,
   CardInfo,
   CardTitle,
   CardText,

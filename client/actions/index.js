@@ -94,6 +94,7 @@ export const fetchRecentlyPlayed = before => dispatch => {
 			});
 
 			dispatch({ type: FETCH_RECENTLY_PLAYED, payload: tracks });
+			// console.log('next', res.data.next)
 			// get 'before' param for the next request
 			const before = res.data.next ? res.data.cursors.before : null;
 			dispatch({ type: RECENTLY_PLAYED_BEFORE, payload: before });
