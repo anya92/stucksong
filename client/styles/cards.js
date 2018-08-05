@@ -100,6 +100,12 @@ const CardAlbum = glamorous.div({
   color: '#4c4c4c',
 });
 
+const CardGenres = glamorous.div({
+  fontWeight: 300,
+  // fontSize: '.9rem',
+  lineHeight: '18px',
+});
+
 export {
   CardsGrid,
   CardImage,
@@ -110,4 +116,5 @@ export {
   CardText,
   CardArtist,
   CardAlbum,
+  CardGenres,
 };
