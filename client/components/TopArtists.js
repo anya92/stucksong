@@ -5,12 +5,14 @@ import { fetchArtists } from '../actions';
 
 import {
   CardsGrid,
+  Title,
 } from '../styles/cards';
 
 import Card from './Card';
 
 const TopArtists = props => (
   <CardsGrid>
+    <Title>Top Artists</Title> 
     <InfiniteScroll
       pageStart={0}
       loadMore={() => props.fetchArtists(props.artists.length)}

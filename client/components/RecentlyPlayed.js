@@ -6,6 +6,7 @@ import { fetchRecentlyPlayed } from '../actions';
 import Card from './Card';
 import {
   CardsGrid,
+  Title,
 } from '../styles/cards';
 
 const RecentlyPlayed = (props) => {
@@ -19,6 +20,7 @@ const RecentlyPlayed = (props) => {
 
   return (
     <CardsGrid>
+      <Title>Recently Played</Title>
       <InfiniteScroll
         pageStart={0}
         loadMore={fetchData}

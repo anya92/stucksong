@@ -13,10 +13,12 @@ import { fetchTracks } from '../actions';
 import Card from './Card';
 import {
   CardsGrid,
+  Title,
 } from '../styles/cards';
 
 const TopTracks = ({ tracks, fetchTracks, hasMore }) => (
   <CardsGrid>
+    <Title>Top Tracks</Title>
     <InfiniteScroll
       pageStart={0}
       loadMore={() => fetchTracks(tracks.length)}
