@@ -26,12 +26,13 @@ export default (state = initialState, action) => {
           ...state.artists,
           ...action.payload,
         ],
+        error: false,
       };
     case FETCH_TOP_ARTISTS_ERROR:
       return {
         ...state,
         pending: false,
-        error: true,
+        error: action.payload,
       };
     case FETCH_TOP_ARTISTS_HAS_MORE:
       return {

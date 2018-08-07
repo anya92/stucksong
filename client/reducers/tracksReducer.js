@@ -26,12 +26,13 @@ export default (state = initialState, action) => {
           ...state.tracks,
           ...action.payload,
         ],
+        error: false,
       };
     case FETCH_TOP_TRACKS_ERROR:
       return {
         ...state,
         pending: false,
-        error: true,
+        error: action.payload,
       };
     case FETCH_TOP_TRACKS_HAS_MORE:
       return {

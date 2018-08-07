@@ -26,7 +26,7 @@ export const fetchTracks = (offset = 0) => (dispatch) => {
       const hasMore = res.data.next !== null;
       dispatch({ type: types.FETCH_TOP_TRACKS_HAS_MORE, payload: hasMore });
     })
-    .catch(() => dispatch({ type: types.FETCH_TOP_TRACKS_ERROR }));
+    .catch(error => dispatch({ type: types.FETCH_TOP_TRACKS_ERROR, payload: error }));
 };
 
 export const fetchArtists = (offset = 0) => (dispatch) => {
@@ -48,7 +48,7 @@ export const fetchArtists = (offset = 0) => (dispatch) => {
       const hasMore = res.data.next !== null;
       dispatch({ type: types.FETCH_TOP_ARTISTS_HAS_MORE, payload: hasMore });
     })
-    .catch(() => dispatch({ type: types.FETCH_TOP_ARTISTS_ERROR }));
+    .catch(error => dispatch({ type: types.FETCH_TOP_ARTISTS_ERROR, payload: error }));
 };
 
 export const createPlaylist = (name, description, numberOfTracks = 50) => (dispatch) => {
@@ -68,13 +68,10 @@ export const createPlaylist = (name, description, numberOfTracks = 50) => (dispa
 };
 
 export const fetchRecentlyPlayed = before => (dispatch) => {
+  dispatch({ type: types.FETCH_RECENTLY_PLAYED_TRACKS_PENDING });
   axios.get(`/api/recently_played?before=${before}`)
-    .then((res) =>{
-      // check if there will be data in the next request
-      const hasMore = !res.data.next ? false : true;
-      dispatch({ type: types.HAS_MORE_RECENTLY_PLAYED_TRACKS, payload: hasMore });
-      
-      let tracks = [];
+    .then((res) => {
+      const tracks = [];
       res.data.items.forEach((item) => {
         tracks.push({
           id: item.track.id,
@@ -83,13 +80,16 @@ export const fetchRecentlyPlayed = before => (dispatch) => {
           album: item.track.album.name,
           image: item.track.album.images[1].url,
           played_at: item.played_at,
+          uri: item.track.uri,
         });
       });
-
-      dispatch({ type: types.FETCH_RECENTLY_PLAYED, payload: tracks });
-      // console.log('next', res.data.next)
+      dispatch({ type: types.FETCH_RECENTLY_PLAYED_TRACKS_SUCCESS, payload: tracks });
+      // check if there will be data in the next request
+      const hasMore = res.data.next !== null;
+      dispatch({ type: types.FETCH_RECENTLY_PLAYED_TRACKS_HAS_MORE, payload: hasMore });
       // get 'before' param for the next request
       const before = res.data.next ? res.data.cursors.before : null;
-      dispatch({ type: types.RECENTLY_PLAYED_BEFORE, payload: before });
-    });
+      dispatch({ type: types.FETCH_RECENTLY_PLAYED_TRACKS_BEFORE, payload: before });
+    })
+    .catch(error => dispatch({ type: types.FETCH_RECENTLY_PLAYED_TRACKS_ERROR, payload: error }));
 };

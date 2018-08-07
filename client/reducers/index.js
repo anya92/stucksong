@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import auth from './authReducer';
 import topTracks from './tracksReducer';
 import topArtists from './artistsReducer';
-import { recentlyPlayedTracks, hasMoreRecentlyPlayedTracks, recentlyPlayedBefore } from './recentlyPlayedReducer';
+import recentlyPlayedTracks from './recentlyPlayedReducer';
 import playlistReducer from './playlistReducer';
 
 
@@ -11,7 +11,5 @@ export default combineReducers({
   topTracks,
   topArtists,
   recentlyPlayedTracks,
-  hasMoreRecentlyPlayedTracks,
-  recentlyPlayedBefore,
-  playlist: playlistReducer
+  playlist: playlistReducer,
 });

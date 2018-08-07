@@ -1,28 +1,53 @@
-import { FETCH_RECENTLY_PLAYED, HAS_MORE_RECENTLY_PLAYED_TRACKS } from '../actions/types';
+import {
+  FETCH_RECENTLY_PLAYED_TRACKS_PENDING,
+  FETCH_RECENTLY_PLAYED_TRACKS_SUCCESS,
+  FETCH_RECENTLY_PLAYED_TRACKS_HAS_MORE,
+  FETCH_RECENTLY_PLAYED_TRACKS_BEFORE,
+  FETCH_RECENTLY_PLAYED_TRACKS_ERROR,
+} from '../actions/types';
 
-export const recentlyPlayedTracks = (state = [], action) => {
-	switch(action.type) {
-		case FETCH_RECENTLY_PLAYED:
-			return state.concat(action.payload);
-		default:
-			return state;
-	}
+const initialState = {
+  pending: false,
+  tracks: [],
+  error: false,
+  hasMore: true,
+  before: null,
 };
 
-export const hasMoreRecentlyPlayedTracks = (state = true, action) => {
-	switch(action.type) {
-		case HAS_MORE_RECENTLY_PLAYED_TRACKS:
-			return action.payload;
-		default:
-			return state;		
-	}
-};
-
-export const recentlyPlayedBefore = (state = null, action) => {
-	switch(action.type) {
-		case 'RECENTLY_PLAYED_BEFORE':
-			return action.payload;
-		default: 
-			return state;	
-	}
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_RECENTLY_PLAYED_TRACKS_PENDING:
+      return {
+        ...state,
+        pending: true,
+      };
+    case FETCH_RECENTLY_PLAYED_TRACKS_SUCCESS:
+      return {
+        ...state,
+        tracks: [
+          ...state.tracks,
+          ...action.payload,
+        ],
+        error: false,
+      };
+    case FETCH_RECENTLY_PLAYED_TRACKS_ERROR:
+      return {
+        ...state,
+        pending: false,
+        error: action.payload,
+      };
+    case FETCH_RECENTLY_PLAYED_TRACKS_HAS_MORE:
+      return {
+        ...state,
+        pending: false,
+        hasMore: action.payload,
+      };
+    case FETCH_RECENTLY_PLAYED_TRACKS_BEFORE:
+      return {
+        ...state,
+        before: action.payload,
+      };
+    default:
+      return state;
+  }
 };
