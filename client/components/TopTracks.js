@@ -15,6 +15,7 @@ import {
   CardsGrid,
   Title,
 } from '../styles/cards';
+import Loader from '../styles/loader';
 
 class TopTracks extends Component {
   componentDidMount = () => {
@@ -27,11 +28,9 @@ class TopTracks extends Component {
       <CardsGrid>
         <Title>Top Tracks</Title>
         <InfiniteScroll
-          pageStart={1}
           initialLoad={false}
           loadMore={() => this.props.fetchTracks(tracks.length)}
           hasMore={!pending && hasMore}
-          loader={<div className="loader">Loading...</div>}
           threshold={250}
         >
           {
@@ -39,6 +38,7 @@ class TopTracks extends Component {
               <Card key={`${track.id}${i}`} data={track} type="track" index={i} />
             ))
           }
+          { pending && <Loader>Loading...</Loader> }
         </InfiniteScroll>
       </CardsGrid>
     );

@@ -18,6 +18,7 @@ import {
   CardsGrid,
   Title,
 } from '../styles/cards';
+import Loader from '../styles/loader';
 
 class RecentlyPlayedTracks extends Component {
   componentDidMount = () => {
@@ -39,7 +40,6 @@ class RecentlyPlayedTracks extends Component {
           initialLoad={false}
           loadMore={() => this.props.fetchRecentlyPlayed(before)}
           hasMore={!pending && hasMore}
-          loader={<div className="loader">Loading...</div>}
           threshold={250}
         >
           {
@@ -47,6 +47,7 @@ class RecentlyPlayedTracks extends Component {
               <Card key={`${track.id}_${i}`} data={track} type="recently-track" index={i} />
             ))
           }
+          { pending && <Loader>Loading...</Loader> }
         </InfiniteScroll>
       </CardsGrid>
     );

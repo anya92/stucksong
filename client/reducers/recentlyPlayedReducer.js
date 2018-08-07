@@ -39,12 +39,12 @@ export default (state = initialState, action) => {
     case FETCH_RECENTLY_PLAYED_TRACKS_HAS_MORE:
       return {
         ...state,
-        pending: false,
         hasMore: action.payload,
       };
     case FETCH_RECENTLY_PLAYED_TRACKS_BEFORE:
       return {
         ...state,
+        pending: false,
         before: action.payload,
       };
     default:

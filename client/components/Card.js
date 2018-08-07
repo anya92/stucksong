@@ -29,7 +29,7 @@ const Card = ({ data, type, index }) => (
     <CardImage>
       <CardImageLink>
         <a
-          href={`https://open.spotify.com/${type}/${data.id}`}
+          href={`https://open.spotify.com/${type === 'artist' ? 'artist' : 'track'}/${data.id}`}
           // href={`${data.uri}`}
           target="_blank"
           rel="noopener noreferrer"

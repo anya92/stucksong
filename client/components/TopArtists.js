@@ -11,12 +11,12 @@ import {
 
 import { fetchArtists } from '../actions';
 
+import Card from './Card';
 import {
   CardsGrid,
   Title,
 } from '../styles/cards';
-
-import Card from './Card';
+import Loader from '../styles/loader';
 
 class TopArtists extends Component {
   componentDidMount = () => {
@@ -29,11 +29,9 @@ class TopArtists extends Component {
       <CardsGrid>
         <Title>Top Artists</Title>
         <InfiniteScroll
-          pageStart={1}
           initialLoad={false}
           loadMore={() => this.props.fetchArtists(artists.length)}
           hasMore={!pending && hasMore}
-          loader={<div className="loader">Loading...</div>}
           threshold={250}
         >
           {
@@ -41,6 +39,7 @@ class TopArtists extends Component {
               <Card key={artist.id} data={artist} type="artist" index={i} />
             ))
           }
+          { pending && <Loader>Loading...</Loader> }
         </InfiniteScroll>
       </CardsGrid>
     );
