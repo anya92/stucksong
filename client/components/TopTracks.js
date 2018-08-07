@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux';
 import {
@@ -16,41 +16,54 @@ import {
   Title,
 } from '../styles/cards';
 
-const TopTracks = ({ tracks, fetchTracks, hasMore }) => (
-  <CardsGrid>
-    <Title>Top Tracks</Title>
-    <InfiniteScroll
-      pageStart={0}
-      loadMore={() => fetchTracks(tracks.length)}
-      hasMore={hasMore}
-      loader={<div className="loader">Loading...</div>}
-      threshold={500}
-    >
-      {
-        tracks.map((track, i) => (
-          <Card key={track.id} data={track} type="track" index={i} />
-        ))
-      }
-    </InfiniteScroll>
-  </CardsGrid>
-);
+class TopTracks extends Component {
+  componentDidMount = () => {
+    this.props.fetchTracks();
+  }
+
+  render() {
+    const { tracks, hasMore, pending } = this.props.topTracks;
+    return (
+      <CardsGrid>
+        <Title>Top Tracks</Title>
+        <InfiniteScroll
+          pageStart={1}
+          initialLoad={false}
+          loadMore={() => this.props.fetchTracks(tracks.length)}
+          hasMore={!pending && hasMore}
+          loader={<div className="loader">Loading...</div>}
+          threshold={250}
+        >
+          {
+            tracks.map((track, i) => (
+              <Card key={`${track.id}${i}`} data={track} type="track" index={i} />
+            ))
+          }
+        </InfiniteScroll>
+      </CardsGrid>
+    );
+  }
+}
 
 TopTracks.propTypes = {
-  tracks: arrayOf(shape({
-    id: string.isRequired,
-    title: string.isRequired,
-    artist: string.isRequired,
-    album: string.isRequired,
-    image: string.isRequired,
-  })).isRequired,
+  topTracks: shape({
+    pending: bool.isRequired,
+    error: bool.isRequired,
+    hasMore: bool.isRequired,
+    tracks: arrayOf(shape({
+      id: string.isRequired,
+      title: string.isRequired,
+      artist: string.isRequired,
+      album: string.isRequired,
+      image: string.isRequired,
+    })).isRequired,
+  }).isRequired,
   fetchTracks: func.isRequired,
-  hasMore: bool.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    tracks: state.tracks,
-    hasMore: state.hasMoreTracks,
+    topTracks: state.topTracks,
   };
 }
 

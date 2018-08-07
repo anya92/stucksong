@@ -7,6 +7,7 @@ module.exports = {
         "react/jsx-filename-extension": "off",
         "react/destructuring-assignment": "off",
         "react/jsx-one-expression-per-line": "off",
+        "react/no-array-index-key": "off",
     },
     "env": {
         "browser": true,

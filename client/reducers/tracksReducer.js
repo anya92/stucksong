@@ -1,19 +1,45 @@
-import { FETCH_TRACKS, HAS_MORE_TRACKS } from '../actions/types';
+import {
+  FETCH_TOP_TRACKS_PENDING,
+  FETCH_TOP_TRACKS_SUCCESS,
+  FETCH_TOP_TRACKS_ERROR,
+  FETCH_TOP_TRACKS_HAS_MORE,
+} from '../actions/types';
 
-export const tracks = (state = [], action) => {
-	switch(action.type) {
-		case FETCH_TRACKS:
-			return state.concat(action.payload);
-		default:
-			return state;
-	}
+const initialState = {
+  pending: false,
+  tracks: [],
+  error: false,
+  hasMore: true,
 };
 
-export const hasMoreTracks = (state = true, action) => {
-	switch(action.type) {
-		case HAS_MORE_TRACKS:
-			return action.payload;
-		default:
-			return state;		
-	}
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_TOP_TRACKS_PENDING:
+      return {
+        ...state,
+        pending: true,
+      };
+    case FETCH_TOP_TRACKS_SUCCESS:
+      return {
+        ...state,
+        tracks: [
+          ...state.tracks,
+          ...action.payload,
+        ],
+      };
+    case FETCH_TOP_TRACKS_ERROR:
+      return {
+        ...state,
+        pending: false,
+        error: true,
+      };
+    case FETCH_TOP_TRACKS_HAS_MORE:
+      return {
+        ...state,
+        pending: false,
+        hasMore: action.payload,
+      };
+    default:
+      return state;
+  }
 };
