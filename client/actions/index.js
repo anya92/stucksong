@@ -30,23 +30,25 @@ export const fetchTracks = (offset = 0) => (dispatch) => {
 };
 
 export const fetchArtists = (offset = 0) => (dispatch) => {
+  dispatch({ type: types.FETCH_TOP_ARTISTS_PENDING });
   axios.get(`/api/top_artists?offset=${offset}`)
     .then((res) => {
-      // check if there will be data in the next request
-      const hasMore = !res.data.next ? false : true;
-      dispatch({ type: types.HAS_MORE_ARTISTS, payload: hasMore });
-
-      let artists = [];
+      const artists = [];
       res.data.items.forEach((artist) => {
         artists.push({
           id: artist.id,
           name: artist.name,
           image: artist.images[1].url,
           genres: artist.genres,
+          uri: artist.uri,
         });
       });
-      dispatch({ type: types.FETCH_ARTISTS, payload: artists });
-    });
+      dispatch({ type: types.FETCH_TOP_ARTISTS_SUCCESS, payload: artists });
+      // check if there will be data in the next request
+      const hasMore = res.data.next !== null;
+      dispatch({ type: types.FETCH_TOP_ARTISTS_HAS_MORE, payload: hasMore });
+    })
+    .catch(() => dispatch({ type: types.FETCH_TOP_ARTISTS_ERROR }));
 };
 
 export const createPlaylist = (name, description, numberOfTracks = 50) => (dispatch) => {
