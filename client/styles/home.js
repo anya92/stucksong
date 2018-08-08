@@ -45,19 +45,19 @@ const Background = glamorous.div({
 
 const Title = glamorous.h1({
   zIndex: 2,
-  fontSize: '4.5rem',
+  fontSize: '4.2rem',
   fontWeight: 800,
   fontFamily: 'Dosis',
   textAlign: 'center',
   margin: '10px 0',
   [mediaQueries.tablet]: {
-    fontSize: '7.2rem',
+    fontSize: '7.6rem',
   },
 });
 
 const Description = glamorous.h4({
   zIndex: 2,
-  fontSize: '1.6rem',
+  fontSize: '1.4rem',
   padding: '10px',
   fontWeight: 300,
   textAlign: 'center',
@@ -71,20 +71,21 @@ const Description = glamorous.h4({
 
 const LinkWrapper = glamorous.div({
   zIndex: 5,
-  '& .fa': {
+  '& img': {
     marginRight: '5px',
-    fontSize: '1.4rem',
   },
   '& a': {
     color: '#fff',
     fontWeight: 500,
     padding: '20px',
     textDecoration: 'none',
-    display: 'inline-block',
-    marginTop: '40px',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '20px',
     position: 'relative',
     [mediaQueries.tablet]: {
-      fontSize: '1.2rem',
+      fontSize: '1.25rem',
     },
     '&:before, &:after': {
       position: 'absolute',

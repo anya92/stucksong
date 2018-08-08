@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 
 import '../node_modules/modern-normalize/modern-normalize.css';
-import './styles/style.scss';
+import './styles/style.css';
 
 import reducer from './reducers';
 import App from './components/App';

@@ -1,4 +1,5 @@
 import React from 'react';
+import svgSrc from '../../assets/spotify.svg';
 
 import {
   Container,
@@ -20,7 +21,7 @@ export default () => (
     </Description>
     <LinkWrapper>
       <a href="/auth/spotify">
-        <i className="fa fa-spotify" aria-hidden="true" />
+        <img src={svgSrc} alt="spotify-logo" />
         Login with Spotify
       </a>
     </LinkWrapper>
