@@ -4,7 +4,7 @@ import {
   number,
   object,
 } from 'prop-types';
-import moment from 'moment';
+import format from 'date-fns/format';
 
 import {
   CardImage,
@@ -39,7 +39,7 @@ const Card = ({ data, type, index }) => (
       <img src={data.image} alt={type === 'artist' ? data.name : data.album} />
       {
         type === 'recently-track'
-        && <CardImageDate>{ moment(data.played_at).format('DD MMM - HH:mm') }</CardImageDate>
+        && <CardImageDate>{ format(data.played_at, 'DD MMM - HH:mm') }</CardImageDate>
       }
     </CardImage>
     <CardInfo>

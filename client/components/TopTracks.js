@@ -6,6 +6,7 @@ import {
   string,
   func,
   bool,
+  oneOfType,
 } from 'prop-types';
 import { fetchTracks } from '../actions';
 
@@ -47,7 +48,7 @@ const TopTracks = ({
 TopTracks.propTypes = {
   topTracks: shape({
     pending: bool.isRequired,
-    error: bool.isRequired,
+    error: oneOfType([bool, string]).isRequired,
     hasMore: bool.isRequired,
     tracks: arrayOf(shape({
       id: string.isRequired,

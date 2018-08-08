@@ -6,6 +6,7 @@ import {
   string,
   func,
   bool,
+  oneOfType,
 } from 'prop-types';
 
 import { fetchArtists } from '../actions';
@@ -47,7 +48,7 @@ const TopArtists = ({
 TopArtists.propTypes = {
   topArtists: shape({
     pending: bool.isRequired,
-    error: bool.isRequired,
+    error: oneOfType([bool, string]).isRequired,
     hasMore: bool.isRequired,
     artists: arrayOf(shape({
       id: string.isRequired,
