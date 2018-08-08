@@ -6522,7 +6522,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0:
+prop-types@^15.5.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -6706,12 +6706,6 @@ react-html-attributes@^1.4.2:
   resolved "https://registry.yarnpkg.com/react-html-attributes/-/react-html-attributes-1.4.3.tgz#8c36c35fce6b750938d286af428ed1da7625186e"
   dependencies:
     html-element-attributes "^1.0.0"
-
-react-infinite-scroller@1.0.15:
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/react-infinite-scroller/-/react-infinite-scroller-1.0.15.tgz#9fad0127be540cb327ea6b0ecb98d164e1a1d3fb"
-  dependencies:
-    prop-types "^15.5.8"
 
 react-loadable@^5.3.1:
   version "5.3.1"

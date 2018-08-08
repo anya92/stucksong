@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import InfiniteScroll from 'react-infinite-scroller';
+import React from 'react';
 import { connect } from 'react-redux';
 import {
   arrayOf,
@@ -10,40 +9,40 @@ import {
 } from 'prop-types';
 import { fetchTracks } from '../actions';
 
+import InfiniteScroll from './InfiniteScroll';
 import Card from './Card';
-import {
-  CardsGrid,
-  Title,
-} from '../styles/cards';
+
+import { CardsGrid } from '../styles/cards';
 import Loader from '../styles/loader';
 
-class TopTracks extends Component {
-  componentDidMount = () => {
-    this.props.fetchTracks();
-  }
+const TopTracks = ({
+  topTracks: {
+    tracks,
+    hasMore,
+    pending,
+    error,
+  },
+  fetchTracks,
+}) => (
+  <CardsGrid>
+    <InfiniteScroll
+      loadMore={() => fetchTracks(tracks.length)}
+      isLoading={pending}
+      hasMore={hasMore}
+    >
+      <React.Fragment>
+        { tracks.length > 0 && <h1>Your Top Tracks</h1> }
+        {
+          tracks.map((track, i) => (
+            <Card key={`${track.id}${i}`} data={track} type="track" index={i} />
+          ))
+        }
+        { pending && <Loader>Loading...</Loader> }
+      </React.Fragment>
+    </InfiniteScroll>
+  </CardsGrid>
+);
 
-  render() {
-    const { tracks, hasMore, pending } = this.props.topTracks;
-    return (
-      <CardsGrid>
-        <Title>Top Tracks</Title>
-        <InfiniteScroll
-          initialLoad={false}
-          loadMore={() => this.props.fetchTracks(tracks.length)}
-          hasMore={!pending && hasMore}
-          threshold={250}
-        >
-          {
-            tracks.map((track, i) => (
-              <Card key={`${track.id}${i}`} data={track} type="track" index={i} />
-            ))
-          }
-          { pending && <Loader>Loading...</Loader> }
-        </InfiniteScroll>
-      </CardsGrid>
-    );
-  }
-}
 
 TopTracks.propTypes = {
   topTracks: shape({

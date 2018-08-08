@@ -12,6 +12,7 @@ import { theme, Container } from '../styles/global';
 import { fetchUser } from '../actions';
 
 import Routes from './Routes';
+import ErrorBoundry from './ErrorBoundry';
 
 function mapStateToProps(state) {
   return {
@@ -38,9 +39,11 @@ class App extends Component {
     if (auth === null) return <div />;
     return (
       <ThemeProvider theme={theme}>
-        <Container>
-          <Routes auth={auth} />
-        </Container>
+        <ErrorBoundry>
+          <Container>
+            <Routes auth={auth} />
+          </Container>
+        </ErrorBoundry>
       </ThemeProvider>
     );
   }

@@ -131,5 +131,5 @@ exports.getRecentlyPlayed = () => async (req, res) => {
 			'Authorization': `Bearer ${req.cookies.accessToken || res.locals.accessToken}`
 		}
 	});
-	res.json(tracks.data);
+		res.json(tracks.data);
 }

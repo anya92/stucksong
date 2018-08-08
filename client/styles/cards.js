@@ -13,41 +13,11 @@ const CardsGrid = glamorous.div({
   },
 });
 
-const Title = glamorous.h1({
-  color: '#333',
-  display: 'inline-block',
-  fontSize: '1.4rem',
-  fontFamily: 'Open Sans',
-  fontWeight: 800,
-  textAlign: 'left',
-  marginTop: '20px',
-  position: 'relative',
-  '&:after': {
-    content: ' ',
-    position: 'absolute',
-    width: '100%',
-    height: '6px',
-    left: 0,
-    bottom: '1px',
-    zIndex: -1,
-  },
-  [mediaQueries.tablet]: {
-    display: 'none',
-  },
-}, ({ theme }) => ({
-  '&:after': {
-    background: theme.mainColor,
-  },
-}));
-
 const CardImage = glamorous.div({
   position: 'relative',
   '& img': {
     width: '100%',
     height: '100%',
-    // objectFit: 'cover',
-    // position: 'absolute',
-    // top: 0,
   },
   '&:hover > div:first-of-type': {
     visibility: 'visible',
@@ -135,7 +105,6 @@ const CardGenres = glamorous.div({
 
 export {
   CardsGrid,
-  Title,
   CardImage,
   CardImageLink,
   CardImageDate,

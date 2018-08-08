@@ -26,7 +26,7 @@ export const fetchTracks = (offset = 0) => (dispatch) => {
       const hasMore = res.data.next !== null;
       dispatch({ type: types.FETCH_TOP_TRACKS_HAS_MORE, payload: hasMore });
     })
-    .catch(error => dispatch({ type: types.FETCH_TOP_TRACKS_ERROR, payload: error }));
+    .catch(error => dispatch({ type: types.FETCH_TOP_TRACKS_ERROR, payload: error.message }));
 };
 
 export const fetchArtists = (offset = 0) => (dispatch) => {
@@ -48,7 +48,7 @@ export const fetchArtists = (offset = 0) => (dispatch) => {
       const hasMore = res.data.next !== null;
       dispatch({ type: types.FETCH_TOP_ARTISTS_HAS_MORE, payload: hasMore });
     })
-    .catch(error => dispatch({ type: types.FETCH_TOP_ARTISTS_ERROR, payload: error }));
+    .catch(error => dispatch({ type: types.FETCH_TOP_ARTISTS_ERROR, payload: error.message }));
 };
 
 export const createPlaylist = (name, description, numberOfTracks = 50) => (dispatch) => {
@@ -69,7 +69,7 @@ export const createPlaylist = (name, description, numberOfTracks = 50) => (dispa
 
 export const fetchRecentlyPlayed = before => (dispatch) => {
   dispatch({ type: types.FETCH_RECENTLY_PLAYED_TRACKS_PENDING });
-  axios.get(`/api/recently_played?before=${before}`)
+  axios.get(`/api/recently_played?before=${before || Date.now()}`)
     .then((res) => {
       const tracks = [];
       res.data.items.forEach((item) => {
@@ -91,5 +91,5 @@ export const fetchRecentlyPlayed = before => (dispatch) => {
       const before = res.data.next ? res.data.cursors.before : null;
       dispatch({ type: types.FETCH_RECENTLY_PLAYED_TRACKS_BEFORE, payload: before });
     })
-    .catch(error => dispatch({ type: types.FETCH_RECENTLY_PLAYED_TRACKS_ERROR, payload: error }));
+    .catch(error => dispatch({ type: types.FETCH_RECENTLY_PLAYED_TRACKS_ERROR, payload: error.message }));
 };

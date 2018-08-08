@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import InfiniteScroll from 'react-infinite-scroller';
 import {
   arrayOf,
   shape,
@@ -11,40 +10,39 @@ import {
 
 import { fetchArtists } from '../actions';
 
+import InfiniteScroll from './InfiniteScroll';
 import Card from './Card';
-import {
-  CardsGrid,
-  Title,
-} from '../styles/cards';
+
+import { CardsGrid } from '../styles/cards';
 import Loader from '../styles/loader';
 
-class TopArtists extends Component {
-  componentDidMount = () => {
-    this.props.fetchArtists();
-  }
-
-  render() {
-    const { pending, hasMore, artists } = this.props.topArtists;
-    return (
-      <CardsGrid>
-        <Title>Top Artists</Title>
-        <InfiniteScroll
-          initialLoad={false}
-          loadMore={() => this.props.fetchArtists(artists.length)}
-          hasMore={!pending && hasMore}
-          threshold={250}
-        >
-          {
-            artists.map((artist, i) => (
-              <Card key={artist.id} data={artist} type="artist" index={i} />
-            ))
-          }
-          { pending && <Loader>Loading...</Loader> }
-        </InfiniteScroll>
-      </CardsGrid>
-    );
-  }
-}
+const TopArtists = ({
+  topArtists: {
+    artists,
+    pending,
+    hasMore,
+    error,
+  },
+  fetchArtists,
+}) => (
+  <CardsGrid>
+    <InfiniteScroll
+      loadMore={() => fetchArtists(artists.length)}
+      isLoading={pending}
+      hasMore={hasMore}
+    >
+      <React.Fragment>
+        { artists.length > 0 && <h1>Your Top Artists</h1> }
+        {
+          artists.map((artist, i) => (
+            <Card key={artist.id} data={artist} type="artist" index={i} />
+          ))
+        }
+        { pending && <Loader>Loading...</Loader> }
+      </React.Fragment>
+    </InfiniteScroll>
+  </CardsGrid>
+);
 
 TopArtists.propTypes = {
   topArtists: shape({
