@@ -17,6 +17,11 @@ import Card from './Card';
 
 import { CardsGrid } from '../styles/cards';
 import Loader from '../styles/loader';
+import Loadable from './HOC/Loadable';
+
+const AsyncError = Loadable({
+  loader: () => import('./ErrorComponent'),
+});
 
 const RecentlyPlayedTracks = ({
   recentlyPlayedTracks: {
@@ -27,31 +32,28 @@ const RecentlyPlayedTracks = ({
     error,
   },
   fetchRecentlyPlayed,
-}) => (
-  <CardsGrid>
-    {
-      error
-        ? <div>{error}</div>
-        : (
-          <InfiniteScroll
-            loadMore={() => fetchRecentlyPlayed(before)}
-            isLoading={pending}
-            hasMore={hasMore}
-          >
-            <React.Fragment>
-              { tracks.length > 0 && <h1>Your Recently Played Tracks</h1> }
-              {
-                tracks.map((track, i) => (
-                  <Card key={`${track.id}_${i}`} data={track} type="recently-track" index={i} />
-                ))
-              }
-              { pending && <Loader>Loading...</Loader> }
-            </React.Fragment>
-          </InfiniteScroll>
-        )
-    }
-  </CardsGrid>
-);
+}) => {
+  if (error) return <AsyncError error={error} />;
+  return (
+    <CardsGrid>
+      <InfiniteScroll
+        loadMore={() => fetchRecentlyPlayed(before)}
+        isLoading={pending}
+        hasMore={hasMore}
+      >
+        <React.Fragment>
+          { tracks.length > 0 && <h1>Your Recently Played Tracks</h1> }
+          {
+            tracks.map((track, i) => (
+              <Card key={`${track.id}_${i}`} data={track} type="recently-track" index={i} />
+            ))
+          }
+          { pending && <Loader>Loading...</Loader> }
+        </React.Fragment>
+      </InfiniteScroll>
+    </CardsGrid>
+  );
+};
 
 RecentlyPlayedTracks.propTypes = {
   recentlyPlayedTracks: shape({

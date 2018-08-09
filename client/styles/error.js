@@ -1,27 +1,36 @@
 import glamorous from 'glamorous';
+import { mediaQueries } from './global';
 
 const ErrorContainer = glamorous.div({
   fontFamily: 'Nunito',
-  fontSize: '20px',
   color: '#333',
-  height: '100%',
+  height: 'calc(100vh - 100px)',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  alignItems: 'center',
+  // alignItems: 'center',
+  textAlign: 'center',
   '& h1': {
-    fontSize: '5rem',
+    // fontSize: '5rem',
     margin: '20px 0',
   },
   '& h2': {
-    fontSize: '1.6rem',
+    // fontSize: '1.6rem',
     fontWeight: 600,
     margin: '10px 0',
   },
   '& p': {
     color: '#555',
-    fontWeight: 400,
+    fontWeight: 300,
   },
+  [mediaQueries.tablet]: {
+    '& h1': {
+      fontSize: '5rem',
+    },
+    '& h2': {
+      fontSize: '1.6rem',
+    },
+  }
 });
 
 const Page404 = glamorous.div({

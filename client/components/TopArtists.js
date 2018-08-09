@@ -16,6 +16,11 @@ import Card from './Card';
 
 import { CardsGrid } from '../styles/cards';
 import Loader from '../styles/loader';
+import Loadable from './HOC/Loadable';
+
+const AsyncError = Loadable({
+  loader: () => import('./ErrorComponent'),
+});
 
 const TopArtists = ({
   topArtists: {
@@ -25,25 +30,28 @@ const TopArtists = ({
     error,
   },
   fetchArtists,
-}) => (
-  <CardsGrid>
-    <InfiniteScroll
-      loadMore={() => fetchArtists(artists.length)}
-      isLoading={pending}
-      hasMore={hasMore}
-    >
-      <React.Fragment>
-        { artists.length > 0 && <h1>Your Top Artists</h1> }
-        {
-          artists.map((artist, i) => (
-            <Card key={artist.id} data={artist} type="artist" index={i} />
-          ))
-        }
-        { pending && <Loader>Loading...</Loader> }
-      </React.Fragment>
-    </InfiniteScroll>
-  </CardsGrid>
-);
+}) => {
+  if (error) return <AsyncError error={error} />;
+  return (
+    <CardsGrid>
+      <InfiniteScroll
+        loadMore={() => fetchArtists(artists.length)}
+        isLoading={pending}
+        hasMore={hasMore}
+      >
+        <React.Fragment>
+          { artists.length > 0 && <h1>Your Top Artists</h1> }
+          {
+            artists.map((artist, i) => (
+              <Card key={artist.id} data={artist} type="artist" index={i} />
+            ))
+          }
+          { pending && <Loader>Loading...</Loader> }
+        </React.Fragment>
+      </InfiniteScroll>
+    </CardsGrid>
+  );
+};
 
 TopArtists.propTypes = {
   topArtists: shape({

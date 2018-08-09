@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { element } from 'prop-types';
+import { element, func, oneOfType } from 'prop-types';
+import Loadable from './HOC/Loadable';
 
-import { ErrorContainer } from '../styles/error';
+const AsyncError = Loadable({
+  loader: () => import('./ErrorComponent'),
+});
 
 export default class ErrorBoundry extends Component {
   static propTypes = {
-    children: element.isRequired,
+    children: oneOfType([element, func]).isRequired,
   }
 
   state = {
@@ -20,11 +23,7 @@ export default class ErrorBoundry extends Component {
   render() {
     if (this.state.hasError) {
       return (
-        <ErrorContainer>
-          <h1>Error <span role="img" aria-label="sad-emoji">😞</span></h1>
-          <h2>Please try again later.</h2>
-          <p>Additional info: {this.state.error}</p>
-        </ErrorContainer>
+        <AsyncError error={this.state.error} />
       );
     }
     return (

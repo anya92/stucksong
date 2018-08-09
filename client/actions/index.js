@@ -54,6 +54,7 @@ export const fetchArtists = (offset = 0) => (dispatch) => {
 
 export const fetchRecentlyPlayed = before => (dispatch) => {
   dispatch({ type: types.FETCH_RECENTLY_PLAYED_TRACKS_PENDING });
+
   axios.get(`/api/recently_played?before=${before || Date.now()}`)
     .then((res) => {
       const tracks = [];
