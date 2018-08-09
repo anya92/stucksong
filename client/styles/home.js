@@ -74,7 +74,7 @@ const LinkWrapper = glamorous.div({
   '& img': {
     marginRight: '5px',
   },
-  '& a': {
+  '& a, & button': {
     color: '#fff',
     fontWeight: 500,
     padding: '20px',

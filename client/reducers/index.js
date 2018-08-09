@@ -3,7 +3,7 @@ import auth from './authReducer';
 import topTracks from './tracksReducer';
 import topArtists from './artistsReducer';
 import recentlyPlayedTracks from './recentlyPlayedReducer';
-import playlistReducer from './playlistReducer';
+import playlist from './playlistReducer';
 
 
 export default combineReducers({
@@ -11,5 +11,5 @@ export default combineReducers({
   topTracks,
   topArtists,
   recentlyPlayedTracks,
-  playlist: playlistReducer,
+  playlist,
 });
