@@ -3,7 +3,8 @@ import * as types from './types';
 
 export const fetchUser = () => (dispatch) => {
   axios.get('/auth/current_user')
-    .then(res => dispatch({ type: types.FETCH_USER, payload: res.data }));
+    .then(res => dispatch({ type: types.FETCH_USER, payload: res.data }))
+    .catch(console.log);
 };
 
 export const fetchTracks = (offset = 0) => (dispatch) => {
@@ -51,22 +52,6 @@ export const fetchArtists = (offset = 0) => (dispatch) => {
     .catch(error => dispatch({ type: types.FETCH_TOP_ARTISTS_ERROR, payload: error.message }));
 };
 
-export const createPlaylist = (name, description, numberOfTracks = 50) => (dispatch) => {
-  axios.get(`/api/create_playlist?name=${name}&description=${description}&numberOfTracks=${numberOfTracks}`)
-    .then((res) => {
-      const tracksImages = res.data.playlist_info.tracks.items.map(item => item.track.album.images[0].url);
-      const playlist = {
-        name: res.data.playlist_info.name,
-        description: res.data.playlist_info.description,
-        url: res.data.playlist_info.external_urls.spotify,
-        image: res.data.playlist_info.images[0].url,
-        numberOfTracks: res.data.playlist_info.tracks.total,
-        tracksImages,
-      };
-      dispatch({ type: types.CREATED_PLAYLIST, payload: playlist });
-    });
-};
-
 export const fetchRecentlyPlayed = before => (dispatch) => {
   dispatch({ type: types.FETCH_RECENTLY_PLAYED_TRACKS_PENDING });
   axios.get(`/api/recently_played?before=${before || Date.now()}`)
@@ -91,5 +76,24 @@ export const fetchRecentlyPlayed = before => (dispatch) => {
       const before = res.data.next ? res.data.cursors.before : null;
       dispatch({ type: types.FETCH_RECENTLY_PLAYED_TRACKS_BEFORE, payload: before });
     })
-    .catch(error => dispatch({ type: types.FETCH_RECENTLY_PLAYED_TRACKS_ERROR, payload: error.message }));
+    .catch((error) => {
+      dispatch({ type: types.FETCH_RECENTLY_PLAYED_TRACKS_ERROR, payload: error.message });
+    });
+};
+
+export const createPlaylist = (name, description, numberOfTracks = 50) => (dispatch) => {
+  axios.get(`/api/create_playlist?name=${name}&description=${description}&numberOfTracks=${numberOfTracks}`)
+    .then((res) => {
+      // const tracksImages = res.data.playlist_info.tracks.items.map(item => item.track.album.images[0].url);
+      const playlist = {
+        name: res.data.playlist_info.name,
+        description: res.data.playlist_info.description,
+        url: res.data.playlist_info.external_urls.spotify,
+        image: res.data.playlist_info.images[0].url,
+        numberOfTracks: res.data.playlist_info.tracks.total,
+        tracks: res.data.playlist_info.tracks.items,
+        // tracksImages,
+      };
+      dispatch({ type: types.CREATED_PLAYLIST, payload: playlist });
+    });
 };

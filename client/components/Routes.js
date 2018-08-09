@@ -31,6 +31,10 @@ const AsyncCreatePlaylist = Loadable({
   loader: () => import('./CreatePlaylist'),
 });
 
+const AsyncPage404 = Loadable({
+  loader: () => import('./Page404'),
+});
+
 const Routes = ({ auth }) => (
   <Router>
     <div>
@@ -41,6 +45,7 @@ const Routes = ({ auth }) => (
         <Route path="/top-artists" component={requireAuth(AsyncArtists)} />
         <Route path="/recently-played" component={requireAuth(AsyncRecently)} />
         <Route path="/create-playlist" component={requireAuth(AsyncCreatePlaylist)} />
+        <Route component={AsyncPage404} />
       </Switch>
     </div>
   </Router>
