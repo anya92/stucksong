@@ -119,11 +119,30 @@ const FormButton = glamorous.div({
   },
 }));
 
-const PlaylistLink = glamorous.div({
+const PlaylistLinks = glamorous.div({
   marginBottom: '40px',
+  display: 'grid',
+  gridGap: '10px',
   '& a': {
     color: '#333',
     fontSize: '1.4rem',
+    marginRight: '20px',
+  },
+});
+
+const PlaylistLinkShare = glamorous.div({
+  fontSize: '1.4rem',
+  '& div:first-of-type': {
+    marginTop: '10px',
+    '& .SocialMediaShareButton': {
+      display: 'inline-block',
+      margin: '0 5px',
+      cursor: 'pointer',
+      transition: 'transform .3s ease-out',
+      '&:hover': {
+        transform: 'scale(1.4)',
+      },
+    },
   },
 });
 
@@ -149,7 +168,8 @@ export {
   InputGroupAddon,
   DangerInfo,
   FormButton,
-  PlaylistLink,
+  PlaylistLinks,
+  PlaylistLinkShare,
   PlaylistTracks,
   PlaylistTrackTitle,
   PlaylistTrackInfo,

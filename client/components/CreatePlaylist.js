@@ -44,7 +44,11 @@ class CreatePlaylist extends Component {
       );
     }
     return (
-      <Playlist playlist={playlist} />
+      <Playlist
+        playlist={playlist}
+        modal={this.state.modal}
+        toggleModal={this.toggleModal}
+      />
     );
   }
 }
