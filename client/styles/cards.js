@@ -99,7 +99,6 @@ const CardAlbum = glamorous.div({
 
 const CardGenres = glamorous.div({
   fontWeight: 300,
-  // fontSize: '.9rem',
   lineHeight: '18px',
 });
 

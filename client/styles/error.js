@@ -8,14 +8,11 @@ const ErrorContainer = glamorous.div({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  // alignItems: 'center',
   textAlign: 'center',
   '& h1': {
-    // fontSize: '5rem',
     margin: '20px 0',
   },
   '& h2': {
-    // fontSize: '1.6rem',
     fontWeight: 600,
     margin: '10px 0',
   },
@@ -30,7 +27,7 @@ const ErrorContainer = glamorous.div({
     '& h2': {
       fontSize: '1.6rem',
     },
-  }
+  },
 });
 
 const Page404 = glamorous.div({

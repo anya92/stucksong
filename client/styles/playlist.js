@@ -1,6 +1,5 @@
 import glamorous from 'glamorous';
 import { mediaQueries } from './global';
-import { LinkWrapper } from './home';
 
 const PlaylistContainer = glamorous.div({
   display: 'grid',

@@ -4,11 +4,14 @@ import { createPlaylist } from '../actions';
 import Loadable from './HOC/Loadable';
 
 import PlaylistForm from './PlaylistForm';
-import Playlist from './Playlist';
 import Loader from '../styles/loader';
 
 const AsyncError = Loadable({
   loader: () => import('./ErrorComponent'),
+});
+
+const AsyncPlaylist = Loadable({
+  loader: () => import('./Playlist'),
 });
 
 class CreatePlaylist extends Component {
@@ -44,7 +47,7 @@ class CreatePlaylist extends Component {
       );
     }
     return (
-      <Playlist
+      <AsyncPlaylist
         playlist={playlist}
         modal={this.state.modal}
         toggleModal={this.toggleModal}
