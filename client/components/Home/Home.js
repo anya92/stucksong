@@ -16,7 +16,7 @@ export default () => (
       stucksong
     </Title>
     <Description>
-      Get your top tracks and artists <br />
+      Get your top tracks and artists<br />
       Create a playlist of your top songs
     </Description>
     <LinkWrapper>

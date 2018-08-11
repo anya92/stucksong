@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component renders Home component correctly 1`] = `
+<glamorous(div)>
+  <glamorous(div) />
+  <glamorous(h1)>
+    stucksong
+  </glamorous(h1)>
+  <glamorous(h4)>
+    Get your top tracks and artists
+    <br />
+    Create a playlist of your top songs
+  </glamorous(h4)>
+  <glamorous(div)>
+    <a
+      href="/auth/spotify"
+    >
+      <img
+        alt="spotify-logo"
+        src="spotify.svg"
+      />
+      Login with Spotify
+    </a>
+  </glamorous(div)>
+</glamorous(div)>
+`;
