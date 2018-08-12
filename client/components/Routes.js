@@ -32,7 +32,7 @@ const AsyncCreatePlaylist = Loadable({
 });
 
 const AsyncPage404 = Loadable({
-  loader: () => import('./Page404'),
+  loader: () => import('./Page404/Page404'),
 });
 
 const Routes = ({ auth }) => (
