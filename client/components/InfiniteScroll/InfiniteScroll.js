@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import {
-  element,
   bool,
   func,
+  node,
+  oneOfType,
+  arrayOf,
 } from 'prop-types';
 
 export default class InfiniteScroll extends Component {
   static propTypes = {
-    children: element.isRequired,
+    children: oneOfType([
+      arrayOf(node),
+      node,
+    ]).isRequired,
     hasMore: bool.isRequired,
     isLoading: bool.isRequired,
     loadMore: func.isRequired,

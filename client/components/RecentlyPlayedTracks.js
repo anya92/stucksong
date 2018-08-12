@@ -12,7 +12,7 @@ import {
 
 import { fetchRecentlyPlayed } from '../actions';
 
-import InfiniteScroll from './InfiniteScroll';
+import InfiniteScroll from './InfiniteScroll/InfiniteScroll';
 import Card from './Card';
 
 import { CardsGrid } from '../styles/cards';
