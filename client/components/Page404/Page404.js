@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Page404 } from '../../styles/error';
+import { Page404 } from '../../styles/info';
 
 export default () => (
   <Page404>

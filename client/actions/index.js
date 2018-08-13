@@ -85,18 +85,19 @@ export const createPlaylist = (name, description, numberOfTracks = 50) => (dispa
   dispatch({ type: types.CREATE_PLAYLIST_PENDING });
   axios.get(`/api/create_playlist?name=${name}&description=${description}&numberOfTracks=${numberOfTracks}`)
     .then((res) => {
-      const tracks = res.data.playlist_info.tracks.items.map(item => ({
+      const playlistInfo = res.data.playlist_info;
+      const tracks = playlistInfo.tracks.items.map(item => ({
         id: item.track.id,
         title: item.track.name,
         artist: item.track.artists[0].name,
         album: item.track.album.name,
       }));
       const playlist = {
-        name: res.data.playlist_info.name,
-        description: res.data.playlist_info.description,
-        url: res.data.playlist_info.external_urls.spotify,
-        image: res.data.playlist_info.images[0].url,
-        numberOfTracks: res.data.playlist_info.tracks.total,
+        name: playlistInfo.name,
+        description: playlistInfo.description,
+        url: playlistInfo.external_urls.spotify,
+        image: playlistInfo.images[0] ? playlistInfo.images[0].url : '',
+        numberOfTracks: playlistInfo.tracks.total,
         tracks,
       };
       dispatch({ type: types.CREATE_PLAYLIST_SUCCESS, payload: playlist });

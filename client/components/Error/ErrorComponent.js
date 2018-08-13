@@ -1,6 +1,6 @@
 import React from 'react';
 import { string } from 'prop-types';
-import { ErrorContainer } from '../../styles/error';
+import { ErrorContainer } from '../../styles/info';
 
 const ErrorComponent = ({ error }) => (
   <ErrorContainer>

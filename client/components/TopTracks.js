@@ -15,6 +15,7 @@ import Card from './Card';
 
 import { CardsGrid } from '../styles/cards';
 import Loader from '../styles/loader';
+import NoData from './NoData';
 import Loadable from './HOC/Loadable';
 
 const AsyncError = Loadable({
@@ -33,6 +34,7 @@ const TopTracks = ({
   if (error) return <AsyncError error={error} />;
   return (
     <CardsGrid>
+      { (!pending && tracks.length === 0) && <NoData /> }
       <InfiniteScroll
         loadMore={() => fetchTracks(tracks.length)}
         isLoading={pending}

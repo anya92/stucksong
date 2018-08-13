@@ -11,10 +11,12 @@ const ErrorContainer = glamorous.div({
   textAlign: 'center',
   '& h1': {
     margin: '20px 0',
+    gridColumn: '1 / -1',
   },
   '& h2': {
     fontWeight: 600,
     margin: '10px 0',
+    gridColumn: '1 / -1',
   },
   '& p': {
     color: '#555',
@@ -27,6 +29,20 @@ const ErrorContainer = glamorous.div({
     '& h2': {
       fontSize: '1.6rem',
     },
+  },
+});
+
+const InfoContainer = glamorous.div({
+  textAlign: 'center',
+  '& h1, & h2': {
+    gridColumn: '1 / -1',
+  },
+  '& h1': {
+    fontSize: '2rem',
+  },
+  '& h2': {
+    fontSize: '1.6rem',
+    fontWeight: 400,
   },
 });
 
@@ -49,5 +65,6 @@ const Page404 = glamorous.div({
 
 export {
   ErrorContainer,
+  InfoContainer,
   Page404,
 };
