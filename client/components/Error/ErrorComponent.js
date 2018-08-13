@@ -1,6 +1,6 @@
 import React from 'react';
 import { string } from 'prop-types';
-import { ErrorContainer } from '../styles/error';
+import { ErrorContainer } from '../../styles/error';
 
 const ErrorComponent = ({ error }) => (
   <ErrorContainer>
@@ -11,7 +11,11 @@ const ErrorComponent = ({ error }) => (
 );
 
 ErrorComponent.propTypes = {
-  error: string.isRequired,
+  error: string,
+};
+
+ErrorComponent.defaultProps = {
+  error: '',
 };
 
 export default ErrorComponent;

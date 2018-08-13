@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorComponent renders Error Component correctly 1`] = `
+<glamorous(div)>
+  <h1>
+    Error 
+    <span
+      aria-label="sad-emoji"
+      role="img"
+    >
+      😞
+    </span>
+  </h1>
+  <h2>
+    Please try again later.
+  </h2>
+  <p>
+    Additional info: 
+    Request failed
+  </p>
+</glamorous(div)>
+`;

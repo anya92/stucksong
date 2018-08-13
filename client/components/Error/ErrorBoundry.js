@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { element, func, oneOfType } from 'prop-types';
-import Loadable from './HOC/Loadable';
+import Loadable from '../HOC/Loadable';
 
 const AsyncError = Loadable({
   loader: () => import('./ErrorComponent'),

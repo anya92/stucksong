@@ -12,7 +12,7 @@ import { theme, Container } from '../styles/global';
 import { fetchUser } from '../actions';
 
 import Routes from './Routes';
-import ErrorBoundry from './ErrorBoundry';
+import ErrorBoundry from './Error/ErrorBoundry';
 
 function mapStateToProps(state) {
   return {
