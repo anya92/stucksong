@@ -2,7 +2,7 @@ import React from 'react';
 import {
   string,
   number,
-  object,
+  shape,
 } from 'prop-types';
 import format from 'date-fns/format';
 
@@ -64,7 +64,7 @@ const Card = ({ data, type, index }) => (
 );
 
 Card.propTypes = {
-  data: object.isRequired,
+  data: shape({}).isRequired,
   type: string.isRequired,
   index: number.isRequired,
 };
