@@ -4,22 +4,25 @@ const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const cookieParser = require('cookie-parser');
-const router = require('./routes');
 const path = require('path');
 const cors = require('cors');
+const morgan = require('morgan');
+
+const router = require('./routes');
 
 const app = express();
 require('dotenv').config({ path: 'variables.env' });
 
 mongoose.connect(process.env.DATABASE, {
-  useMongoClient: true
+  useNewUrlParser: true,
 });
-mongoose.connection.on('error', (error) => console.log(error));
+mongoose.connection.on('error', console.log);
 mongoose.Promise = global.Promise;
 
 require('./models/User');
 require('./passport');
 
+app.use(morgan('tiny'));
 app.use(cors());
 
 app.use(session({
@@ -27,9 +30,9 @@ app.use(session({
   key: process.env.KEY,
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({ 
-    mongooseConnection: mongoose.connection 
-  })
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+  }),
 }));
 
 app.use(cookieParser());
