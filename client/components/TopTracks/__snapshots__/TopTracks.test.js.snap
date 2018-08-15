@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopTracks component renders TopTracks with no data correctly 1`] = `
+<glamorous(div)>
+  <NoData />
+  <InfiniteScroll
+    hasMore={true}
+    isLoading={false}
+    loadMore={[Function]}
+  />
+</glamorous(div)>
+`;
+
+exports[`TopTracks component renders TopTracks with pending correctly 1`] = `
+<glamorous(div)>
+  <InfiniteScroll
+    hasMore={true}
+    isLoading={true}
+    loadMore={[Function]}
+  >
+    <h1>
+      Your Top Tracks
+    </h1>
+    <Card
+      data={
+        Object {
+          "album": "Gone Now",
+          "artist": "Bleachers",
+          "id": "3ySU5vwQB33iGulwcUL9qQ",
+          "image": "https://i.scdn.co/image/683a338f942640da90a27169e87c29440f20c4bb",
+          "title": "Don't Take The Money",
+          "uri": "spotify:track:3ySU5vwQB33iGulwcUL9qQ",
+        }
+      }
+      index={0}
+      key="3ySU5vwQB33iGulwcUL9qQ0"
+      type="track"
+    />
+    <Card
+      data={
+        Object {
+          "album": "Something To Tell You",
+          "artist": "HAIM",
+          "id": "20QoFTI0fp2dNNexlHDhTe",
+          "image": "https://i.scdn.co/image/9925a5f35b0a0e7b6f16e8f12c80cb5b4f015d57",
+          "title": "Walking Away",
+          "uri": "spotify:track:20QoFTI0fp2dNNexlHDhTe",
+        }
+      }
+      index={1}
+      key="20QoFTI0fp2dNNexlHDhTe1"
+      type="track"
+    />
+    <Card
+      data={
+        Object {
+          "album": "Big Mess",
+          "artist": "Grouplove",
+          "id": "1Tcd9flKIOxXWqR28aDP3U",
+          "image": "https://i.scdn.co/image/781fa2da2c0dc8fc64f093dd753d4acfd6647db1",
+          "title": "Don't Stop Making It Happen",
+          "uri": "spotify:track:1Tcd9flKIOxXWqR28aDP3U",
+        }
+      }
+      index={2}
+      key="1Tcd9flKIOxXWqR28aDP3U2"
+      type="track"
+    />
+    <glamorous(div)>
+      Loading...
+    </glamorous(div)>
+  </InfiniteScroll>
+</glamorous(div)>
+`;
+
+exports[`TopTracks component renders TopTracks with pending correctly 2`] = `
+<LoadableComponent
+  error="Request failed"
+/>
+`;
+
+exports[`TopTracks component renders TopTracks with tracks correctly 1`] = `
+<glamorous(div)>
+  <InfiniteScroll
+    hasMore={true}
+    isLoading={false}
+    loadMore={[Function]}
+  >
+    <h1>
+      Your Top Tracks
+    </h1>
+    <Card
+      data={
+        Object {
+          "album": "Gone Now",
+          "artist": "Bleachers",
+          "id": "3ySU5vwQB33iGulwcUL9qQ",
+          "image": "https://i.scdn.co/image/683a338f942640da90a27169e87c29440f20c4bb",
+          "title": "Don't Take The Money",
+          "uri": "spotify:track:3ySU5vwQB33iGulwcUL9qQ",
+        }
+      }
+      index={0}
+      key="3ySU5vwQB33iGulwcUL9qQ0"
+      type="track"
+    />
+    <Card
+      data={
+        Object {
+          "album": "Something To Tell You",
+          "artist": "HAIM",
+          "id": "20QoFTI0fp2dNNexlHDhTe",
+          "image": "https://i.scdn.co/image/9925a5f35b0a0e7b6f16e8f12c80cb5b4f015d57",
+          "title": "Walking Away",
+          "uri": "spotify:track:20QoFTI0fp2dNNexlHDhTe",
+        }
+      }
+      index={1}
+      key="20QoFTI0fp2dNNexlHDhTe1"
+      type="track"
+    />
+    <Card
+      data={
+        Object {
+          "album": "Big Mess",
+          "artist": "Grouplove",
+          "id": "1Tcd9flKIOxXWqR28aDP3U",
+          "image": "https://i.scdn.co/image/781fa2da2c0dc8fc64f093dd753d4acfd6647db1",
+          "title": "Don't Stop Making It Happen",
+          "uri": "spotify:track:1Tcd9flKIOxXWqR28aDP3U",
+        }
+      }
+      index={2}
+      key="1Tcd9flKIOxXWqR28aDP3U2"
+      type="track"
+    />
+  </InfiniteScroll>
+</glamorous(div)>
+`;

@@ -8,21 +8,21 @@ import {
   bool,
   oneOfType,
 } from 'prop-types';
-import { fetchTracks } from '../actions';
+import { fetchTracks } from '../../actions';
 
-import InfiniteScroll from './InfiniteScroll/InfiniteScroll';
-import Card from './Card';
+import InfiniteScroll from '../InfiniteScroll/InfiniteScroll';
+import Card from '../Card/Card';
 
-import { CardsGrid } from '../styles/cards';
-import Loader from '../styles/loader';
-import NoData from './NoData';
-import Loadable from './HOC/Loadable';
+import { CardsGrid } from '../../styles/cards';
+import Loader from '../../styles/loader';
+import NoData from '../NoData';
+import Loadable from '../HOC/Loadable';
 
 const AsyncError = Loadable({
-  loader: () => import('./Error/ErrorComponent'),
+  loader: () => import('../Error/ErrorComponent'),
 });
 
-const TopTracks = ({
+export const TopTracks = ({
   topTracks: {
     tracks,
     hasMore,
