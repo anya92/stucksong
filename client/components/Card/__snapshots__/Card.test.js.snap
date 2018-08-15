@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component renders Card with recently played track data correctly 1`] = `
+<div>
+  <glamorous(div)>
+    <glamorous(div)>
+      <a
+        href="https://open.spotify.com/track/4EchqUKQ3qAQuRNKmeIpnf"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+         
+        play
+      </a>
+    </glamorous(div)>
+    <img
+      alt="Americana"
+      src="https://i.scdn.co/image/c77a1f3a2de72c2a8fde481a016376ca8ef81b33"
+    />
+    <glamorous(div)>
+      14 Aug - 20:50
+    </glamorous(div)>
+  </glamorous(div)>
+  <glamorous(div)>
+    <glamorous(div)>
+      The Kids Aren't Alright
+    </glamorous(div)>
+    <glamorous(div)>
+      <glamorous(div)>
+        The Offspring
+      </glamorous(div)>
+      <glamorous(div)>
+        Americana
+      </glamorous(div)>
+    </glamorous(div)>
+  </glamorous(div)>
+</div>
+`;
+
+exports[`Card component renders Card with top artist data correctly 1`] = `
+<div>
+  <glamorous(div)>
+    <glamorous(div)>
+      <a
+        href="https://open.spotify.com/artist/4Ui2kfOqGujY81UcPrb5KE"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+         
+        open
+      </a>
+    </glamorous(div)>
+    <img
+      alt="HAIM"
+      src="https://i.scdn.co/image/a20acc6267aec9d08aa32d05ae2fb8647943f81a"
+    />
+  </glamorous(div)>
+  <glamorous(div)>
+    <glamorous(div)>
+      <span>
+        1
+        .
+      </span>
+      HAIM
+    </glamorous(div)>
+    <glamorous(div)>
+      <glamorous(div)>
+        dance pop, folk-pop, indie pop
+      </glamorous(div)>
+    </glamorous(div)>
+  </glamorous(div)>
+</div>
+`;
+
+exports[`Card component renders Card with top track data correctly 1`] = `
+<div>
+  <glamorous(div)>
+    <glamorous(div)>
+      <a
+        href="https://open.spotify.com/track/3ySU5vwQB33iGulwcUL9qQ"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+         
+        play
+      </a>
+    </glamorous(div)>
+    <img
+      alt="Gone Now"
+      src="https://i.scdn.co/image/683a338f942640da90a27169e87c29440f20c4bb"
+    />
+  </glamorous(div)>
+  <glamorous(div)>
+    <glamorous(div)>
+      <span>
+        1
+        .
+      </span>
+      Don't Take The Money
+    </glamorous(div)>
+    <glamorous(div)>
+      <glamorous(div)>
+        Bleachers
+      </glamorous(div)>
+      <glamorous(div)>
+        Gone Now
+      </glamorous(div)>
+    </glamorous(div)>
+  </glamorous(div)>
+</div>
+`;

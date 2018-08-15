@@ -3,6 +3,7 @@ import {
   string,
   number,
   shape,
+  oneOf,
 } from 'prop-types';
 import format from 'date-fns/format';
 
@@ -16,7 +17,7 @@ import {
   CardArtist,
   CardAlbum,
   CardGenres,
-} from '../styles/cards';
+} from '../../styles/cards';
 
 const formatGenres = (dataGenres) => {
   let genres = '';
@@ -65,7 +66,7 @@ const Card = ({ data, type, index }) => (
 
 Card.propTypes = {
   data: shape({}).isRequired,
-  type: string.isRequired,
+  type: oneOf(['track', 'artist', 'recently-track']).isRequired,
   index: number.isRequired,
 };
 
