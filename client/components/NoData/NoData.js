@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { InfoContainer } from '../styles/info';
+import { InfoContainer } from '../../styles/info';
 
 const NoData = () => (
   <InfoContainer>

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoData component renders NoData component correctly 1`] = `
+<glamorous(div)>
+  <h1>
+    You haven't been listening to music lately, have you?
+    <span
+      aria-label="thinking-emoji"
+      role="img"
+    >
+      🤔
+    </span>
+  </h1>
+  <h2>
+    Please try again later.
+  </h2>
+</glamorous(div)>
+`;

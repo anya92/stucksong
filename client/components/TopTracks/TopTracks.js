@@ -15,7 +15,7 @@ import Card from '../Card/Card';
 
 import { CardsGrid } from '../../styles/cards';
 import Loader from '../../styles/loader';
-import NoData from '../NoData';
+import NoData from '../NoData/NoData';
 import Loadable from '../HOC/Loadable';
 
 const AsyncError = Loadable({

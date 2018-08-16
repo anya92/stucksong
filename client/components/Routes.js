@@ -16,7 +16,7 @@ const AsyncHome = Loadable({
 });
 
 const AsyncTracks = Loadable({
-  loader: () => import('./TopTracks'),
+  loader: () => import('./TopTracks/TopTracks'),
 });
 
 const AsyncArtists = Loadable({
