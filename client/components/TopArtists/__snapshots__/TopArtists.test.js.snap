@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopArtists component renders TopArtists with artists correctly 1`] = `
+<glamorous(div)>
+  <InfiniteScroll
+    hasMore={true}
+    isLoading={false}
+    loadMore={[Function]}
+  >
+    <h1>
+      Your Top Artists
+    </h1>
+    <Card
+      data={
+        Object {
+          "genres": Array [
+            "dance pop",
+            "folk-pop",
+            "indie pop",
+            "indie r&b",
+            "indietronica",
+            "metropopolis",
+            "pop",
+          ],
+          "id": "4Ui2kfOqGujY81UcPrb5KE",
+          "image": "https://i.scdn.co/image/a20acc6267aec9d08aa32d05ae2fb8647943f81a",
+          "name": "HAIM",
+          "uri": "spotify:artist:4Ui2kfOqGujY81UcPrb5KE",
+        }
+      }
+      index={0}
+      key="4Ui2kfOqGujY81UcPrb5KE"
+      type="artist"
+    />
+    <Card
+      data={
+        Object {
+          "genres": Array [
+            "chamber pop",
+            "indie folk",
+            "shimmer pop",
+          ],
+          "id": "46CitWgnWrvF9t70C2p1Me",
+          "image": "https://i.scdn.co/image/8b6e70aafad73059422920cbe528ecbcdff74018",
+          "name": "Daughter",
+          "uri": "spotify:artist:46CitWgnWrvF9t70C2p1Me",
+        }
+      }
+      index={1}
+      key="46CitWgnWrvF9t70C2p1Me"
+      type="artist"
+    />
+    <Card
+      data={
+        Object {
+          "genres": Array [
+            "alt-indie rock",
+            "garage rock",
+            "indie rock",
+            "indietronica",
+            "modern alternative rock",
+            "modern rock",
+          ],
+          "id": "3btzEQD6sugImIHPMRgkwV",
+          "image": "https://i.scdn.co/image/f54c5e6b3919940e204406ef6846ee8e197f8217",
+          "name": "Wolf Alice",
+          "uri": "spotify:artist:3btzEQD6sugImIHPMRgkwV",
+        }
+      }
+      index={2}
+      key="3btzEQD6sugImIHPMRgkwV"
+      type="artist"
+    />
+  </InfiniteScroll>
+</glamorous(div)>
+`;
+
+exports[`TopArtists component renders TopArtists with no data correctly 1`] = `
+<glamorous(div)>
+  <NoData />
+  <InfiniteScroll
+    hasMore={true}
+    isLoading={false}
+    loadMore={[Function]}
+  />
+</glamorous(div)>
+`;
+
+exports[`TopArtists component renders TopArtists with pending correctly 1`] = `
+<glamorous(div)>
+  <InfiniteScroll
+    hasMore={true}
+    isLoading={true}
+    loadMore={[Function]}
+  >
+    <h1>
+      Your Top Artists
+    </h1>
+    <Card
+      data={
+        Object {
+          "genres": Array [
+            "dance pop",
+            "folk-pop",
+            "indie pop",
+            "indie r&b",
+            "indietronica",
+            "metropopolis",
+            "pop",
+          ],
+          "id": "4Ui2kfOqGujY81UcPrb5KE",
+          "image": "https://i.scdn.co/image/a20acc6267aec9d08aa32d05ae2fb8647943f81a",
+          "name": "HAIM",
+          "uri": "spotify:artist:4Ui2kfOqGujY81UcPrb5KE",
+        }
+      }
+      index={0}
+      key="4Ui2kfOqGujY81UcPrb5KE"
+      type="artist"
+    />
+    <Card
+      data={
+        Object {
+          "genres": Array [
+            "chamber pop",
+            "indie folk",
+            "shimmer pop",
+          ],
+          "id": "46CitWgnWrvF9t70C2p1Me",
+          "image": "https://i.scdn.co/image/8b6e70aafad73059422920cbe528ecbcdff74018",
+          "name": "Daughter",
+          "uri": "spotify:artist:46CitWgnWrvF9t70C2p1Me",
+        }
+      }
+      index={1}
+      key="46CitWgnWrvF9t70C2p1Me"
+      type="artist"
+    />
+    <Card
+      data={
+        Object {
+          "genres": Array [
+            "alt-indie rock",
+            "garage rock",
+            "indie rock",
+            "indietronica",
+            "modern alternative rock",
+            "modern rock",
+          ],
+          "id": "3btzEQD6sugImIHPMRgkwV",
+          "image": "https://i.scdn.co/image/f54c5e6b3919940e204406ef6846ee8e197f8217",
+          "name": "Wolf Alice",
+          "uri": "spotify:artist:3btzEQD6sugImIHPMRgkwV",
+        }
+      }
+      index={2}
+      key="3btzEQD6sugImIHPMRgkwV"
+      type="artist"
+    />
+    <glamorous(div)>
+      Loading...
+    </glamorous(div)>
+  </InfiniteScroll>
+</glamorous(div)>
+`;
+
+exports[`TopArtists component renders TopArtists with pending correctly 2`] = `
+<LoadableComponent
+  error="Request failed"
+/>
+`;

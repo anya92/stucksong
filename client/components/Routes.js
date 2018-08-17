@@ -20,7 +20,7 @@ const AsyncTracks = Loadable({
 });
 
 const AsyncArtists = Loadable({
-  loader: () => import('./TopArtists'),
+  loader: () => import('./TopArtists/TopArtists'),
 });
 
 const AsyncRecently = Loadable({
