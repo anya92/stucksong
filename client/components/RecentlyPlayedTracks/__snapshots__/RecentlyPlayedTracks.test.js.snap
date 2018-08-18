@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecentlyPlayedTracks component renders RecentlyPlayedTracks with no data correctly 1`] = `
+<glamorous(div)>
+  <InfiniteScroll
+    hasMore={true}
+    isLoading={false}
+    loadMore={[Function]}
+  />
+</glamorous(div)>
+`;
+
+exports[`RecentlyPlayedTracks component renders RecentlyPlayedTracks with pending correctly 1`] = `
+<glamorous(div)>
+  <InfiniteScroll
+    hasMore={true}
+    isLoading={true}
+    loadMore={[Function]}
+  >
+    <h1>
+      Your Recently Played Tracks
+    </h1>
+    <Card
+      data={
+        Object {
+          "album": "Americana",
+          "artist": "The Offspring",
+          "id": "4EchqUKQ3qAQuRNKmeIpnf",
+          "image": "https://i.scdn.co/image/c77a1f3a2de72c2a8fde481a016376ca8ef81b33",
+          "played_at": "2018-08-14T18:50:09.757Z",
+          "title": "The Kids Aren't Alright",
+          "uri": "spotify:track:4EchqUKQ3qAQuRNKmeIpnf",
+        }
+      }
+      index={0}
+      key="4EchqUKQ3qAQuRNKmeIpnf_0"
+      type="recently-track"
+    />
+    <Card
+      data={
+        Object {
+          "album": "No Pads, No Helmets...Just Balls (15th Anniversary Tour Edition)",
+          "artist": "Simple Plan",
+          "id": "6otiaV2fagE3s8IvP6WkwG",
+          "image": "https://i.scdn.co/image/9f6a521519080242f2de1c2b8873eec5372f7a6a",
+          "played_at": "2018-08-14T18:46:04.608Z",
+          "title": "I'm Just A Kid",
+          "uri": "spotify:track:6otiaV2fagE3s8IvP6WkwG",
+        }
+      }
+      index={1}
+      key="6otiaV2fagE3s8IvP6WkwG_1"
+      type="recently-track"
+    />
+    <Card
+      data={
+        Object {
+          "album": "All Killer, No Filler",
+          "artist": "Sum 41",
+          "id": "1HNE2PX70ztbEl6MLxrpNL",
+          "image": "https://i.scdn.co/image/4fc4f0bb924338f85e0fe7c899cde32ec5e9f10d",
+          "played_at": "2018-08-14T18:42:32.417Z",
+          "title": "In Too Deep",
+          "uri": "spotify:track:1HNE2PX70ztbEl6MLxrpNL",
+        }
+      }
+      index={2}
+      key="1HNE2PX70ztbEl6MLxrpNL_2"
+      type="recently-track"
+    />
+    <glamorous(div)>
+      Loading...
+    </glamorous(div)>
+  </InfiniteScroll>
+</glamorous(div)>
+`;
+
+exports[`RecentlyPlayedTracks component renders RecentlyPlayedTracks with pending correctly 2`] = `
+<LoadableComponent
+  error="Request failed"
+/>
+`;
+
+exports[`RecentlyPlayedTracks component renders RecentlyPlayedTracks with tracks correctly 1`] = `
+<glamorous(div)>
+  <InfiniteScroll
+    hasMore={true}
+    isLoading={false}
+    loadMore={[Function]}
+  >
+    <h1>
+      Your Recently Played Tracks
+    </h1>
+    <Card
+      data={
+        Object {
+          "album": "Americana",
+          "artist": "The Offspring",
+          "id": "4EchqUKQ3qAQuRNKmeIpnf",
+          "image": "https://i.scdn.co/image/c77a1f3a2de72c2a8fde481a016376ca8ef81b33",
+          "played_at": "2018-08-14T18:50:09.757Z",
+          "title": "The Kids Aren't Alright",
+          "uri": "spotify:track:4EchqUKQ3qAQuRNKmeIpnf",
+        }
+      }
+      index={0}
+      key="4EchqUKQ3qAQuRNKmeIpnf_0"
+      type="recently-track"
+    />
+    <Card
+      data={
+        Object {
+          "album": "No Pads, No Helmets...Just Balls (15th Anniversary Tour Edition)",
+          "artist": "Simple Plan",
+          "id": "6otiaV2fagE3s8IvP6WkwG",
+          "image": "https://i.scdn.co/image/9f6a521519080242f2de1c2b8873eec5372f7a6a",
+          "played_at": "2018-08-14T18:46:04.608Z",
+          "title": "I'm Just A Kid",
+          "uri": "spotify:track:6otiaV2fagE3s8IvP6WkwG",
+        }
+      }
+      index={1}
+      key="6otiaV2fagE3s8IvP6WkwG_1"
+      type="recently-track"
+    />
+    <Card
+      data={
+        Object {
+          "album": "All Killer, No Filler",
+          "artist": "Sum 41",
+          "id": "1HNE2PX70ztbEl6MLxrpNL",
+          "image": "https://i.scdn.co/image/4fc4f0bb924338f85e0fe7c899cde32ec5e9f10d",
+          "played_at": "2018-08-14T18:42:32.417Z",
+          "title": "In Too Deep",
+          "uri": "spotify:track:1HNE2PX70ztbEl6MLxrpNL",
+        }
+      }
+      index={2}
+      key="1HNE2PX70ztbEl6MLxrpNL_2"
+      type="recently-track"
+    />
+  </InfiniteScroll>
+</glamorous(div)>
+`;
