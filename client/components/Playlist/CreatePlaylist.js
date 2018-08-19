@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createPlaylist } from '../actions';
-import Loadable from './HOC/Loadable';
+import { createPlaylist } from '../../actions';
+import Loadable from '../HOC/Loadable';
 
 import PlaylistForm from './PlaylistForm';
-import Loader from '../styles/loader';
+import Loader from '../../styles/loader';
 
 const AsyncError = Loadable({
   loader: () => import('./Error/ErrorComponent'),
@@ -14,7 +14,7 @@ const AsyncPlaylist = Loadable({
   loader: () => import('./Playlist'),
 });
 
-class CreatePlaylist extends Component {
+export class CreatePlaylist extends Component {
   state = {
     name: `${this.props.auth.username}'s Top Tracks`,
     description: '',
@@ -49,8 +49,6 @@ class CreatePlaylist extends Component {
     return (
       <AsyncPlaylist
         playlist={playlist}
-        modal={this.state.modal}
-        toggleModal={this.toggleModal}
       />
     );
   }

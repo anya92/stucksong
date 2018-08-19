@@ -6,9 +6,9 @@ import {
   PlaylistTracks,
   PlaylistTrackTitle,
   PlaylistTrackInfo,
-} from '../styles/playlist';
+} from '../../styles/playlist';
 import PlaylistShare from './PlaylistShare';
-import spotifyImage from '../assets/spotify-logo.jpg';
+import spotifyImage from '../../assets/spotify-logo.jpg';
 
 const Playlist = ({ playlist: { name, description, image, tracks, url }, modal, toggleModal }) => (
   <div>
@@ -38,7 +38,6 @@ const Playlist = ({ playlist: { name, description, image, tracks, url }, modal, 
             ))
           }
         </PlaylistTracks>
-
       </div>
     </PlaylistContainer>
   </div>

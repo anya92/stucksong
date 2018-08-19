@@ -28,7 +28,7 @@ const AsyncRecently = Loadable({
 });
 
 const AsyncCreatePlaylist = Loadable({
-  loader: () => import('./CreatePlaylist'),
+  loader: () => import('./Playlist/CreatePlaylist'),
 });
 
 const AsyncPage404 = Loadable({

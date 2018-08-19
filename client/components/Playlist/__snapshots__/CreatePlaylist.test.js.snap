@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatePlaylist component renders CreatePlaylist with PlaylistForm correctly 1`] = `
+<PlaylistForm
+  createPlaylist={[Function]}
+  description=""
+  handleChange={[Function]}
+  name="user's Top Tracks"
+  numberOfTracks={25}
+/>
+`;
