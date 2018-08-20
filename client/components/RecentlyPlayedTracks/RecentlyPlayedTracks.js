@@ -20,7 +20,7 @@ import Loader from '../../styles/loader';
 import Loadable from '../HOC/Loadable';
 
 const AsyncError = Loadable({
-  loader: () => import('./Error/ErrorComponent'),
+  loader: () => import('../Error/ErrorComponent'),
 });
 
 export const RecentlyPlayedTracks = ({

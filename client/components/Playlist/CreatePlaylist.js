@@ -7,7 +7,7 @@ import PlaylistForm from './PlaylistForm';
 import Loader from '../../styles/loader';
 
 const AsyncError = Loadable({
-  loader: () => import('./Error/ErrorComponent'),
+  loader: () => import('../Error/ErrorComponent'),
 });
 
 const AsyncPlaylist = Loadable({

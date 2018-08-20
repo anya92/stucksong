@@ -20,7 +20,7 @@ import NoData from '../NoData/NoData';
 import Loadable from '../HOC/Loadable';
 
 const AsyncError = Loadable({
-  loader: () => import('./Error/ErrorComponent'),
+  loader: () => import('../Error/ErrorComponent'),
 });
 
 export const TopArtists = ({

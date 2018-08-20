@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlaylistForm component renders PlaylistForm correctly 1`] = `
+<glamorous(div)>
+  <h1>
+    Create a playlist of your 
+    <Link
+      replace={false}
+      to="/top-tracks"
+    >
+      Top Tracks
+    </Link>
+  </h1>
+  <form
+    onSubmit={[Function]}
+  >
+    <glamorous(div)>
+      <label
+        htmlFor="playlist-name"
+      >
+        Name
+        <glamorous(div)>
+          <input
+            id="playlist-name"
+            maxLength="100"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <glamorous(div)>
+            0
+            /100
+          </glamorous(div)>
+        </glamorous(div)>
+      </label>
+    </glamorous(div)>
+    <glamorous(div)>
+      <label
+        htmlFor="playlist-description"
+      >
+        Description
+        <glamorous(div)>
+          <textarea
+            id="playlist-description"
+            maxLength="300"
+            onChange={[Function]}
+            placeholder="Give your playlist a description."
+            rows={3}
+            value=""
+          />
+          <glamorous(div)>
+            0
+            /300
+          </glamorous(div)>
+        </glamorous(div)>
+      </label>
+    </glamorous(div)>
+    <glamorous(div)
+      number={true}
+    >
+      <label
+        htmlFor="playlist-number-of-tracks"
+      >
+        Number of Tracks
+        <input
+          className=""
+          id="playlist-number-of-tracks"
+          max={50}
+          min={1}
+          onChange={[Function]}
+          type="number"
+          value={25}
+        />
+      </label>
+    </glamorous(div)>
+    <glamorous(div)>
+      <button
+        type="submit"
+      >
+        Create
+      </button>
+    </glamorous(div)>
+  </form>
+</glamorous(div)>
+`;
