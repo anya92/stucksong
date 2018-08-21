@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {
+  shape,
+  oneOfType,
+  bool,
+  string,
+  number,
+  arrayOf,
+  func,
+} from 'prop-types';
 import { createPlaylist } from '../../actions';
 import Loadable from '../HOC/Loadable';
 
@@ -53,6 +62,24 @@ export class CreatePlaylist extends Component {
     );
   }
 }
+
+CreatePlaylist.propTypes = {
+  auth: shape({
+    username: string,
+  }).isRequired,
+  playlist: shape({
+    pending: bool.isRequired,
+    error: oneOfType([bool, string]).isRequired,
+    playlist: shape({
+      name: string,
+      description: string,
+      image: string,
+      numberOfTracks: number,
+      tracks: arrayOf(shape({})),
+    }),
+  }).isRequired,
+  createPlaylist: func.isRequired,
+};
 
 function mapStateToProps(state) {
   return {
