@@ -1,5 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {
+  string,
+  number,
+  func,
+} from 'prop-types';
 
 import {
   PlaylistContainer,
@@ -74,5 +79,13 @@ const PlaylistForm = ({
     </form>
   </PlaylistContainer>
 );
+
+PlaylistForm.propTypes = {
+  name: string.isRequired,
+  description: string.isRequired,
+  numberOfTracks: number.isRequired,
+  handleChange: func.isRequired,
+  createPlaylist: func.isRequired,
+};
 
 export default PlaylistForm;
