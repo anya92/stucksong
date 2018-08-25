@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlaylistShare component renders correctly 1`] = `
+<div>
+  <CreatedButton
+    quote="Top 10 Tracks"
+    url="https://open.spotify.com/user/abc/playlist/123"
+    windowHeight={400}
+    windowWidth={550}
+  >
+    <Icon
+      className=""
+      iconBgStyle={
+        Object {
+          "fill": "transparent",
+        }
+      }
+      logoFillColor="#333"
+      size={50}
+    />
+  </CreatedButton>
+  <CreatedButton
+    title="Top 10 Tracks"
+    url="https://open.spotify.com/user/abc/playlist/123"
+    windowHeight={400}
+    windowWidth={550}
+  >
+    <Icon
+      className=""
+      iconBgStyle={
+        Object {
+          "fill": "transparent",
+        }
+      }
+      logoFillColor="#333"
+      size={50}
+    />
+  </CreatedButton>
+  <CreatedButton
+    separator=" "
+    title="Top 10 Tracks"
+    url="https://open.spotify.com/user/abc/playlist/123"
+    windowHeight={400}
+    windowWidth={550}
+  >
+    <Icon
+      className=""
+      iconBgStyle={
+        Object {
+          "fill": "transparent",
+        }
+      }
+      logoFillColor="#333"
+      size={50}
+    />
+  </CreatedButton>
+  <CreatedButton
+    posttype="link"
+    tags={Array []}
+    url="https://open.spotify.com/user/abc/playlist/123"
+    windowHeight={460}
+    windowWidth={660}
+  >
+    <Icon
+      className=""
+      iconBgStyle={
+        Object {
+          "fill": "transparent",
+        }
+      }
+      logoFillColor="#333"
+      size={50}
+    />
+  </CreatedButton>
+</div>
+`;

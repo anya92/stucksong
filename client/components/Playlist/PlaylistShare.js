@@ -9,6 +9,7 @@ import {
   WhatsappIcon,
   TumblrIcon,
 } from 'react-share';
+import { string } from 'prop-types';
 
 const PlaylistShare = ({ url, name }) => {
   const iconOptions = {
@@ -32,6 +33,11 @@ const PlaylistShare = ({ url, name }) => {
       </TumblrShareButton>
     </div>
   );
+};
+
+PlaylistShare.propTypes = {
+  url: string.isRequired,
+  name: string.isRequired,
 };
 
 export default PlaylistShare;
