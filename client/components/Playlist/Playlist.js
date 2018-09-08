@@ -1,5 +1,10 @@
 import React from 'react';
 import {
+  shape,
+  string,
+  array,
+} from 'prop-types';
+import {
   PlaylistContainer,
   PlaylistLinks,
   PlaylistLinkShare,
@@ -10,7 +15,7 @@ import {
 import PlaylistShare from './PlaylistShare';
 import spotifyImage from '../../assets/spotify-logo.jpg';
 
-const Playlist = ({ playlist: { name, description, image, tracks, url }, modal, toggleModal }) => (
+const Playlist = ({ playlist: { name, description, image, tracks, url } }) => (
   <div>
     <h1 style={{ textAlign: 'center', marginBottom: '40px' }}>Your playlist has been successfully created!</h1>
     <PlaylistContainer>
@@ -30,7 +35,12 @@ const Playlist = ({ playlist: { name, description, image, tracks, url }, modal, 
         <PlaylistTracks>
           { !tracks.length && <div>This playlist is empty</div> }
           {
-            tracks.map(({ id, title, artist, album }, i) => (
+            tracks.map(({
+              id,
+              title,
+              artist,
+              album,
+            }, i) => (
               <div key={id}>
                 <PlaylistTrackTitle><span>{i + 1}.</span> {title}</PlaylistTrackTitle>
                 <PlaylistTrackInfo>{artist}, <em>{album}</em></PlaylistTrackInfo>
@@ -42,5 +52,15 @@ const Playlist = ({ playlist: { name, description, image, tracks, url }, modal, 
     </PlaylistContainer>
   </div>
 );
+
+Playlist.propTypes = {
+  playlist: shape({
+    name: string,
+    description: string,
+    image: string,
+    tracks: array,
+    url: string,
+  }).isRequired,
+};
 
 export default Playlist;
