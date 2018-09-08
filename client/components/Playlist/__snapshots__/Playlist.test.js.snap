@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PLaylist component renders correctly 1`] = `
+<div>
+  <h1
+    style={
+      Object {
+        "marginBottom": "40px",
+        "textAlign": "center",
+      }
+    }
+  >
+    Your playlist has been successfully created!
+  </h1>
+  <glamorous(div)>
+    <div>
+      <img
+        alt="playlist"
+        src="https://mosaic.scdn.co/640/129c6e4a622dc50c0802042780f92631a9dcc14056cc004f3ff47cff0ad8fcf05461730a193d8d8263b1ad734c51e06c7faee7fc95fd3abf0bbb9bbe6f4c08a3f6b73b062d6ea8384add3e3889814448"
+      />
+      <h1>
+        Top Tracks
+      </h1>
+    </div>
+    <div>
+      <glamorous(div)>
+        <a
+          href="https://open.spotify.com/playlist/6yZesRjpu9OPKCM77N2EQt"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Open in Spotify
+        </a>
+        <glamorous(div)>
+          Share with your friends:
+          <PlaylistShare
+            name="Top Tracks"
+            url="https://open.spotify.com/playlist/6yZesRjpu9OPKCM77N2EQt"
+          />
+        </glamorous(div)>
+      </glamorous(div)>
+      <glamorous(div)>
+        <div
+          key="3ySU5vwQB33iGulwcUL9qQ"
+        >
+          <glamorous(div)>
+            <span>
+              1
+              .
+            </span>
+             
+            Don't Take The Money
+          </glamorous(div)>
+          <glamorous(div)>
+            Bleachers
+            , 
+            <em>
+              Gone Now
+            </em>
+          </glamorous(div)>
+        </div>
+        <div
+          key="20QoFTI0fp2dNNexlHDhTe"
+        >
+          <glamorous(div)>
+            <span>
+              2
+              .
+            </span>
+             
+            Walking Away
+          </glamorous(div)>
+          <glamorous(div)>
+            HAIM
+            , 
+            <em>
+              Something To Tell You
+            </em>
+          </glamorous(div)>
+        </div>
+        <div
+          key="1Tcd9flKIOxXWqR28aDP3U"
+        >
+          <glamorous(div)>
+            <span>
+              3
+              .
+            </span>
+             
+            Don't Stop Making It Happen
+          </glamorous(div)>
+          <glamorous(div)>
+            Grouplove
+            , 
+            <em>
+              Big Mess
+            </em>
+          </glamorous(div)>
+        </div>
+      </glamorous(div)>
+    </div>
+  </glamorous(div)>
+</div>
+`;

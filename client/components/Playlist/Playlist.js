@@ -15,7 +15,15 @@ import {
 import PlaylistShare from './PlaylistShare';
 import spotifyImage from '../../assets/spotify-logo.jpg';
 
-const Playlist = ({ playlist: { name, description, image, tracks, url } }) => (
+const Playlist = ({
+  playlist: {
+    name,
+    description,
+    image,
+    tracks,
+    url,
+  },
+}) => (
   <div>
     <h1 style={{ textAlign: 'center', marginBottom: '40px' }}>Your playlist has been successfully created!</h1>
     <PlaylistContainer>

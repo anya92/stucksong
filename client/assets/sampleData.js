@@ -97,3 +97,11 @@ export const topTracks = [
     uri: 'spotify:track:1Tcd9flKIOxXWqR28aDP3U',
   },
 ];
+
+export const playlist = {
+  name: 'Top Tracks',
+  description: '',
+  image: 'https://mosaic.scdn.co/640/129c6e4a622dc50c0802042780f92631a9dcc14056cc004f3ff47cff0ad8fcf05461730a193d8d8263b1ad734c51e06c7faee7fc95fd3abf0bbb9bbe6f4c08a3f6b73b062d6ea8384add3e3889814448',
+  url: 'https://open.spotify.com/playlist/6yZesRjpu9OPKCM77N2EQt',
+  tracks: topTracks,
+};
