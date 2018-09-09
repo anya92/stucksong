@@ -20,7 +20,7 @@ function mapStateToProps(state) {
   };
 }
 
-class App extends Component {
+export class App extends Component {
   static propTypes = {
     auth: oneOfType([bool, object]),
     fetchUser: func.isRequired,
