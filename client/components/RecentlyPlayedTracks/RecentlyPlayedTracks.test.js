@@ -10,7 +10,7 @@ describe('RecentlyPlayedTracks component', () => {
     fetchRecentlyPlayed = jest.fn();
   });
 
-  it('renders RecentlyPlayedTracks with no data correctly', () => {
+  it('renders with no data correctly', () => {
     const mockProps = {
       recentlyPlayedTracks: {
         tracks: [],
@@ -25,7 +25,7 @@ describe('RecentlyPlayedTracks component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders RecentlyPlayedTracks with tracks correctly', () => {
+  it('renders with tracks data correctly', () => {
     const mockProps = {
       recentlyPlayedTracks: {
         tracks,
@@ -40,7 +40,7 @@ describe('RecentlyPlayedTracks component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders RecentlyPlayedTracks with pending correctly', () => {
+  it('renders with pending correctly', () => {
     const mockProps = {
       recentlyPlayedTracks: {
         tracks,
@@ -55,7 +55,7 @@ describe('RecentlyPlayedTracks component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders RecentlyPlayedTracks with pending correctly', () => {
+  it('renders with pending correctly', () => {
     const mockProps = {
       recentlyPlayedTracks: {
         tracks,

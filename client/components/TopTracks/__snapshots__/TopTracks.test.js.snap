@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TopTracks component renders TopTracks with no data correctly 1`] = `
+exports[`TopTracks component renders with no data correctly 1`] = `
 <glamorous(div)>
   <NoData />
   <InfiniteScroll
@@ -11,7 +11,7 @@ exports[`TopTracks component renders TopTracks with no data correctly 1`] = `
 </glamorous(div)>
 `;
 
-exports[`TopTracks component renders TopTracks with pending correctly 1`] = `
+exports[`TopTracks component renders with pending correctly 1`] = `
 <glamorous(div)>
   <InfiniteScroll
     hasMore={true}
@@ -73,13 +73,13 @@ exports[`TopTracks component renders TopTracks with pending correctly 1`] = `
 </glamorous(div)>
 `;
 
-exports[`TopTracks component renders TopTracks with pending correctly 2`] = `
+exports[`TopTracks component renders with pending correctly 2`] = `
 <LoadableComponent
   error="Request failed"
 />
 `;
 
-exports[`TopTracks component renders TopTracks with tracks correctly 1`] = `
+exports[`TopTracks component renders with tracks data correctly 1`] = `
 <glamorous(div)>
   <InfiniteScroll
     hasMore={true}

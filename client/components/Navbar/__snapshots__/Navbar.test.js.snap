@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navbar component renders Navbar with auth correctly 1`] = `
+exports[`Navbar component renders with auth correctly 1`] = `
 <glamorous(nav)
   id="nav"
   open={false}
@@ -76,4 +76,4 @@ exports[`Navbar component renders Navbar with auth correctly 1`] = `
 </glamorous(nav)>
 `;
 
-exports[`Navbar component renders Navbar without auth correctly 1`] = `<div />`;
+exports[`Navbar component renders without auth correctly 1`] = `<div />`;

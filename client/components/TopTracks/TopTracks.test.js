@@ -10,7 +10,7 @@ describe('TopTracks component', () => {
     fetchTracks = jest.fn();
   });
 
-  it('renders TopTracks with no data correctly', () => {
+  it('renders with no data correctly', () => {
     const mockProps = {
       topTracks: {
         tracks: [],
@@ -24,7 +24,7 @@ describe('TopTracks component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders TopTracks with tracks correctly', () => {
+  it('renders with tracks data correctly', () => {
     const mockProps = {
       topTracks: {
         tracks,
@@ -38,7 +38,7 @@ describe('TopTracks component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders TopTracks with pending correctly', () => {
+  it('renders with pending correctly', () => {
     const mockProps = {
       topTracks: {
         tracks,
@@ -52,7 +52,7 @@ describe('TopTracks component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders TopTracks with pending correctly', () => {
+  it('renders with pending correctly', () => {
     const mockProps = {
       topTracks: {
         tracks,

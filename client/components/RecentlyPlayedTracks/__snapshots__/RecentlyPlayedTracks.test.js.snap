@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RecentlyPlayedTracks component renders RecentlyPlayedTracks with no data correctly 1`] = `
+exports[`RecentlyPlayedTracks component renders with no data correctly 1`] = `
 <glamorous(div)>
   <InfiniteScroll
     hasMore={true}
@@ -10,7 +10,7 @@ exports[`RecentlyPlayedTracks component renders RecentlyPlayedTracks with no dat
 </glamorous(div)>
 `;
 
-exports[`RecentlyPlayedTracks component renders RecentlyPlayedTracks with pending correctly 1`] = `
+exports[`RecentlyPlayedTracks component renders with pending correctly 1`] = `
 <glamorous(div)>
   <InfiniteScroll
     hasMore={true}
@@ -75,13 +75,13 @@ exports[`RecentlyPlayedTracks component renders RecentlyPlayedTracks with pendin
 </glamorous(div)>
 `;
 
-exports[`RecentlyPlayedTracks component renders RecentlyPlayedTracks with pending correctly 2`] = `
+exports[`RecentlyPlayedTracks component renders with pending correctly 2`] = `
 <LoadableComponent
   error="Request failed"
 />
 `;
 
-exports[`RecentlyPlayedTracks component renders RecentlyPlayedTracks with tracks correctly 1`] = `
+exports[`RecentlyPlayedTracks component renders with tracks data correctly 1`] = `
 <glamorous(div)>
   <InfiniteScroll
     hasMore={true}

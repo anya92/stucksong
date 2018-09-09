@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TopArtists component renders TopArtists with artists correctly 1`] = `
+exports[`TopArtists component renders with artists data correctly 1`] = `
 <glamorous(div)>
   <InfiniteScroll
     hasMore={true}
@@ -75,7 +75,13 @@ exports[`TopArtists component renders TopArtists with artists correctly 1`] = `
 </glamorous(div)>
 `;
 
-exports[`TopArtists component renders TopArtists with no data correctly 1`] = `
+exports[`TopArtists component renders with error correctly 1`] = `
+<LoadableComponent
+  error="Request failed"
+/>
+`;
+
+exports[`TopArtists component renders with no data correctly 1`] = `
 <glamorous(div)>
   <NoData />
   <InfiniteScroll
@@ -86,7 +92,7 @@ exports[`TopArtists component renders TopArtists with no data correctly 1`] = `
 </glamorous(div)>
 `;
 
-exports[`TopArtists component renders TopArtists with pending correctly 1`] = `
+exports[`TopArtists component renders with pending correctly 1`] = `
 <glamorous(div)>
   <InfiniteScroll
     hasMore={true}
@@ -162,10 +168,4 @@ exports[`TopArtists component renders TopArtists with pending correctly 1`] = `
     </glamorous(div)>
   </InfiniteScroll>
 </glamorous(div)>
-`;
-
-exports[`TopArtists component renders TopArtists with pending correctly 2`] = `
-<LoadableComponent
-  error="Request failed"
-/>
 `;

@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import Navbar from './Navbar';
 
 describe('Navbar component', () => {
-  it('renders Navbar without auth correctly', () => {
+  it('renders without auth correctly', () => {
     const auth = false;
     const wrapper = shallow(<Navbar auth={auth} />);
     expect(wrapper).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe('Navbar component', () => {
     wrapper = shallow(<Navbar auth={auth} />);
   });
 
-  it('renders Navbar with auth correctly', () => {
+  it('renders with auth correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 

@@ -10,7 +10,7 @@ describe('TopArtists component', () => {
     fetchArtists = jest.fn();
   });
 
-  it('renders TopArtists with no data correctly', () => {
+  it('renders with no data correctly', () => {
     const mockProps = {
       topArtists: {
         artists: [],
@@ -24,7 +24,7 @@ describe('TopArtists component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders TopArtists with artists correctly', () => {
+  it('renders with artists data correctly', () => {
     const mockProps = {
       topArtists: {
         artists,
@@ -38,7 +38,7 @@ describe('TopArtists component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders TopArtists with pending correctly', () => {
+  it('renders with pending correctly', () => {
     const mockProps = {
       topArtists: {
         artists,
@@ -52,7 +52,7 @@ describe('TopArtists component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders TopArtists with pending correctly', () => {
+  it('renders with error correctly', () => {
     const mockProps = {
       topArtists: {
         artists,

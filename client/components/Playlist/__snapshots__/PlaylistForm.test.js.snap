@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlaylistForm component renders PlaylistForm correctly 1`] = `
+exports[`PlaylistForm component renders correctly 1`] = `
 <glamorous(div)>
   <h1>
     Create a playlist of your 

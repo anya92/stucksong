@@ -21,7 +21,7 @@ describe('PlaylistForm component', () => {
     wrapper = shallow(<PlaylistForm {...mockProps} />);
   });
 
-  it('renders PlaylistForm correctly', () => {
+  it('renders correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 

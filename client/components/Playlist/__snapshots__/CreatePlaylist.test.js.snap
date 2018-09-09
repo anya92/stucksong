@@ -1,6 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CreatePlaylist component renders CreatePlaylist with PlaylistForm correctly 1`] = `
+exports[`CreatePlaylist component renders Playlist component correctly 1`] = `
+<LoadableComponent
+  playlist={
+    Object {
+      "description": "",
+      "image": "https://mosaic.scdn.co/640/129c6e4a622dc50c0802042780f92631a9dcc14056cc004f3ff47cff0ad8fcf05461730a193d8d8263b1ad734c51e06c7faee7fc95fd3abf0bbb9bbe6f4c08a3f6b73b062d6ea8384add3e3889814448",
+      "name": "Top Tracks",
+      "tracks": Array [
+        Object {
+          "album": "Gone Now",
+          "artist": "Bleachers",
+          "id": "3ySU5vwQB33iGulwcUL9qQ",
+          "image": "https://i.scdn.co/image/683a338f942640da90a27169e87c29440f20c4bb",
+          "title": "Don't Take The Money",
+          "uri": "spotify:track:3ySU5vwQB33iGulwcUL9qQ",
+        },
+        Object {
+          "album": "Something To Tell You",
+          "artist": "HAIM",
+          "id": "20QoFTI0fp2dNNexlHDhTe",
+          "image": "https://i.scdn.co/image/9925a5f35b0a0e7b6f16e8f12c80cb5b4f015d57",
+          "title": "Walking Away",
+          "uri": "spotify:track:20QoFTI0fp2dNNexlHDhTe",
+        },
+        Object {
+          "album": "Big Mess",
+          "artist": "Grouplove",
+          "id": "1Tcd9flKIOxXWqR28aDP3U",
+          "image": "https://i.scdn.co/image/781fa2da2c0dc8fc64f093dd753d4acfd6647db1",
+          "title": "Don't Stop Making It Happen",
+          "uri": "spotify:track:1Tcd9flKIOxXWqR28aDP3U",
+        },
+      ],
+      "url": "https://open.spotify.com/playlist/6yZesRjpu9OPKCM77N2EQt",
+    }
+  }
+/>
+`;
+
+exports[`CreatePlaylist component renders PlaylistForm correctly 1`] = `
 <PlaylistForm
   createPlaylist={[Function]}
   description=""
@@ -8,4 +47,16 @@ exports[`CreatePlaylist component renders CreatePlaylist with PlaylistForm corre
   name="user's Top Tracks"
   numberOfTracks={25}
 />
+`;
+
+exports[`CreatePlaylist component renders with error correctly 1`] = `
+<LoadableComponent
+  error="Request failed"
+/>
+`;
+
+exports[`CreatePlaylist component renders with pending correctly 1`] = `
+<glamorous(div)>
+  Loading...
+</glamorous(div)>
 `;

@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Home from './Home';
 
 describe('Home component', () => {
-  it('renders Home component correctly', () => {
+  it('renders correctly', () => {
     const wrapper = shallow(<Home />);
     expect(wrapper).toMatchSnapshot();
   });

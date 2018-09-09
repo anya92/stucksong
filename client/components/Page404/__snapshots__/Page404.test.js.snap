@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Page404 component renders Page404 component correctly 1`] = `
+exports[`Page404 component renders correctly 1`] = `
 <glamorous(div)>
   <div>
     404

@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import NoData from './NoData';
 
 describe('NoData component', () => {
-  it('renders NoData component correctly', () => {
+  it('renders correctly', () => {
     const wrapper = shallow(<NoData />);
     expect(wrapper).toMatchSnapshot();
   });
