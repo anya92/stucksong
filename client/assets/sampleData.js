@@ -106,7 +106,7 @@ export const playlist = {
   tracks: topTracks,
 };
 
-export const topTrackItems = [
+export const topTrackResponse = [
   {
     id: '3ySU5vwQB33iGulwcUL9qQ',
     name: 'Don\'t Take The Money',
@@ -121,5 +121,26 @@ export const topTrackItems = [
       ],
     },
     uri: 'spotify:track:3ySU5vwQB33iGulwcUL9qQ',
+  },
+];
+
+export const topArtistResponse = [
+  {
+    id: '4Ui2kfOqGujY81UcPrb5KE',
+    name: 'HAIM',
+    images: [
+      { url: 'url0' },
+      { url: 'https://i.scdn.co/image/a20acc6267aec9d08aa32d05ae2fb8647943f81a' },
+    ],
+    genres: [
+      'dance pop',
+      'folk-pop',
+      'indie pop',
+      'indie r&b',
+      'indietronica',
+      'metropopolis',
+      'pop',
+    ],
+    uri: 'spotify:artist:4Ui2kfOqGujY81UcPrb5KE',
   },
 ];

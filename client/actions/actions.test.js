@@ -59,7 +59,7 @@ describe('fetchTracks action', () => {
 
   it('calls pending and success actions if the fetch response was successful', () => {
     const mockResponse = {
-      items: data.topTrackItems,
+      items: data.topTrackResponse,
       next: 'https://api.spotify.com/v1/me/top/tracks?limit=10&offset=10&time_range=short_term',
     };
 
@@ -115,6 +115,81 @@ describe('fetchTracks action', () => {
 
     const store = mockStore();
     return store.dispatch(actions.fetchTracks())
+      .then(() => {
+        const actions = store.getActions();
+        expect(actions.length).toBe(2);
+        expect(actions).toEqual(expectedActions);
+      });
+  });
+});
+
+describe('fetchArtists action', () => {
+  beforeEach(() => {
+    moxios.install();
+  });
+
+  afterEach(() => {
+    moxios.uninstall();
+  });
+
+  it('calls pending and success actions if the fetch response was successful', () => {
+    const mockResponse = {
+      items: data.topArtistResponse,
+      next: 'https://api.spotify.com/v1/me/top/artists?limit=10&offset=10&time_range=short_term',
+    };
+
+    const expectedActions = [
+      {
+        type: types.FETCH_TOP_ARTISTS_PENDING,
+      },
+      {
+        type: types.FETCH_TOP_ARTISTS_SUCCESS,
+        payload: [data.topArtists[0]],
+      },
+      {
+        type: types.FETCH_TOP_ARTISTS_HAS_MORE,
+        payload: true,
+      },
+    ];
+
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: mockResponse,
+      });
+    });
+
+    const store = mockStore();
+    return store.dispatch(actions.fetchArtists())
+      .then(() => {
+        const actions = store.getActions();
+        expect(actions.length).toBe(3);
+        expect(actions).toEqual(expectedActions);
+      });
+  });
+
+  it('calls pending and failed actions if the fetch response was not successful', () => {
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.reject({
+        status: 404,
+        message: 'Request failed with status code 404',
+      });
+    });
+
+    const expectedActions = [
+      {
+        type: types.FETCH_TOP_ARTISTS_PENDING,
+      },
+      {
+        type: types.FETCH_TOP_ARTISTS_ERROR,
+        payload: 'Request failed with status code 404',
+      },
+    ];
+
+    const store = mockStore();
+    return store.dispatch(actions.fetchArtists())
       .then(() => {
         const actions = store.getActions();
         expect(actions.length).toBe(2);

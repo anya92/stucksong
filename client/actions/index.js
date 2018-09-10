@@ -32,7 +32,7 @@ export const fetchTracks = (offset = 0) => (dispatch) => {
 
 export const fetchArtists = (offset = 0) => (dispatch) => {
   dispatch({ type: types.FETCH_TOP_ARTISTS_PENDING });
-  axios.get(`/api/top_artists?offset=${offset}`)
+  return axios.get(`/api/top_artists?offset=${offset}`)
     .then((res) => {
       const artists = [];
       res.data.items.forEach((artist) => {
