@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "10.7.0",
+    "npm": "6.1.0"
+  },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/config/jest/setupTests.js",
     "snapshotSerializers": [
