@@ -5,7 +5,7 @@
   "main": "index.js",
   "engines": {
     "node": "10.7.0",
-    "npm": "6.1.0"
+    "yarn": "1.9.4"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/config/jest/setupTests.js",
@@ -30,9 +30,9 @@
     "dev": "nodemon server/index.js --ignore client/",
     "build": "webpack --config webpack.prod.js",
     "client": "webpack-dev-server --config webpack.dev.js",
-    "heroku-postbuild": "npm --production=false && npm run build",
+    "heroku-postbuild": "yarn --production=false && yarn run build",
     "test": "jest --env=jsdom",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "yarn test -- --watch"
   },
   "keywords": [],
   "author": "Ania Brajtkopf",
