@@ -9,7 +9,7 @@ export const fetchUser = () => (dispatch) => {
 
 export const fetchTracks = (offset = 0) => (dispatch) => {
   dispatch({ type: types.FETCH_TOP_TRACKS_PENDING });
-  axios.get(`/api/top_tracks?offset=${offset}`)
+  return axios.get(`/api/top_tracks?offset=${offset}`)
     .then((res) => {
       const tracks = [];
       res.data.items.forEach((track) => {

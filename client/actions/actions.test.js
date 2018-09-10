@@ -4,6 +4,7 @@ import moxios from 'moxios';
 
 import * as actions from './index';
 import * as types from './types';
+import * as data from '../assets/sampleData';
 
 const mockStore = configureMockStore([thunk]);
 
@@ -23,7 +24,10 @@ describe('fetchUser action', () => {
     };
 
     const expectedAction = [
-      { type: types.FETCH_USER, payload: { _id: '2475hdsfh385', username: 'julia' } },
+      {
+        type: types.FETCH_USER,
+        payload: { _id: '2475hdsfh385', username: 'julia' },
+      },
     ];
 
     moxios.wait(() => {
@@ -35,11 +39,86 @@ describe('fetchUser action', () => {
     });
 
     const store = mockStore();
-    store.dispatch(actions.fetchUser())
+    return store.dispatch(actions.fetchUser())
       .then(() => {
         const actions = store.getActions();
         expect(actions.length).toBe(1);
         expect(actions).toEqual(expectedAction);
+      });
+  });
+});
+
+describe('fetchTracks action', () => {
+  beforeEach(() => {
+    moxios.install();
+  });
+
+  afterEach(() => {
+    moxios.uninstall();
+  });
+
+  it('calls pending and success actions if the fetch response was successful', () => {
+    const mockResponse = {
+      items: data.topTrackItems,
+      next: 'https://api.spotify.com/v1/me/top/tracks?limit=10&offset=10&time_range=short_term',
+    };
+
+    const expectedActions = [
+      {
+        type: types.FETCH_TOP_TRACKS_PENDING,
+      },
+      {
+        type: types.FETCH_TOP_TRACKS_SUCCESS,
+        payload: [data.topTracks[0]],
+      },
+      {
+        type: types.FETCH_TOP_TRACKS_HAS_MORE,
+        payload: true,
+      },
+    ];
+
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: mockResponse,
+      });
+    });
+
+    const store = mockStore();
+    return store.dispatch(actions.fetchTracks())
+      .then(() => {
+        const actions = store.getActions();
+        expect(actions.length).toBe(3);
+        expect(actions).toEqual(expectedActions);
+      });
+  });
+
+  it('calls pending and failed actions if the fetch response was not successful', () => {
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.reject({
+        status: 404,
+        message: 'Request failed with status code 404',
+      });
+    });
+
+    const expectedActions = [
+      {
+        type: types.FETCH_TOP_TRACKS_PENDING,
+      },
+      {
+        type: types.FETCH_TOP_TRACKS_ERROR,
+        payload: 'Request failed with status code 404',
+      },
+    ];
+
+    const store = mockStore();
+    return store.dispatch(actions.fetchTracks())
+      .then(() => {
+        const actions = store.getActions();
+        expect(actions.length).toBe(2);
+        expect(actions).toEqual(expectedActions);
       });
   });
 });
