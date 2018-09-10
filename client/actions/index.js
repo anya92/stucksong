@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as types from './types';
 
 export const fetchUser = () => (dispatch) => {
-  axios.get('/auth/current_user')
+  return axios.get('/auth/current_user')
     .then(res => dispatch({ type: types.FETCH_USER, payload: res.data }))
     .catch(console.log);
 };
