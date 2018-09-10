@@ -30,7 +30,7 @@
     "dev": "nodemon server/index.js --ignore client/",
     "build": "webpack --config webpack.prod.js",
     "client": "webpack-dev-server --config webpack.dev.js",
-    "heroku-postbuild": "npm run build",
+    "heroku-postbuild": "npm --production=false && npm run build",
     "test": "jest --env=jsdom",
     "test:watch": "npm test -- --watch"
   },
