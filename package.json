@@ -24,8 +24,8 @@
   "scripts": {
     "start": "node server/index.js",
     "dev": "nodemon server/index.js --ignore client/",
-    "build": "webpack --config ./config/webpack.prod.js",
-    "client": "webpack-dev-server --config ./config/webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "client": "webpack-dev-server --config webpack.dev.js",
     "heroku-postbuild": "npm run build",
     "test": "jest --env=jsdom",
     "test:watch": "npm test -- --watch"

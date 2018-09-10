@@ -5,26 +5,26 @@ module.exports = {
   entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: '[name].[chunkhash].js'
+    filename: '[name].[chunkhash].js',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: 'babel-loader',
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
         use: [
           {
             loader: 'url-loader',
-            options: { limit: 40000 }
+            options: { limit: 40000 },
           },
-          'image-webpack-loader'
-        ]
-      }
-    ]
+          'image-webpack-loader',
+        ],
+      },
+    ],
   },
   optimization: {
     splitChunks: {
@@ -32,14 +32,14 @@ module.exports = {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          chunks: 'all'
-        }
-      }
-    }
+          chunks: 'all',
+        },
+      },
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'client/index.html'
+      template: 'client/index.html',
     }),
-  ]
+  ],
 };
