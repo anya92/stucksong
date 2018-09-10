@@ -26,9 +26,9 @@
     "dev": "nodemon server/index.js --ignore client/",
     "build": "webpack --config ./config/webpack.prod.js",
     "client": "webpack-dev-server --config ./config/webpack.dev.js",
-    "heroku-postbuild": "yarn --production=false && yarn run build",
+    "heroku-postbuild": "npm run build",
     "test": "jest --env=jsdom",
-    "test:watch": "yarn test --watch"
+    "test:watch": "npm test -- --watch"
   },
   "keywords": [],
   "author": "Ania Brajtkopf",
