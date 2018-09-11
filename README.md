@@ -17,6 +17,21 @@ Live: https://stucksong.herokuapp.com
 > git clone https://github.com/anya92/stucksong
 > cd stucksong
 > yarn install
+```
+
+#### Create `variables.env` file with:
+
+`CLIENT_ID` - Spotify Web API Client ID
+
+`CLIENT_SECRET` - Spotify Web API Client Secret
+
+`DATABASE` - Mongo Database URL
+
+`SECRET` - secret for express-session
+
+`KEY` - key for express-session
+
+```
 > yarn dev
 ```
 
@@ -33,3 +48,4 @@ Live: https://stucksong.herokuapp.com
 - Spotify Authentication with Passport
 - Glamorous for styling
 - Jest & Enzyme for testing
+- Code-splitting with react-loadable
