@@ -197,3 +197,85 @@ describe('fetchArtists action', () => {
       });
   });
 });
+
+describe('fetchRecentlyPlayed action', () => {
+  beforeEach(() => {
+    moxios.install();
+  });
+
+  afterEach(() => {
+    moxios.uninstall();
+  });
+
+  it('calls pending and success actions if the fetch response was successful', () => {
+    const mockResponse = {
+      items: data.recentlyPlayedTrackResponse,
+      next: 'https://api.spotify.com/v1/me/player/recently-played?before=1536579404330&limit=10',
+      cursors: {
+        before: '1536579404330',
+      }
+    };
+
+    const expectedActions = [
+      {
+        type: types.FETCH_RECENTLY_PLAYED_TRACKS_PENDING,
+      },
+      {
+        type: types.FETCH_RECENTLY_PLAYED_TRACKS_SUCCESS,
+        payload: [data.recentlyPlayedTracks[0]],
+      },
+      {
+        type: types.FETCH_RECENTLY_PLAYED_TRACKS_HAS_MORE,
+        payload: true,
+      },
+      {
+        type: types.FETCH_RECENTLY_PLAYED_TRACKS_BEFORE,
+        payload: '1536579404330',
+      },
+    ];
+
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: mockResponse,
+      });
+    });
+
+    const store = mockStore();
+    return store.dispatch(actions.fetchRecentlyPlayed())
+      .then(() => {
+        const actions = store.getActions();
+        expect(actions.length).toBe(4);
+        expect(actions).toEqual(expectedActions);
+      });
+  });
+
+  it('calls pending and failed actions if the fetch response was not successful', () => {
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.reject({
+        status: 404,
+        message: 'Request failed with status code 404',
+      });
+    });
+
+    const expectedActions = [
+      {
+        type: types.FETCH_RECENTLY_PLAYED_TRACKS_PENDING,
+      },
+      {
+        type: types.FETCH_RECENTLY_PLAYED_TRACKS_ERROR,
+        payload: 'Request failed with status code 404',
+      },
+    ];
+
+    const store = mockStore();
+    return store.dispatch(actions.fetchRecentlyPlayed())
+      .then(() => {
+        const actions = store.getActions();
+        expect(actions.length).toBe(2);
+        expect(actions).toEqual(expectedActions);
+      });
+  });
+});

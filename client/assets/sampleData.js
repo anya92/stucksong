@@ -144,3 +144,24 @@ export const topArtistResponse = [
     uri: 'spotify:artist:4Ui2kfOqGujY81UcPrb5KE',
   },
 ];
+
+export const recentlyPlayedTrackResponse = [
+  {
+    track: {
+      id: '4EchqUKQ3qAQuRNKmeIpnf',
+      name: 'The Kids Aren\'t Alright',
+      artists: [
+        { name: 'The Offspring' },
+      ],
+      album: {
+        name: 'Americana',
+        images: [
+          { url: 'url0' },
+          { url: 'https://i.scdn.co/image/c77a1f3a2de72c2a8fde481a016376ca8ef81b33' },
+        ],
+      },
+      uri: 'spotify:track:4EchqUKQ3qAQuRNKmeIpnf',
+    },
+    played_at: '2018-08-14T18:50:09.757Z',
+  },
+];
