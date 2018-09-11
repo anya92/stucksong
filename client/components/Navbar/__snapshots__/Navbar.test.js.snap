@@ -29,7 +29,7 @@ exports[`Navbar component renders with auth correctly 1`] = `
   >
     <NavLink
       activeClassName="active"
-      ariaCurrent="true"
+      aria-current="page"
       key="0"
       onClick={[Function]}
       to="/top-tracks"
@@ -38,7 +38,7 @@ exports[`Navbar component renders with auth correctly 1`] = `
     </NavLink>
     <NavLink
       activeClassName="active"
-      ariaCurrent="true"
+      aria-current="page"
       key="1"
       onClick={[Function]}
       to="/top-artists"
@@ -47,7 +47,7 @@ exports[`Navbar component renders with auth correctly 1`] = `
     </NavLink>
     <NavLink
       activeClassName="active"
-      ariaCurrent="true"
+      aria-current="page"
       key="2"
       onClick={[Function]}
       to="/recently-played"
@@ -56,7 +56,7 @@ exports[`Navbar component renders with auth correctly 1`] = `
     </NavLink>
     <NavLink
       activeClassName="active"
-      ariaCurrent="true"
+      aria-current="page"
       key="3"
       onClick={[Function]}
       to="/create-playlist"
