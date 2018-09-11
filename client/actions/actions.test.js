@@ -213,7 +213,7 @@ describe('fetchRecentlyPlayed action', () => {
       next: 'https://api.spotify.com/v1/me/player/recently-played?before=1536579404330&limit=10',
       cursors: {
         before: '1536579404330',
-      }
+      },
     };
 
     const expectedActions = [
@@ -272,6 +272,76 @@ describe('fetchRecentlyPlayed action', () => {
 
     const store = mockStore();
     return store.dispatch(actions.fetchRecentlyPlayed())
+      .then(() => {
+        const actions = store.getActions();
+        expect(actions.length).toBe(2);
+        expect(actions).toEqual(expectedActions);
+      });
+  });
+});
+
+describe('createPlaylist action', () => {
+  beforeEach(() => {
+    moxios.install();
+  });
+
+  afterEach(() => {
+    moxios.uninstall();
+  });
+
+  it('calls pending and success actions if the fetch response was successful', () => {
+    const mockResponse = {
+      playlist_info: data.playlistResponse,
+    };
+
+    const expectedActions = [
+      {
+        type: types.CREATE_PLAYLIST_PENDING,
+      },
+      {
+        type: types.CREATE_PLAYLIST_SUCCESS,
+        payload: data.playlist,
+      },
+    ];
+
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: mockResponse,
+      });
+    });
+
+    const store = mockStore();
+    return store.dispatch(actions.createPlaylist())
+      .then(() => {
+        const actions = store.getActions();
+        expect(actions.length).toBe(2);
+        expect(actions).toEqual(expectedActions);
+      });
+  });
+
+  it('calls pending and failed actions if the fetch response was not successful', () => {
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.reject({
+        status: 404,
+        message: 'Request failed with status code 404',
+      });
+    });
+
+    const expectedActions = [
+      {
+        type: types.CREATE_PLAYLIST_PENDING,
+      },
+      {
+        type: types.CREATE_PLAYLIST_ERROR,
+        payload: 'Request failed with status code 404',
+      },
+    ];
+
+    const store = mockStore();
+    return store.dispatch(actions.createPlaylist())
       .then(() => {
         const actions = store.getActions();
         expect(actions.length).toBe(2);

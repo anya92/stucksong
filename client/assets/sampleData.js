@@ -103,7 +103,15 @@ export const playlist = {
   description: '',
   image: 'https://mosaic.scdn.co/640/129c6e4a622dc50c0802042780f92631a9dcc14056cc004f3ff47cff0ad8fcf05461730a193d8d8263b1ad734c51e06c7faee7fc95fd3abf0bbb9bbe6f4c08a3f6b73b062d6ea8384add3e3889814448',
   url: 'https://open.spotify.com/playlist/6yZesRjpu9OPKCM77N2EQt',
-  tracks: topTracks,
+  tracks: [
+    {
+      album: 'Gone Now',
+      artist: 'Bleachers',
+      id: '3ySU5vwQB33iGulwcUL9qQ',
+      title: 'Don\'t Take The Money',
+    },
+  ],
+  numberOfTracks: 1,
 };
 
 export const topTrackResponse = [
@@ -165,3 +173,34 @@ export const recentlyPlayedTrackResponse = [
     played_at: '2018-08-14T18:50:09.757Z',
   },
 ];
+
+export const playlistResponse = {
+  name: 'Top Tracks',
+  description: '',
+  images: [
+    { url: 'https://mosaic.scdn.co/640/129c6e4a622dc50c0802042780f92631a9dcc14056cc004f3ff47cff0ad8fcf05461730a193d8d8263b1ad734c51e06c7faee7fc95fd3abf0bbb9bbe6f4c08a3f6b73b062d6ea8384add3e3889814448' },
+  ],
+  external_urls: {
+    spotify: 'https://open.spotify.com/playlist/6yZesRjpu9OPKCM77N2EQt',
+  },
+  tracks: {
+    items: [{
+      track: {
+        id: '3ySU5vwQB33iGulwcUL9qQ',
+        name: 'Don\'t Take The Money',
+        artists: [
+          { name: 'Bleachers' },
+        ],
+        album: {
+          name: 'Gone Now',
+          images: [
+            { url: 'url0' },
+            { url: 'https://i.scdn.co/image/683a338f942640da90a27169e87c29440f20c4bb' },
+          ],
+        },
+        uri: 'spotify:track:3ySU5vwQB33iGulwcUL9qQ',
+      },
+    }],
+    total: 1,
+  },
+};

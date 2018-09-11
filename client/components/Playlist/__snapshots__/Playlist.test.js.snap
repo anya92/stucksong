@@ -59,44 +59,6 @@ exports[`PLaylist component renders correctly 1`] = `
             </em>
           </glamorous(div)>
         </div>
-        <div
-          key="20QoFTI0fp2dNNexlHDhTe"
-        >
-          <glamorous(div)>
-            <span>
-              2
-              .
-            </span>
-             
-            Walking Away
-          </glamorous(div)>
-          <glamorous(div)>
-            HAIM
-            , 
-            <em>
-              Something To Tell You
-            </em>
-          </glamorous(div)>
-        </div>
-        <div
-          key="1Tcd9flKIOxXWqR28aDP3U"
-        >
-          <glamorous(div)>
-            <span>
-              3
-              .
-            </span>
-             
-            Don't Stop Making It Happen
-          </glamorous(div)>
-          <glamorous(div)>
-            Grouplove
-            , 
-            <em>
-              Big Mess
-            </em>
-          </glamorous(div)>
-        </div>
       </glamorous(div)>
     </div>
   </glamorous(div)>

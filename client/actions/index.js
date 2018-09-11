@@ -83,7 +83,7 @@ export const fetchRecentlyPlayed = before => (dispatch) => {
 
 export const createPlaylist = (name, description, numberOfTracks = 50) => (dispatch) => {
   dispatch({ type: types.CREATE_PLAYLIST_PENDING });
-  axios.get(`/api/create_playlist?name=${name}&description=${description}&numberOfTracks=${numberOfTracks}`)
+  return axios.get(`/api/create_playlist?name=${name}&description=${description}&numberOfTracks=${numberOfTracks}`)
     .then((res) => {
       const playlistInfo = res.data.playlist_info;
       const tracks = playlistInfo.tracks.items.map(item => ({
